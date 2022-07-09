@@ -1,0 +1,42 @@
+:root {
+    --dark-blue: #0A083B;
+  }
+
+.paginationBttns {
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+    cursor: pointer;
+  }
+  
+  .paginationBttns a:hover {
+    color: white;
+    background-color: var(--dark-blue);
+  }
+  
+  .paginationActive a {
+    color: white;
+    background-color: var(--dark-blue);
+  }
+  
+  .paginationDisabled a {
+    color: grey;
+    background-color: grey;
+    border: grey;
+  }
+  .paginationDisabled a:hover {
+    color: grey;
+    background-color: grey;
+    border: grey;
+  }
+  
