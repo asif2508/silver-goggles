@@ -1,4 +1,4 @@
-export default {
+const HomeStrings = {
   // Home Page
   // Section 1
   section_1_headlilne:
@@ -76,3 +76,5 @@ export default {
     "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
   explore_all: "Explore all",
 };
+
+export default HomeStrings;
