@@ -10,6 +10,8 @@ module.exports = {
       red: "#ff0000",
       yellow: "#F2994A",
       grey: "#798196",
+      chipGrey: "#EFEFEF",
+      textBlack: "#00103ccc",
     },
     minHeight: {
       mentor: "35vh",
