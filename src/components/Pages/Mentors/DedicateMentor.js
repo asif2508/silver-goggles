@@ -2,11 +2,14 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../Header/Header";
 import { AiFillHome } from "react-icons/ai";
-import { BiChevronRight } from "react-icons/bi";
+import { BiChevronRight, BiChevronUp } from "react-icons/bi";
 import Colors from "../../../utils/Colors";
 import kalpesh from "../../../images/kalpesh.jpg";
 import logo from "../../../images/logo.png";
-import CustomExperienceBox from "../../Component/CustomExperienceBox";
+import CustomExperienceBox from "../../Component/DedicateMentor/CustomExperienceBox";
+import Packages from "../../Component/DedicateMentor/Packages";
+import SimilarMentorBox from "../../Component/DedicateMentor/SimilarMentorBox";
+import Review from "../../Component/DedicateMentor/Review";
 
 const DedicateMentor = () => {
   const { name } = useParams();
@@ -43,6 +46,73 @@ const DedicateMentor = () => {
       title: "Studied MBA from IIM",
       activefrom: "July 2022",
       activeTo: "Present",
+    },
+  ];
+
+  const packages = [
+    {
+      name: "Mentorship Program",
+      price: "₹4999",
+      duration: "month",
+      features: [
+        "Upto 4 calls per month",
+        "Tasks & exercises",
+        "No hidden charges",
+        "Customised road map guidence",
+      ],
+    },
+    {
+      name: "Quick Call - Study Abroad",
+      price: "₹4999",
+      duration: "month",
+      features: [
+        "Upto 4 calls per month",
+        "Tasks & exercises",
+        "No hidden charges",
+        "Customised road map guidence",
+      ],
+    },
+  ];
+
+  const similarMentors = [
+    {
+      img: kalpesh,
+      name: "Kalpesh Lohar",
+      work: "Full Stack Developer",
+    },
+    {
+      img: kalpesh,
+      name: "Kalpesh Lohar",
+      work: "Full Stack Developer",
+    },
+    {
+      img: kalpesh,
+      name: "Kalpesh Lohar",
+      work: "Full Stack Developer",
+    },
+    {
+      img: kalpesh,
+      name: "Kalpesh Lohar",
+      work: "Full Stack Developer",
+    },
+  ];
+
+  const reviews = [
+    {
+      user: "John Doe",
+      workAt: "IIM",
+      rating: 4.5,
+      date: "10 Jan, 2020",
+      review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit orci tino ci dunt at tincidunt pretium pretium. Turpis adipiscing pellentesque vitae sem donec proin et pellentesque mi. Lacus, quam vitae tempor ullamcorper sed ac phasellus.",
+    },
+    {
+      user: "John Doe",
+      workAt: "ISB",
+      rating: 5,
+      date: "15 Jan, 2020",
+      review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit orci tino ci dunt at tincidunt pretium pretium. Turpis adipiscing pellentesque vitae sem donec proin et pellentesque mi. Lacus, quam vitae tempor ullamcorper sed ac phasellus.",
     },
   ];
 
@@ -122,7 +192,7 @@ const DedicateMentor = () => {
             </h3>
             <div className="flex mt-4 flex-col">
               {experiences.map((data, index) => (
-                <CustomExperienceBox data={data} />
+                <CustomExperienceBox key={index} data={data} />
               ))}
             </div>
           </div>
@@ -132,9 +202,52 @@ const DedicateMentor = () => {
             </h3>
             <div className="flex mt-4 flex-col">
               {studies.map((data, index) => (
-                <CustomExperienceBox data={data} />
+                <CustomExperienceBox key={index} data={data} />
               ))}
             </div>
+          </div>
+        </div>
+        <div className="see more flex justify-center items-center">
+          <div className="flex flex-col justify-center items-center">
+            <BiChevronUp size={24} color={Colors.textBlack} />
+            <h3 className="text-base font-primayfont text-dark-blue font-bold">
+              See More
+            </h3>
+          </div>
+        </div>
+        <div className="packages mt-6">
+          <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+            Packages
+          </h3>
+          <div className="flex flex-col mt-7">
+            {packages.map((data, index) => (
+              <Packages key={index} data={data} />
+            ))}
+          </div>
+        </div>
+        <div className="similar-mentors mt-4">
+          <div className="flex justify-between">
+            <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+              Similar Mentors
+            </h3>
+            <h2 className="text-base mt-2 font-primayfont text-primar-second font-medium">
+              See all
+            </h2>
+          </div>
+          <div className="flex flex-col mt-5">
+            {similarMentors.map((data, index) => (
+              <SimilarMentorBox key={index} data={data} />
+            ))}
+          </div>
+        </div>
+        <div className="reviews mt-4 mb-10">
+          <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+            {`Reviews (${reviews.length})`}
+          </h3>
+          <div className="flex flex-col mt-5">
+            {reviews.map((data, index) => (
+              <Review key={index} data={data} />
+            ))}
           </div>
         </div>
       </div>
