@@ -2,7 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../Header/Header";
 import { AiFillHome } from "react-icons/ai";
-import { BiChevronRight, BiChevronUp } from "react-icons/bi";
+import {
+  BiAccessibility,
+  BiChevronDown,
+  BiChevronRight,
+  BiChevronUp,
+} from "react-icons/bi";
 import Colors from "../../../utils/Colors";
 import kalpesh from "../../../images/kalpesh.jpg";
 import logo from "../../../images/logo.png";
@@ -13,6 +18,7 @@ import Review from "../../Component/DedicateMentor/Review";
 
 const DedicateMentor = () => {
   const { name } = useParams();
+  const [isFullPage, setIsFullPage] = React.useState(true);
   const skills = ["HTML", "CSS", "JavaScript", "React", "NodeJS", "MongoDB"];
   const experiences = [
     {
@@ -120,134 +126,241 @@ const DedicateMentor = () => {
     <div className="min-h-half h-full">
       <div className="header">
         <Header />
+        <div
+          className="w-full hidden lg:block"
+          style={{
+            borderColor: "rgba(0, 16, 60, 0.15)",
+            backgroundColor: "rgba(0, 16, 60, 0.15)",
+            borderWidth: 0.5,
+            borderStyle: "solid",
+          }}
+        />
       </div>
-      <div className="maincontainer px-4">
-        <div className="breadcrumb mt-6">
-          <div className="flex space-x-1 items-center">
-            <AiFillHome size={13} color={Colors.textBlack} />
-            <BiChevronRight size={13} color={Colors.textBlack} />
-            <p className="text-xs text-textBlack font-primayfont font-semibold items-center">
-              Our Mentors
-            </p>
-            <BiChevronRight size={13} color={Colors.black} />
-            <p className="text-xs text-textBlack font-primayfont font-semibold items-center">
-              Kalpesh Lohar
-            </p>
-          </div>
-        </div>
-        <div className="userInro mt-6 w-full2343">
-          <div className="upperpart flex justify-between">
-            <img
-              src={kalpesh}
-              alt="mentor photo"
-              height={82}
-              width={74}
-              className="w-3/12 rounded"
-            />
-            <div className="about w-9/12 ml-4 flex flex-col">
-              <h2 className="text-lg font-primayfont text-dark-blue font-bold">
-                Kalpesh Lohar
-              </h2>
-              <p className="text-base font-primayfont text-dark-blue font-normal pr-2">
-                CTO at EduKith
-              </p>
-              <p className="text-base font-primayfont text-dark-blue font-normal mt-1">
-                🎯 Studied B.tech from GTU
-              </p>
+      <div className="maincontainer px-4 md:px-24">
+        <div className="flex lg:flex-row flex-col justify-evenly">
+          <div className="lg:w-3/5">
+            <div className="breadcrumb mt-6 lg:mt-9">
+              <div className="flex space-x-1 items-center">
+                <AiFillHome
+                  size={16}
+                  color={Colors.textBlack}
+                  className="hidden lg:block"
+                />
+                <BiChevronRight
+                  size={18}
+                  color={Colors.textBlack}
+                  className="hidden lg:block"
+                />
+                <AiFillHome
+                  size={13}
+                  color={Colors.textBlack}
+                  className="lg:hidden"
+                />
+                <BiChevronRight
+                  size={13}
+                  color={Colors.textBlack}
+                  className="lg:hidden"
+                />
+                <p className="text-xs text-textBlack font-primayfont font-semibold items-center lg:text-base">
+                  Our Mentors
+                </p>
+                <BiChevronRight
+                  size={13}
+                  color={Colors.black}
+                  className="lg:hidden block"
+                />
+                <BiChevronRight
+                  size={18}
+                  color={Colors.black}
+                  className="hidden lg:block"
+                />
+                <p className="text-xs text-textBlack font-primayfont font-semibold items-center lg:text-base">
+                  Kalpesh Lohar
+                </p>
+              </div>
             </div>
-          </div>
-          <div
-            className="w-full mt-4"
-            style={{
-              borderColor: "rgba(0, 16, 60, 0.15)",
-              borderWidth: 0.5,
-              borderStyle: "solid",
-            }}
-          />
-          <p className="text-base text-dark-blue font-primayfont font-normal mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipisc ing elit. Pharetra
-            urna quam faucibus neque. Rho ncus phasellus nec non consequat
-            fermentum in tincidunt faucibus.
-          </p>
-          <div className="skills mt-6">
-            <h3 className="text-xl font-primayfont text-dark-blue font-bold">
-              Skills
-            </h3>
-            <div className="flex mt-4 flex-wrap">
-              {skills.map((skill, index) => (
-                <div
-                  className="h-8 py-2 px-4 bg-chipGrey rounded-3xl mr-4 mb-4"
-                  key={index}
-                >
-                  <p className="h-8 text-sm text-dark-blue font-primayfont font-medium">
-                    {skill}
+            <div className="userInro mt-6 lg:mt-12 w-full">
+              <div className="upperpart flex justify-between">
+                <img
+                  src={kalpesh}
+                  alt="mentor photo"
+                  height={82}
+                  width={74}
+                  className="w-3/12 rounded"
+                />
+                <div className="about w-9/12 ml-4 flex flex-col">
+                  <h2 className="text-lg font-primayfont text-dark-blue font-bold lg:text-2xl">
+                    Kalpesh Lohar
+                  </h2>
+                  <p className="text-base font-primayfont text-dark-blue font-normal lg:mt-1 pr-2 lg:text-base">
+                    CTO at EduKith
+                  </p>
+                  <p className="text-base font-primayfont text-dark-blue font-normal mt-1 lg:mt-2 lg:text-base">
+                    🎯 Studied B.tech from GTU
+                  </p>
+                  <p className="text-base text-dark-blue font-primayfont font-normal mt-4 hidden lg:block">
+                    Lorem ipsum dolor sit amet, consectetur adipisc ing elit.
+                    Pharetra urna quam faucibus neque. Rho ncus phasellus nec
+                    non consequat fermentum in tincidunt faucibus.
                   </p>
                 </div>
-              ))}
+              </div>
+              <div
+                className="w-full mt-4 lg:hidden"
+                style={{
+                  borderColor: "rgba(0, 16, 60, 0.15)",
+                  borderWidth: 0.5,
+                  borderStyle: "solid",
+                }}
+              />
+              <p className="text-base text-dark-blue font-primayfont font-normal mt-4 block lg:hidden">
+                Lorem ipsum dolor sit amet, consectetur adipisc ing elit.
+                Pharetra urna quam faucibus neque. Rho ncus phasellus nec non
+                consequat fermentum in tincidunt faucibus.
+              </p>
+              {isFullPage ? (
+                <div>
+                  <div className="skills mt-6 lg:mt-16">
+                    <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+                      Skills
+                    </h3>
+                    <div className="flex mt-4 flex-wrap">
+                      {skills.map((skill, index) => (
+                        <div
+                          className="h-8 py-2 px-4 bg-chipGrey rounded-3xl mr-4 mb-4"
+                          key={index}
+                        >
+                          <p className="h-8 text-sm text-dark-blue font-primayfont font-medium">
+                            {skill}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="experience mt-2">
+                    <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+                      Experience
+                    </h3>
+                    <div className="flex mt-4 flex-col">
+                      {experiences.map((data, index) => (
+                        <CustomExperienceBox key={index} data={data} />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="education mt-2">
+                    <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+                      Education
+                    </h3>
+                    <div className="flex mt-4 flex-col">
+                      {studies.map((data, index) => (
+                        <CustomExperienceBox key={index} data={data} />
+                      ))}
+                    </div>
+                    <div
+                      className="see more flex justify-center items-center lg:hidden"
+                      onClick={() => {
+                        setIsFullPage(false);
+                      }}
+                    >
+                      <div className="flex flex-col justify-center items-center">
+                        <BiChevronUp
+                          size={24}
+                          color={Colors.textBlack}
+                          className="animate-bounce opacity-100"
+                        />
+                        <h3 className="text-base font-primayfont text-dark-blue font-bold">
+                          See Less
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="lg:block hidden">
+                    <div className="similar-mentors mt-4">
+                      <div className="flex justify-between">
+                        <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+                          Similar Mentors
+                        </h3>
+                        <h2 className="text-base mt-2 font-primayfont text-primar-second font-medium">
+                          See all
+                        </h2>
+                      </div>
+                      <div className="flex flex-col mt-5">
+                        {similarMentors.map((data, index) => (
+                          <SimilarMentorBox key={index} data={data} />
+                        ))}
+                      </div>
+                    </div>
+                    <div className="reviews mt-4 mb-10">
+                      <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+                        {`Reviews (${reviews.length})`}
+                      </h3>
+                      <div className="flex flex-col mt-5">
+                        {reviews.map((data, index) => (
+                          <Review key={index} data={data} />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div
+                  className="see more flex justify-center items-center lg:hidden"
+                  onClick={() => {
+                    setIsFullPage(true);
+                  }}
+                >
+                  <div className="flex flex-col justify-center items-center">
+                    <BiChevronDown
+                      size={24}
+                      color={Colors.textBlack}
+                      className="animate-bounce opacity-100"
+                    />
+                    <h3 className="text-base font-primayfont text-dark-blue font-bold">
+                      See More
+                    </h3>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-          <div className="experience mt-2">
-            <h3 className="text-xl font-primayfont text-dark-blue font-bold">
-              Experience
-            </h3>
-            <div className="flex mt-4 flex-col">
-              {experiences.map((data, index) => (
-                <CustomExperienceBox key={index} data={data} />
-              ))}
+          <div className="lg:w-1/4 lg:mt-16">
+            <div className="packages mt-6">
+              <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+                Packages
+              </h3>
+              <div className="flex flex-col mt-7">
+                {packages.map((data, index) => (
+                  <Packages key={index} data={data} />
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="education mt-2">
-            <h3 className="text-xl font-primayfont text-dark-blue font-bold">
-              Education
-            </h3>
-            <div className="flex mt-4 flex-col">
-              {studies.map((data, index) => (
-                <CustomExperienceBox key={index} data={data} />
-              ))}
+            <div className="lg:hidden block">
+              <div className="similar-mentors mt-4">
+                <div className="flex justify-between">
+                  <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+                    Similar Mentors
+                  </h3>
+                  <h2 className="text-base mt-2 font-primayfont text-primar-second font-medium">
+                    See all
+                  </h2>
+                </div>
+                <div className="flex flex-col mt-5">
+                  {similarMentors.map((data, index) => (
+                    <SimilarMentorBox key={index} data={data} />
+                  ))}
+                </div>
+              </div>
+              <div className="reviews mt-4 mb-10">
+                <h3 className="text-xl font-primayfont text-dark-blue font-bold">
+                  {`Reviews (${reviews.length})`}
+                </h3>
+                <div className="flex flex-col mt-5">
+                  {reviews.map((data, index) => (
+                    <Review key={index} data={data} />
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="see more flex justify-center items-center">
-          <div className="flex flex-col justify-center items-center">
-            <BiChevronUp size={24} color={Colors.textBlack} />
-            <h3 className="text-base font-primayfont text-dark-blue font-bold">
-              See More
-            </h3>
-          </div>
-        </div>
-        <div className="packages mt-6">
-          <h3 className="text-xl font-primayfont text-dark-blue font-bold">
-            Packages
-          </h3>
-          <div className="flex flex-col mt-7">
-            {packages.map((data, index) => (
-              <Packages key={index} data={data} />
-            ))}
-          </div>
-        </div>
-        <div className="similar-mentors mt-4">
-          <div className="flex justify-between">
-            <h3 className="text-xl font-primayfont text-dark-blue font-bold">
-              Similar Mentors
-            </h3>
-            <h2 className="text-base mt-2 font-primayfont text-primar-second font-medium">
-              See all
-            </h2>
-          </div>
-          <div className="flex flex-col mt-5">
-            {similarMentors.map((data, index) => (
-              <SimilarMentorBox key={index} data={data} />
-            ))}
-          </div>
-        </div>
-        <div className="reviews mt-4 mb-10">
-          <h3 className="text-xl font-primayfont text-dark-blue font-bold">
-            {`Reviews (${reviews.length})`}
-          </h3>
-          <div className="flex flex-col mt-5">
-            {reviews.map((data, index) => (
-              <Review key={index} data={data} />
-            ))}
           </div>
         </div>
       </div>

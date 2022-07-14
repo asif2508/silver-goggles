@@ -30,9 +30,8 @@ const SimilarMentorBox = ({ data }) => {
       <div>
         {/* // background: `linear-gradient(180deg, ${Colors["primay-light"]} 0%, ${Colors["primary-dark"]} 100%)`, */}
         <button
-          className="py-2 px-7 rounded-lg font-normal text-base font-primayfont text-dark-blue"
+          className="py-2 px-7 rounded-lg font-normal text-base font-primayfont text-dark-blue bg-white hover:bg-primary"
           style={{
-            background: Colors.white,
             borderWidth: 1,
             borderColor: "rgba(0, 16, 60, 0.45)",
           }}
