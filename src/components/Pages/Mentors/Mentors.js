@@ -21,10 +21,10 @@ const Mentors = () => {
   const usersPerPage = 20;
   const pagesVisited = pageNumber * usersPerPage;
 
-  useEffect(() => {
-    dispatch(getMentors());
-    setPageCount(Math.ceil(mentors.length / usersPerPage));
-  }, [dispatch, navigate]);
+  // useEffect(() => {
+  //   dispatch(getMentors());
+  //   setPageCount(Math.ceil(mentors.length / usersPerPage));
+  // }, [dispatch, navigate]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

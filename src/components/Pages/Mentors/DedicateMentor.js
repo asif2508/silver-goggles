@@ -15,6 +15,7 @@ import CustomExperienceBox from "../../Component/DedicateMentor/CustomExperience
 import Packages from "../../Component/DedicateMentor/Packages";
 import SimilarMentorBox from "../../Component/DedicateMentor/SimilarMentorBox";
 import Review from "../../Component/DedicateMentor/Review";
+import Breadcrumb from "../../Component/Breadcrumb";
 
 const DedicateMentor = () => {
   const { name } = useParams();
@@ -139,46 +140,7 @@ const DedicateMentor = () => {
       <div className="maincontainer px-4 md:px-24">
         <div className="flex lg:flex-row flex-col justify-evenly">
           <div className="lg:w-3/5">
-            <div className="breadcrumb mt-6 lg:mt-9">
-              <div className="flex space-x-1 items-center">
-                <AiFillHome
-                  size={16}
-                  color={Colors.textBlack}
-                  className="hidden lg:block"
-                />
-                <BiChevronRight
-                  size={18}
-                  color={Colors.textBlack}
-                  className="hidden lg:block"
-                />
-                <AiFillHome
-                  size={13}
-                  color={Colors.textBlack}
-                  className="lg:hidden"
-                />
-                <BiChevronRight
-                  size={13}
-                  color={Colors.textBlack}
-                  className="lg:hidden"
-                />
-                <p className="text-xs text-textBlack font-primayfont font-semibold items-center lg:text-base">
-                  Our Mentors
-                </p>
-                <BiChevronRight
-                  size={13}
-                  color={Colors.black}
-                  className="lg:hidden block"
-                />
-                <BiChevronRight
-                  size={18}
-                  color={Colors.black}
-                  className="hidden lg:block"
-                />
-                <p className="text-xs text-textBlack font-primayfont font-semibold items-center lg:text-base">
-                  Kalpesh Lohar
-                </p>
-              </div>
-            </div>
+            <Breadcrumb navigations={["Mentors", "Kalpesh"]} />
             <div className="userInro mt-6 lg:mt-12 w-full">
               <div className="upperpart flex justify-between">
                 <img
