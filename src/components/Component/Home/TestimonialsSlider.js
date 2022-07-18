@@ -6,6 +6,7 @@ import Carousel from "react-elastic-carousel";
 import image from "../../../images/kalpesh.jpg";
 import DoubleQuote from "../../../images/double_quote.svg";
 
+
 const TestimonialsSlider = () => {
   const testimonials = [
     {
