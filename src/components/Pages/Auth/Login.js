@@ -1,10 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import Colors from "../../../utils/Colors";
+import LoginString from "../../../utils/Strings/LoginString";
 import { signin } from "../../../actions/auth";
-import { useNavigate } from "react-router-dom";
+import Header from "../../Header/Header";
+import image from "../../../images/Edukith_login_img.svg";
+import Google from "../../../images/flat_color_icons_google.svg";
 
 const Login = () => {
+  const [mentorButtonPressed, setMentorButtonPressed] = React.useState(false);
+  const [menteeButtonPressed, setMenteeButtonPressed] = React.useState(true);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -14,69 +23,143 @@ const Login = () => {
     e.preventDefault();
     dispatch(signin(email, password, navigate));
   };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [navigate]);
 
+  const activeTextColorMentee = menteeButtonPressed
+    ? Colors.white
+    : Colors.dark_blue;
+  const activeTextColorMentor = mentorButtonPressed
+    ? Colors.white
+    : Colors.dark_blue;
+
+  const activeBackgroundMentee = menteeButtonPressed
+    ? "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)"
+    : "#fff0";
+  const activeBackgroundMentor = mentorButtonPressed
+    ? "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)"
+    : "#fff0";
+
+  const activeborderMentee = menteeButtonPressed
+    ? "1px solid #fff0"
+    : `1px solid ${Colors.textInputBorder}`;
+
+  const activeborderMentor = mentorButtonPressed
+    ? "1px solid #fff0"
+    : `1px solid ${Colors.textInputBorder}`;
+
+  const handleMentorButtonPressed = () => {
+    setMentorButtonPressed(true);
+    setMenteeButtonPressed(false);
+  };
+
+  const handleMenteeButtonPressed = () => {
+    setMenteeButtonPressed(true);
+    setMentorButtonPressed(false);
+  };
+
   return (
     <div className="min-h-half">
-      <main className="min-h-screen w-full bg-gray-900 mx-auto py-20 px-5">
-        {localStorage.getItem("userInfo") === null ? (
-          <form
-            onSubmit={handleSubmit}
-            className="mx-auto max-w-md space-y-10 flex flex-col"
-          >
-            <p className="text-4xl font-bold text-center">Log In</p>
-
-            <input
-              type="text"
-              placeholder="Email"
-              name="email"
-              className="placeholder:italic text-lg w-full bg-transparent border-b-2 focus:border-light-blue outline-none transform duration-300"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-
-            <input
-              type="password"
-              autoComplete="true"
-              placeholder="Password"
-              name="password"
-              className="placeholder:italic text-lg w-full bg-transparent border-b-2 focus:border-light-blue outline-none transform duration-300"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-
+      <div>
+        <Header />
+      </div>
+      <div className="flex flex-col px-4 lg:flex-row md:px-28 sm:px-16 mt-12 mb-12">
+        <div className="img sm:ml-9 flex justify-center items-center sm:flex-col mt-7 lg:w-1/2">
+          <img
+            className="bg-cover bg-center h-1/2 w-1/2 lg:h-96 lg:w-3/4 "
+            src={image}
+            alt="image"
+          />
+        </div>
+        <div className="form lg:w-1/2">
+          <h2 className="font-bold font-primayfont text-lg text-dark-blue">
+            {LoginString.login}
+          </h2>
+          <div className="btn mt-4  ">
             <button
-              className="bg-dark-blue text-white hover:bg-light-blue transform duration-300 py-2 font-semibold rounded-sm"
-              type="submit"
+              onClick={handleMenteeButtonPressed}
+              className="w-32 h-12 mr-3 rounded-lg font-bold text-base font-primayfont"
+              style={{
+                background: activeBackgroundMentee,
+                border: activeborderMentee,
+                color: activeTextColorMentee,
+              }}
             >
-              LOG IN
+              {LoginString.mentee_button}
             </button>
-
-            <Link
-              to="#"
-              className="text-center font-semibold text-gray-500 hover:text-gray-300 transform duration-300"
+            <button
+              className="w-32 h-12 mr-3 rounded-lg font-bold text-base font-primayfont"
+              onClick={handleMentorButtonPressed}
+              style={{
+                background: activeBackgroundMentor,
+                border: activeborderMentor,
+                color: activeTextColorMentor,
+              }}
             >
-              FORGOT PASSWORD?
-            </Link>
-
-            <p className="text-lg text-center">
-              No account?
-              <Link
-                to="/register"
-                className="text-light-blue hover:underline font-medium underline-offset-4"
-              >
-                Create One
-              </Link>
-            </p>
-          </form>
-        ) : (
+              {LoginString.mentor_button}
+            </button>
+          </div>
           <div>
-            <p className="text-4xl font-bold text-center">
-              You are Already Login
+            <label className="inline-block pt-6 font-primayfont font-normal text-sm">
+              {LoginString.email_label}
+            </label>
+            <br />
+            <input
+              className="w-full rounded-lg h-10 px-4 py-3 mt-2"
+              style={{ borderWidth: 1, borderColor: Colors.textInputBorder }}
+              type="email"
+              placeholder={LoginString.email_placeholder}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label className="inline-block pt-6 font-primayfont font-normal text-sm">
+              {LoginString.password_label}
+            </label>{" "}
+            <br />
+            <input
+              className="w-full rounded-lg h-10 px-4 py-3 mt-2"
+              style={{ borderWidth: 1, borderColor: Colors.textInputBorder }}
+              type="password"
+              placeholder={LoginString.password_placeholder}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            ></input>
+          </div>
+          <div className="flex flex-col justify-between">
+            <div
+              onClick={handleSubmit}
+              className="rounded-lg h-10 text-white font-bold flex justify-center items-center w-full mt-6 cursor-pointer"
+              style={{
+                background: "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
+              }}
+            >
+              <p>{LoginString.login}</p>
+            </div>
+            <div
+              className="rounded-lg h-10 text-white font-bold flex justify-center items-center mt-6 w-full cursor-pointer"
+              style={{ background: Colors.buttonBlue }}
+            >
+              <img
+                className="mr-4 bg-white rounded-full px-1 py-1"
+                src={Google}
+              />
+              <p className="sm:text-base">{LoginString.login_google}</p>
+            </div>
+            <p className="font-bold text-center pt-6">
+              {LoginString.forgot_text}
+              <span className="text-primary cursor-pointer ml-1">
+                <Link to={"/"}>{LoginString.click_here}</Link>
+              </span>
             </p>
           </div>
-        )}
-      </main>
+        </div>
+      </div>
     </div>
   );
 };
