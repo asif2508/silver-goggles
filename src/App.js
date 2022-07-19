@@ -12,9 +12,11 @@ import Mentors from "./components/Pages/Mentors/Mentors.js";
 import EditMentor from "./components/Pages/Mentors/EditMentor.js";
 import MentorProfile from "./components/Pages/Profile";
 
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DedicateMentor from "./components/Pages/Mentors/DedicateMentor.js";
 import BecomeMentor from "./components/Pages/Mentors/BecomeMentor.js";
+import LoginPage from "./components/vaibhav/LoginPage.js";
 
 
 const App = () => {
@@ -34,6 +36,7 @@ const App = () => {
             <Route path="/edit-mentor-profile" element={<EditMentor />} />
             <Route path="/become-mentor" element={<BecomeMentor />} />
             <Route path="/mentors/:id" element={<DedicateMentor />} />
+            <Route path="/edukithlogin" element={<LoginPage />} />
           </Routes>
         </div>
         <Footer />
