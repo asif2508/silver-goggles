@@ -6,7 +6,6 @@ import AssetHome1 from "../../images/asset_home_1.svg";
 import Companies from "../../images/companies.svg";
 import image from "../../images/kalpesh.jpg";
 import image2 from "../../images/aayu.jpg";
-import zigzag from "../../images/line_zigzag.svg";
 import AssetHome3 from "../../images/asset_home_3.svg";
 import HomeStrings from "../../utils/Strings/HomeStrings";
 import Faq from "../Component/Home/Faq";
@@ -96,13 +95,6 @@ const Home = () => {
               <h1 className="font-bold font-primayfont text-2xl text-dark-blue align-middle text-center lg:text-3xl">
                 {HomeStrings.section_1_headlilne}
               </h1>
-              <div className="justify-end items-end flex -ml-16 mb-4 -mt-1 float-right w-full">
-                <img
-                  src={zigzag}
-                  alt="zigzag"
-                  className="hidden lg:block w-11 h-5"
-                />
-              </div>
             </div>
             <h2 className="font-normal text-base text-dark-blue text-center align-middle mb-8">
               {HomeStrings.section_1_line}
@@ -195,13 +187,6 @@ const Home = () => {
               <h1 className="font-bold font-primayfont text-2xl text-dark-blue align-middle self-start text-center lg:text-3xl">
                 {HomeStrings.our_mentors}
               </h1>
-              <div className="justify-end items-end flex -ml-16 mb-4 -mt-1 float-right w-72">
-                <img
-                  src={zigzag}
-                  alt="zigzag"
-                  className="hidden lg:block w-11 h-5"
-                />
-              </div>
             </div>
             <p
               className="font-primayfont text-dark-blue font-normal text-base mt-2 pr-2"
@@ -261,13 +246,6 @@ const Home = () => {
             <h1 className="mt-6 font-primayfont text-dark-blue font-bold text-xl text-center lg:text-left lg:text-4xl ">
               {HomeStrings.packages_header}
             </h1>
-            <div className="justify-end items-end flex -ml-16 mb-4 -mt-1 float-right w-72">
-              <img
-                src={zigzag}
-                alt="zigzag"
-                className="hidden lg:block w-11 h-5"
-              />
-            </div>
           </div>
           <p className="mt-3 mx-6 lg:mx-0 font-primayfont font-medium text-base text text-dark-blue text-center lg:w-2/3 lg:text-lg lg:text-left">
             {HomeStrings.packages_text}
