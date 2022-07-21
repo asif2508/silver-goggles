@@ -8,6 +8,7 @@ import MyModel from "./MyModel";
 import { ImLocation } from "react-icons/im";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { BsChevronRight } from "react-icons/bs";
+import Breadcrumb from "../Component/Breadcrumb";
 
 const Section = () => {
   const [showMyModel, setMyModel] = useState(false);
@@ -16,7 +17,19 @@ const Section = () => {
     <>
       <div className="min-h-half">
         <Header />
-        <hr />
+        <div
+          className="w-full hidden lg:block"
+          style={{
+            borderColor: "rgba(0, 16, 60, 0.15)",
+            backgroundColor: "rgba(0, 16, 60, 0.15)",
+            borderWidth: 0.5,
+            borderStyle: "solid",
+          }}
+        />
+        <div className="ml-9 mb-8 -mt-3">
+          <Breadcrumb navigations={["Our Mentors", "Kalpesh", "Book Now"]} />
+        </div>
+
         {/* aside sectionn start here */}
         <div className="flex flex-row ml-2">
           <aside>
@@ -49,9 +62,8 @@ const Section = () => {
           </div>
         </div>
         {/* aside section ends here */}
-
         {/* Main content start here */}
-        <div className="pl-3 pr-3 mt-4">
+        <div className="pl-3 pr-3 mt-4 lg:-mt-16">
           <div
             className="w-full  rounded-lg  pr-9 pl-9 lg:w-7/12  lg:h-full lg:ml-56 lg:mt-2"
             style={{
@@ -239,7 +251,7 @@ const Section = () => {
             <h1 className=" mt-4 text-lg font-normal text-dark-blue font-primayfont">
               {LoginString.timeslot}
             </h1>
-            <div className="flex flex-row  overflow-x-scroll  whitespace-nowrap font-primayfont text-base mt-6 scrollbar-hide" >
+            <div className="flex flex-row  overflow-x-scroll  whitespace-nowrap font-primayfont text-base mt-6 scrollbar-hide">
               <div className="second_slider flex flex-row">
                 <div
                   className="w-32 h-12 rounded-lg"
@@ -305,7 +317,9 @@ const Section = () => {
               }}
               onClick={() => setMyModel(true)}
             >
-              <p className="text-white font-bold font-primayfont text-base">{LoginString.book_session}</p>
+              <p className="text-white font-bold font-primayfont text-base">
+                {LoginString.book_session}
+              </p>
             </div>
           </div>
         </div>
