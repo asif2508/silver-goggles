@@ -15,7 +15,7 @@ const Section = () => {
   const handleOnClose = () => setMyModel(false);
   return (
     <>
-      <div className="min-h-half">
+      <div className="min-h-half mb-24">
         <Header />
         <div
           className="w-full hidden lg:block"
