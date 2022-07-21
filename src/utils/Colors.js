@@ -8,6 +8,7 @@ const Colors = {
   textBlack: "#00103ccc",
   buttonBlue: "#4179F7",
   textInputBorder: "#00103c73",
+  grey:'#F3F3F3',
 };
 
 export default Colors;
