@@ -16,15 +16,15 @@ const Section = () => {
        {/* aside sectionn start here */}
         <div className='flex flex-row ml-2'>
             <aside >
-                <img className='w-16 ml-2 h-24 mt-3 lg:w-48 lg:h-52' src={men} />
-                <img className='ml-9 mt-1 w-5 h-5 lg:ml-24'  src={link_icon} />
+                <img className='w-16 ml-2 h-24 mt-3 lg:w-48 lg:h-60 lg:ml-24'  src={men} />
+                <img className='ml-9 mt-1 w-5 h-5 lg:ml-48'  src={link_icon} />
             </aside>
-            <div className='font-primayfont ml-4 mt-3 font-bold lg:h-6'>
-                <h3>{LoginString.name}</h3>
-                <h5 className='w-64 text-sm'>{LoginString.jobrole}</h5>
-                <h6 className='w-48 '>{LoginString.study}</h6>
-                <div className='inline-flex mt-2'>
-                <p>{LoginString.location}</p>
+            <div className='font-primayfont ml-4 mt-3  lg:h-6'>
+                <h3 style={{fontSize:24,fontWeight:700}} className='font-bold font-primayfont'>{LoginString.name}</h3>
+                <h5 style={{fontSize:16, fontWeight:400,width:336}} className='w-64 text-sm mt-2'>{LoginString.jobrole}</h5>
+                <h6 className='w-48 md:hidden'>{LoginString.study}</h6>
+                <div className='inline-flex mt-3'>
+                <p style={{fontSize:16, fontWeight:400}}>{LoginString.location}</p>
                 <p className='ml-2'>{LoginString.language}</p>
                 </div>
             </div>
@@ -33,9 +33,9 @@ const Section = () => {
        {/* aside section ends here */}
 
        {/* Main content start here */}
-        <div className='pl-3 pr-3 mt-4'>
-        <div className='w-full  rounded-lg  pr-9 pl-9 lg:w-7/12  lg:h-full lg:ml-56 lg:mt-2' style={{ borderWidth:1 , borderColor: Colors.textInputBorder }}>
-            <h1 className='text-xl font-bold mt-9'>{LoginString.session}</h1>
+        <div className='pl-3 pr-3 mt-4 '>
+        <div className='w-full  rounded-lg  pr-9 pl-9 lg:w-7/12  lg:h-full lg:ml-80 lg:mt-2' style={{ borderWidth:1 , borderColor: Colors.textInputBorder }}>
+            <h1 className='text-xl font-bold mt-9' style={{fontSize:24,fontWeight:700}}>{LoginString.session}</h1>
             <h2 className='mt-2 lg:float-right ' >{LoginString.mentorship}</h2>
             <h2 className='mt-1  h-7'>Your Timezone(Asia/calcutta) <span style={{color:Colors.dark_blue}}>Updated</span></h2>
             <hr />
