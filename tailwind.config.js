@@ -11,6 +11,8 @@ module.exports = {
       yellow: "#F2994A",
       grey: "#798196",
       chipGrey: "#EFEFEF",
+      green: "#1DFF4E",
+
       textBlack: "#00103ccc",
     },
     minHeight: {
@@ -44,5 +46,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("tailwind-scrollbar-hide"), // add this to your plugins
+  ],
 };
