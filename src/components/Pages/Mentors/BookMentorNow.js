@@ -1,18 +1,26 @@
-import React, { useState } from "react";
-import Header from "../Header/Header";
-import men from "../../images/Rectangle_18.svg";
-import link_icon from "../../images/linkedin_icon.svg";
-import Colors from "../../utils/Colors";
-import LoginString from "../../utils/Strings/LoginString";
-import MyModel from "./MyModel";
+import React, { useEffect, useState } from "react";
+import men from "../../../images/Rectangle_18.svg";
+import link_icon from "../../../images/linkedin_icon.svg";
+import Colors from "../../../utils/Colors";
+import LoginString from "../../../utils/Strings/LoginString";
 import { ImLocation } from "react-icons/im";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { BsChevronRight } from "react-icons/bs";
-import Breadcrumb from "../Component/Breadcrumb";
-import ImgName from '../../images/Kapil_Batra.svg'
-const Section = () => {
+import ImgName from "../../../images/Kapil_Batra.svg";
+import PopUpMentorBookNow from "../../Component/PopUpMentorBookNow";
+import Breadcrumb from "../../Component/Breadcrumb";
+import Header from "../../Header/Header";
+import { useNavigate } from "react-router-dom";
+
+const BookMentorNow = () => {
+  const navigate = useNavigate();
   const [showMyModel, setMyModel] = useState(false);
   const handleOnClose = () => setMyModel(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [navigate]);
+
   return (
     <>
       <div className="min-h-half mb-24">
@@ -27,7 +35,7 @@ const Section = () => {
           }}
         />
         <div className="ml-5 mb-8 -mt-3">
-          <Breadcrumb navigations={["Our Mentors", "Kalpesh", "Book Now"]} />
+          <Breadcrumb navigations={["Mentors", "Kalpesh", "Book Now"]} />
         </div>
 
         {/* aside sectionn start here */}
@@ -38,7 +46,9 @@ const Section = () => {
           </aside>
           <div className="font-primayfont ml-4 mt-3 font-bold lg:h-6">
             <h3 className="text-2xl font-bold text-dark-blue font-primayfont">
-               <span><img src={ImgName} /></span>
+              <span>
+                <img src={ImgName} />
+              </span>
             </h3>
             <h5 className="text-base font-normal text-dark-blue font-primayfont mt-2">
               {LoginString.jobrole}
@@ -61,7 +71,7 @@ const Section = () => {
             </div>
           </div>
         </div>
-        {/* aside section ends here */}
+        {/* aside BookMentorNow ends here */}
         {/* Main content start here */}
         <div className="pl-3 pr-3 mt-4 lg:-mt-16">
           <div
@@ -69,7 +79,6 @@ const Section = () => {
             style={{
               borderWidth: 1,
               borderColor: Colors.textInputBorder,
-              
             }}
           >
             <h1
@@ -325,9 +334,9 @@ const Section = () => {
         </div>
         {/* main content ends here */}
       </div>
-      <MyModel onClose={handleOnClose} visible={showMyModel} />
+      <PopUpMentorBookNow onClose={handleOnClose} visible={showMyModel} />
     </>
   );
 };
 
-export default Section;
+export default BookMentorNow;

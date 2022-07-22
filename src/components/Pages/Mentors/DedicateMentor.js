@@ -1,13 +1,7 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../Header/Header";
-import { AiFillHome } from "react-icons/ai";
-import {
-  BiAccessibility,
-  BiChevronDown,
-  BiChevronRight,
-  BiChevronUp,
-} from "react-icons/bi";
+import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import Colors from "../../../utils/Colors";
 import kalpesh from "../../../images/kalpesh.jpg";
 import logo from "../../../images/logo.png";
@@ -18,8 +12,9 @@ import Review from "../../Component/DedicateMentor/Review";
 import Breadcrumb from "../../Component/Breadcrumb";
 
 const DedicateMentor = () => {
-  const { name } = useParams();
+  const { id } = useParams();
   const [isFullPage, setIsFullPage] = React.useState(true);
+  const navigate = useNavigate();
   const skills = ["HTML", "CSS", "JavaScript", "React", "NodeJS", "MongoDB"];
   const experiences = [
     {
@@ -292,7 +287,7 @@ const DedicateMentor = () => {
               </h3>
               <div className="flex flex-col mt-7">
                 {packages.map((data, index) => (
-                  <Packages key={index} data={data} />
+                  <Packages key={index} data={data} id={id} />
                 ))}
               </div>
             </div>

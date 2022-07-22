@@ -2,7 +2,7 @@ import React from "react";
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
 import Colors from "../../utils/Colors";
 
-const MyModel = ({ visible, onClose }) => {
+const PopUpMentorBookNow = ({ visible, onClose }) => {
   const handleOnClose = (e) => {
     if (e.target.id === "container") onClose();
   };
@@ -72,4 +72,4 @@ const MyModel = ({ visible, onClose }) => {
   );
 };
 
-export default MyModel;
+export default PopUpMentorBookNow;
