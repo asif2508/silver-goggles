@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./components/Header/Header.js";
 import Footer from "./components/Footer/Footer.js";
 import Home from "./components/Pages/Home.js";
 import About from "./components/Pages/About.js";
@@ -15,6 +14,8 @@ import MentorProfile from "./components/Pages/Profile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DedicateMentor from "./components/Pages/Mentors/DedicateMentor.js";
 import BecomeMentor from "./components/Pages/Mentors/BecomeMentor.js";
+import VaibhavFooter from "./components/vaibhav/VaibhavFooter.js";
+import BookMentorNow from "./components/Pages/Mentors/BookMentorNow.js";
 
 const App = () => {
   return (
@@ -33,6 +34,8 @@ const App = () => {
             <Route path="/edit-mentor-profile" element={<EditMentor />} />
             <Route path="/become-mentor" element={<BecomeMentor />} />
             <Route path="/mentors/:id" element={<DedicateMentor />} />
+            <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />
+            <Route path="/footer" element={<VaibhavFooter />} />
           </Routes>
         </div>
         <Footer />

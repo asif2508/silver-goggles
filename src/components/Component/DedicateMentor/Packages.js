@@ -1,10 +1,12 @@
 import React from "react";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import greencheck from "../../../images/checkcirclegreen.svg";
 import Colors from "../../../utils/Colors";
 import CustomButton from "../CustomButton";
 
-const Packages = ({ data }) => {
+const Packages = ({ data, id }) => {
+  const navigate = useNavigate();
   return (
     <div
       className="rounded-lg mb-4 w-full px-4 py-6 flex flex-col"
@@ -37,12 +39,19 @@ const Packages = ({ data }) => {
         {data.features.map((feature, index) => (
           <div className="my-2 flex items-start">
             <img src={greencheck} alt="check" />
-            <p className="text-base font-primayfont text-dark-blue font-normal ml-3">{feature}</p>
+            <p className="text-base font-primayfont text-dark-blue font-normal ml-3">
+              {feature}
+            </p>
           </div>
         ))}
       </div>
       <div className="button mt-3">
-        <CustomButton text={"Book Now"} />
+        <CustomButton
+          text={"Book Now"}
+          onClick={() => {
+            navigate(`/mentors/${id}/book-now`);
+          }}
+        />
       </div>
     </div>
   );
