@@ -34,7 +34,7 @@ const MyModel = ({ visible, onClose }) => {
             <p>Thu,12 jun</p>
             <p className="ml-8">2:30 pm - 3:00 pm</p>
           </div>
-          <hr />
+          <hr style={{color:Colors.lightgrey}} />
           <h1 className="font-normal text-base mt-3">
             Message for your mentor
           </h1>

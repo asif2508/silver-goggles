@@ -125,7 +125,7 @@ const Section = () => {
               </div>
             </div>
             <hr style={{color:Colors.lightgrey}} />
-            <h1 className=" mt-4" style={{fontSize:18,fontWeight:400,color:Colors.dark_blue}}>{LoginString.timeslot}</h1>
+            <h1 className="font-normal mt-4" style={{fontSize:18,fontWeight:400}}>{LoginString.timeslot}</h1>
             <div className="flex flex-row  overflow-x-scroll  whitespace-nowrap font-primayfont text-base mt-6">
               <div className="second_slider flex flex-row">
                 <div
@@ -182,7 +182,7 @@ const Section = () => {
               }}
               onClick={() => setMyModel(true)}
             >
-              <p>{LoginString.book_session}</p>
+              <p>Book Session For 6 Jun,2:30 PM</p>
             </div>
           </div>
         </div>
