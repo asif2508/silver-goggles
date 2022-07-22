@@ -7,7 +7,7 @@ import Colors from "../../../utils/Colors";
 
 const Faq = ({ closed, title, description }) => {
   return (
-    <div className="w-2/3 lg:w-1/2">
+    <div className="w-11/12 md:w-3/4 lg:w-1/2">
       <Accordion style={{ backgroundColor: Colors.faqGrey }}>
         <AccordionSummary
           expandIcon={

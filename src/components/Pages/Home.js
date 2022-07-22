@@ -93,11 +93,13 @@ const Home = () => {
           <div className="px-4 lg:px-60 flex flex-col justify-center items-center">
             <div className="flex pt-10 flex-wrap">
               <h1 className="font-bold font-primayfont text-2xl text-dark-blue align-middle text-center lg:text-3xl">
-                {HomeStrings.section_1_headlilne}
+                Find Out what you like doing best with your buddy mentors
               </h1>
             </div>
             <h2 className="font-normal text-base text-dark-blue text-center align-middle mb-8">
-              {HomeStrings.section_1_line}
+              Book & meet expert{" "}
+              <b>mentors from top companies & get 1:1 mentorship sessions.</b>{" "}
+              Join our growing community today.
             </h2>
           </div>
           <div
@@ -192,7 +194,18 @@ const Home = () => {
               className="font-primayfont text-dark-blue font-normal text-base mt-2 pr-2"
               style={{ opacity: 0.9 }}
             >
-              {HomeStrings.our_mentors_text}
+              Our Mentors <b>share information</b> about his or her own career
+              path, as well as{" "}
+              <b>
+                {" "}
+                provide guidance, motivation, emotional support, and role
+                modeling.
+              </b>{" "}
+              They help you with{" "}
+              <b>
+                exploring careers, setting goals, developing contacts, and
+                identifying resources.
+              </b>{" "}
             </p>
           </div>
           <button
@@ -230,7 +243,9 @@ const Home = () => {
             {HomeStrings.header_we_are_proud}
           </h3>
           <p className="mt-3 font-primayfont font-medium text-base text text-dark-blue text-center lg:text-lg">
-            {HomeStrings.header_we_are_proud_text}
+            <b>Click on these company logos</b> to know mentors from a specific
+            company, We take a lot of proud in our mentors because they ace in
+            what they do.
           </p>
           <img
             src={Companies}

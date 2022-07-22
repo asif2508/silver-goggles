@@ -1,10 +1,7 @@
 const HomeStrings = {
   // Home Page
   // Section 1
-  section_1_headlilne:
-    "Find Out what you like doing best with your buddy mentors",
-  section_1_line:
-    "Book & meet expert <b>mentors from top companies & get 1:1 mentorship sessions.</b> Join our growing community today.",
+
   search_placeholder: "Job title or keyword",
   search: "Search",
   search_mentor: "Search Mentor",
@@ -25,16 +22,13 @@ const HomeStrings = {
 
   // Section 3
   our_mentors: "Our Mentors",
-  our_mentors_text:
-    "Our Mentors <b>share information</b> about his or her own career path, as well as <b> provide guidance, motivation, emotional support, and role modeling.</b> They help you with <b>exploring careers, setting goals, developing contacts, and identifying resources.</b>",
+
   view_profile: "View Profile",
   book_now: "Book Now",
   mentor1: "Kalpesh Lohar",
   mentor1_post: "CTO at EduKith",
   // Section 4
   header_we_are_proud: "We are proud of Our Mentors who come from",
-  header_we_are_proud_text:
-    "<b>Click on these company logos</b> to know mentors from a specific company, We take a lot of proud in our mentors because they ace in what they do.",
   // Section 5 Packages
   packages_header:
     "If you are not sure about mentorship, try our curated quick calls",

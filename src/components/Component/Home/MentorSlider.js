@@ -6,11 +6,12 @@ import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 const MentorSlider = ({ mentors }) => {
   return (
     <Carousel
+      enableAutoPlay={false}
       itemsToShow={1}
-      enableAutoPlay
       easing="cubic-bezier(1,.15,.55,1.54)"
       tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
       transitionMs={700}
+      onNextEnd={() => {}}
       enableSwipe
       disableArrowsOnEnd={false}
       renderArrow={({ type, onClick }) => {

@@ -31,10 +31,9 @@ const HomeSlider = () => {
   return (
     <Carousel
       itemsToShow={1}
-      enableAutoPlay
+      enableAutoPlay={false}
       enableSwipe
       className="w-full pb-11"
-      autoPlaySpeed={1500}
       disableArrowsOnEnd={false}
       renderPagination={({ pages, activePage, onClick }) => {
         return (
