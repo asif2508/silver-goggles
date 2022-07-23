@@ -16,6 +16,7 @@ import DedicateMentor from "./components/Pages/Mentors/DedicateMentor.js";
 import BecomeMentor from "./components/Pages/Mentors/BecomeMentor.js";
 import VaibhavFooter from "./components/vaibhav/VaibhavFooter.js";
 import BookMentorNow from "./components/Pages/Mentors/BookMentorNow.js";
+import Page404 from "./components/Pages/404Page.js";
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="*" element={<Page404 />} />
+            <Route path="" element={<Page404 />} />
+            <Route element={<Page404 />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
