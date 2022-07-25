@@ -1,62 +1,66 @@
 import React from "react";
-import Images from "../../images/Kapil_Batra.svg";
-import men from "../../images/Rectangle_18.svg";
-import Study from "../../images/Studied_B.tech_from_IIT.svg";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import Colors from "../../utils/Colors";
-import Heart from "../../images/Vector_(1).svg";
-import Value from "../../images/Price.svg";
-import LoginString from "../../utils/Strings/LoginString";
-const MapComponent = () => {
-  const searchMenu = [
-    "ui design",
-    "product design",
-    "figma",
-    "business research",
-   
-  ];
+
+const MapComponent = ({ data }) => {
   return (
     <>
-      <div className="min-h-half mb-24">
+      <div className="py-5 px-4">
         <div
-          className="rounded-lg border-2 mx-4 mt-12 px-4 py-4 lg:w-2/4 lg:ml-24"
+          className="rounded-lg border-2 px-5 py-5 max-w-threethirty"
           style={{
             borderColor: "rgba(0, 16, 60, 0.15)",
           }}
         >
           <div className="flex flex-col lg:flex-row">
             <div className="">
-              <img className="lg:h-60 w-full md:w-10/12 lg:w-96" src={men} />
-              <h3 className=" mt-4 ml-8 text-dark-blue font-primayfont font-semibold">
-                {" "}
-                699 Onwards
-                </h3>
-              
+              <img
+                className="lg:h-60 w-full md:w-10/12 lg:w-96"
+                src={data.img}
+                alt="mentor"
+              />
+              <h3 className="hidden lg:block mt-4 ml-8 text-dark-blue font-primayfont font-semibold">
+                {data.price}
+              </h3>
             </div>
-            <div className="flex-col pl-4">
-              <img className="float-right" src={Heart} />
-              <p className="font-bold font-primayfont text-base mb-2">Kapil Batra 😇</p>
-              <p className="mb-2 font-primayfont">Product Designer at MetaCube Softwere</p>
-              <p className="font-primayfont "> Studied B.Tech from IIT</p>
-              <hr className=" mt-4" style={{ color: Colors.lightgrey }} />
-              
-              <p className=" font-primayfont hidden lg:block">
-                Lorem ipsum dolor sit amet, consectetur adipiscing el it.
-                Faucibus mauris semper massa ultrices eget sit vu lputate. Ante
-                diam metus convallis nullam.
-              </p>
-              <div className="my-4 flex w-full flex-wrap ">
-              {searchMenu.map((text) => (
-                <p
-                  className="flex flex-row py-2 px-2 mb-4 capitalize rounded-lg   font-medium font-primayfont text-xs text-center items-center text-dark-blue mr-4  cursor-pointer"
-                  style={{ background: Colors.grey }}
-                >
-                  {text}
+            <div className="flex-col mt-4">
+              <div className="flex justify-between">
+                <p className="font-bold font-primayfont text-lg text-dark-blue">
+                  {data.name}
                 </p>
-              ))}
-            </div>
+                {data.isFavourite ? (
+                  <AiFillHeart className="h-6 w-6" color={Colors.red} />
+                ) : (
+                  <AiOutlineHeart
+                    className="h-6 w-6"
+                    color={Colors.dark_blue}
+                  />
+                )}
+              </div>
+              <p className="font-primayfont text-dark-blue text-base mt-1">
+                {data.designation}
+              </p>
+              <p className="font-primayfont text-dark-blue text-base mt-1">
+                🎯 {data.study}
+              </p>
+              <hr className="mt-4" style={{ color: Colors.lightgrey }} />
+              <p className=" font-primayfont hidden lg:block">{data.about}</p>
+              <div className="my-4 w-full flex-wrap hidden lg:flex">
+                {data.skills.map((text, index) => (
+                  <p
+                    className="flex flex-row py-2 px-2 mb-4 capitalize rounded-lg   font-medium font-primayfont text-xs text-center items-center text-dark-blue mr-4  cursor-pointer bg-grey"
+                    key={index}
+                  >
+                    {text}
+                  </p>
+                ))}
+              </div>
+              <h3 className="lg:hidden mt-4 text-dark-blue font-primayfont font-semibold text-lg">
+                {data.price}
+              </h3>
               <div className="flex flex-row">
                 <button
-                  className="w-36 h-10 text-white rounded-lg font-primayfont mt-4 font-bold"
+                  className="lg:w-36 w-1/2 h-10 text-white rounded-lg font-primayfont mt-4 font-bold"
                   style={{
                     background:
                       "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
@@ -65,7 +69,7 @@ const MapComponent = () => {
                   View Profile
                 </button>
                 <button
-                  className="w-36 h-10 text-white font-primayfont font-bold rounded-lg ml-4 mt-4"
+                  className="lg:w-36 w-1/2 h-10 text-white font-primayfont font-bold rounded-lg ml-4 mt-4"
                   style={{
                     background:
                       "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",

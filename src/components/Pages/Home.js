@@ -145,8 +145,11 @@ const Home = () => {
               {HomeStrings.trending_keywords}
             </h3>
             <div className="my-4 flex w-full flex-wrap">
-              {searchChips.map((text) => (
-                <p className="flex flex-row text-yellow font-bold font-primayfont text-xs mx-2 my-1 cursor-pointer lg:text-lg">
+              {searchChips.map((text, index) => (
+                <p
+                  key={index}
+                  className="flex flex-row text-yellow font-bold font-primayfont text-xs mx-2 my-1 cursor-pointer lg:text-lg"
+                >
                   {text}
                 </p>
               ))}

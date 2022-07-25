@@ -4,7 +4,6 @@ import { BiChevronRight } from "react-icons/bi";
 import Colors from "../../utils/Colors";
 
 const Breadcrumb = ({ navigations }) => {
-  console.log(navigations);
   return (
     <div className="breadcrumb mt-6 lg:mt-9">
       <div className="flex space-x-1 items-center">
