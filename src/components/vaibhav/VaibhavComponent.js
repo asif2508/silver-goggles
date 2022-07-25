@@ -18,6 +18,42 @@ const VaibhavComponent = () => {
     "iit",
     "Startup",
   ];
+
+  const mentors = [
+    {
+      img: "https://preview.keenthemes.com/metronic-v4/theme/admin_1/page_user_profile_2.html",
+      name: "Kalpesh Lohar",
+      designation: "Product Designer",
+      study: "B.Tech in Computer Science",
+      about:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
+      skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
+      price: "699 Onwards",
+      isFavourite: true,
+    },
+    {
+      img: "https://preview.keenthemes.com/metronic-v4/theme/admin_1/page_user_profile_2.html",
+      name: "Kalpesh Lohar",
+      designation: "Product Designer",
+      study: "B.Tech in Computer Science",
+      about:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
+      skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
+      price: "699 Onwards",
+      isFavourite: false,
+    },
+    {
+      img: "https://preview.keenthemes.com/metronic-v4/theme/admin_1/page_user_profile_2.html",
+      name: "Kalpesh Lohar",
+      designation: "Product Designer",
+      study: "B.Tech in Computer Science",
+      about:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
+      skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
+      price: "699 Onwards",
+      isFavourite: true,
+    },
+  ];
   return (
     <>
       <div className="min-h-half mb-24">
@@ -143,8 +179,14 @@ const VaibhavComponent = () => {
           </div>
           <hr className="mt-6" style={{ color: Colors.hrgrey }} />
         </div>
-
-        <MapComponent />
+        <div>
+          { mentors.map((ment, index)=>(
+           
+             <MapComponent />
+           
+          ))
+          }
+        </div>
       </div>
     </>
   );
