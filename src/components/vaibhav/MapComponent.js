@@ -25,19 +25,21 @@ const MapComponent = () => {
         >
           <div className="flex flex-col lg:flex-row">
             <div className="">
-              <img className="lg:h-60 w-full lg:w-96" src={men} />
-              <h3 className=" mt-4 ml-8 text-dark-blue font-semibold">
+              <img className="lg:h-60 w-full md:w-10/12 lg:w-96" src={men} />
+              <h3 className=" mt-4 ml-8 text-dark-blue font-primayfont font-semibold">
                 {" "}
                 699 Onwards
-              </h3>
+                </h3>
+              
             </div>
             <div className="flex-col pl-4">
               <img className="float-right" src={Heart} />
-              <p className="font-bold text-base mb-2">Kapil Batra 😇</p>
-              <p className="mb-2">Product Designer at MetaCube Softwere</p>
-              <p className=" "> Studied B.Tech from IIT</p>
+              <p className="font-bold font-primayfont text-base mb-2">Kapil Batra 😇</p>
+              <p className="mb-2 font-primayfont">Product Designer at MetaCube Softwere</p>
+              <p className="font-primayfont "> Studied B.Tech from IIT</p>
               <hr className=" mt-4" style={{ color: Colors.lightgrey }} />
-              <p className=" hidden lg:block">
+              
+              <p className=" font-primayfont hidden lg:block">
                 Lorem ipsum dolor sit amet, consectetur adipiscing el it.
                 Faucibus mauris semper massa ultrices eget sit vu lputate. Ante
                 diam metus convallis nullam.
@@ -54,7 +56,7 @@ const MapComponent = () => {
             </div>
               <div className="flex flex-row">
                 <button
-                  className="w-36 h-10 text-white rounded-lg  mt-4 font-bold"
+                  className="w-36 h-10 text-white rounded-lg font-primayfont mt-4 font-bold"
                   style={{
                     background:
                       "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
@@ -63,7 +65,7 @@ const MapComponent = () => {
                   View Profile
                 </button>
                 <button
-                  className="w-36 h-10 text-white rounded-lg ml-4 mt-4"
+                  className="w-36 h-10 text-white font-primayfont font-bold rounded-lg ml-4 mt-4"
                   style={{
                     background:
                       "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",

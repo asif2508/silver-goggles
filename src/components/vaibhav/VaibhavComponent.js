@@ -32,41 +32,41 @@ const VaibhavComponent = () => {
         <div className="ml-4 mt-6 lg:ml-24">
           <div className="flex flex-col lg:flex-row">
             <div
-              className="rounded-lg w-96 h-12 flex lg:flex-row border-2 font-primayfont"
+              className="rounded-lg  h-12 flex py-3 px-4 lg:flex-row border-2 font-primayfont"
               style={{
                 borderColor: Colors.border,
                 color: Colors.text_color,
               }}
             >
               <input
-              className="w-80 pl-3"
+              className="w-full outline-none border-none text-dark-blue"
                 type="search"
                 placeholder="Search by Company/College or Job Title"
               />
-              <BsSearch className="text-dark-blue mt-3 ml-6" />
+              <BsSearch className="text-dark-blue h-6 w-6 ml-2" />
             </div>
-            <div className="flex flex-row overflow-x-scroll  whitespace-nowrap font-primayfont lg:px-3 scrollbar-hide">
+            <div className="flex justify-center items-center flex-row overflow-x-scroll  py-2  whitespace-nowrap font-primayfont lg:px-3 scrollbar-hide">
               <div
-                className=" rounded-lg w-48 h-12 pl-3 border-2 pt-2 inline-flex"
+                className=" rounded-lg  h-12 pl-3 border-2 pt-2 inline-flex"
                 style={{borderColor: Colors.border }}
               >
                 <button
-                  className="text-base font-primayfont font-normal mb-2"
-                  style={{ width: 138, color: Colors.dark_blue }}
+                  className="text-base font-primayfont font-normal  text-dark-blue "
+                  
                 >
                   Domain Expertise
                 </button>{" "}
                 <span className="w-6 h-6 items-center text-center mt-2">
-                  <IoIosArrowDown />{" "}
+                  <IoIosArrowDown className="ml-1" />{" "}
                 </span>
               </div>
               <div
-                className=" rounded-lg w-24 h-12 pl-3 border-2 ml-2 inline-flex"
+                className=" rounded-lg  h-12 pl-3 border-2 ml-2 inline-flex"
                 style={{borderColor: Colors.border }}
               >
                 <button
-                  className="text-base font-primayfont w-10 font-normal "
-                  style={{ color: Colors.dark_blue }}
+                  className="text-base font-primayfont  font-normal text-dark-blue "
+                 
                 >
                   Price
                 </button>{" "}
@@ -75,26 +75,26 @@ const VaibhavComponent = () => {
                 </span>
               </div>
               <div
-                className=" rounded-lg w-36 h-12 pl-3 pt-2 border-2 inline-flex ml-4"
+                className=" rounded-lg  h-12 pl-3 pt-2 border-2 inline-flex ml-4"
                 style={{borderColor: Colors.border }}
               >
                 <button
-                  className="text-base font-primayfont font-normal mb-2"
-                  style={{ width: 87, color: Colors.dark_blue }}
+                  className="text-base font-primayfont font-normal  text-dark-blue"
+                 
                 >
                   Availability
                 </button>{" "}
                 <span className="w-6 h-6 items-center text-center mt-1">
-                  <IoIosArrowDown className="mt-1" />{" "}
+                  <IoIosArrowDown className="ml-1" />{" "}
                 </span>
               </div>
               <div
-                className=" rounded-lg w-36 h-12 pl-3 pt-2 border-2 inline-flex ml-4"
+                className=" rounded-lg  h-12 pl-3 pt-2 border-2 inline-flex ml-4"
                 style={{borderColor: Colors.border }}
               >
                 <button
-                  className="text-base font-primayfont font-normal mb-2"
-                  style={{ color: Colors.dark_blue }}
+                  className="text-base font-primayfont font-normal mb-2 text-dark-blue"
+                 
                 >
                   Services
                 </button>{" "}
@@ -103,12 +103,12 @@ const VaibhavComponent = () => {
                 </span>
               </div>
               <div
-                className="rounded-lg w-24 h-12 pl-3 pt-2 border-2 inline-flex ml-4"
+                className="rounded-lg  h-12 pl-3 pt-2 border-2 inline-flex ml-4"
                 style={{borderColor: Colors.border }}
               >
                 <button
-                  className="text-base w-10 font-normal mb-2 font-primayfont"
-                  style={{ color: Colors.dark_blue }}
+                  className="text-base w-10 font-normal mb-2 font-primayfont text-dark-blue"
+                 
                 >
                   Sort
                 </button>{" "}
