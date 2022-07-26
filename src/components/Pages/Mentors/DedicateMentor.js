@@ -4,7 +4,6 @@ import Header from "../../Header/Header";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import Colors from "../../../utils/Colors";
 import kalpesh from "../../../images/kalpesh.jpg";
-import logo from "../../../images/logo.png";
 import CustomExperienceBox from "../../Component/DedicateMentor/CustomExperienceBox";
 import Packages from "../../Component/DedicateMentor/Packages";
 import SimilarMentorBox from "../../Component/DedicateMentor/SimilarMentorBox";
@@ -18,19 +17,19 @@ const DedicateMentor = () => {
   const skills = ["HTML", "CSS", "JavaScript", "React", "NodeJS", "MongoDB"];
   const experiences = [
     {
-      img: logo,
+      img: "https://cdn.pixabay.com/photo/2022/06/24/17/35/relaxation-7282116_960_720.jpg",
       title: "Full Stack Developer",
       activefrom: "Jan 2020",
       activeTo: "Present",
     },
     {
-      img: logo,
+      img: "https://cdn.pixabay.com/photo/2022/06/24/17/35/relaxation-7282116_960_720.jpg",
       title: "Full Stack Developer",
       activefrom: "Jan 2020",
       activeTo: "Present",
     },
     {
-      img: logo,
+      img: "https://cdn.pixabay.com/photo/2022/06/24/17/35/relaxation-7282116_960_720.jpg",
       title: "Full Stack Developer",
       activefrom: "Jan 2020",
       activeTo: "Present",
@@ -38,13 +37,13 @@ const DedicateMentor = () => {
   ];
   const studies = [
     {
-      img: logo,
+      img: "https://cdn.pixabay.com/photo/2022/06/24/17/35/relaxation-7282116_960_720.jpg",
       title: "Studied MBA from IIM",
       activefrom: "July 2022",
       activeTo: "Present",
     },
     {
-      img: logo,
+      img: "https://cdn.pixabay.com/photo/2022/06/24/17/35/relaxation-7282116_960_720.jpg",
       title: "Studied MBA from IIM",
       activefrom: "July 2022",
       activeTo: "Present",
