@@ -1,65 +1,112 @@
 import React from "react";
-import workicon from "../../images/suitcase.png";
-import suitcaseicon from "../../images/mortarboard.png";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import Colors from "../../utils/Colors";
 
-const MentorBox = ({ user, onClickButton, onClickProfile }) => {
+const MentorBox = ({ data }) => {
   return (
-    <div
-      className="mentor-container flex flex-col items-center mx-4"
-      key={user._id}
-    >
-      <div
-        className="flex flex-col sm:flex-row space-x-2 justify-center "
-        key={user.name}
-      >
-        <div className="left w-full sm:w-2/5 justify-center items-center flex flex-col">
-          <img
-            src={user.pic}
-            alt="Kalpesh Lohar"
-            className="h-60 w-48 rounded-3xl xl:w-48"
-          />
-        </div>
-        <div className="right w-full  sm:w-3/5 mt-5 flex flex-col justify-center items-center sm:justify-start sm:items-start xl:items-start xl:w-3/5">
-          <h3 className="text-dark-blue font-bold text-xl">
-            {user.name.charAt(0).toUpperCase().trim() +
-              user.name.slice(1).trim()}
-          </h3>
-          <div className="flex items-center">
-            <img src={workicon} alt="Work" className="h-6 mr-3" />
-            <p className="mt-1 py-1">
-              {user.work.charAt(0).toUpperCase().trim() +
-                user.work.slice(1).trim()}
-            </p>
-          </div>
-          <div className="flex items-center mb-2">
-            <img src={suitcaseicon} alt="Education" className="h-6 mr-3" />
-            <p className="-mt-1">
-              {user.education.charAt(0).toUpperCase().trim() +
-                user.education.slice(1).trim()}
-            </p>
-          </div>
-          <hr className="text-light-blue py-2" />
-          <div className="chips flex flex-wrap justify-start xl:justify-start max-w-min xl:max-w-full">
-            {user.choices.split(",").map((choice) => (
-              <div
-                className="chip1  rounded-3xl bg-grey font-medium w-max px-3 py-1 mr-1 my-1 shadow-sm;"
-                key={choice}
-              >
-                {choice.charAt(0).toUpperCase().trim() + choice.slice(1).trim()}
+    <>
+      <div className="py-5 px-4">
+        <div
+          className="rounded-lg border-2 px-5 py-5 max-w-threethirty lg:max-w-lg"
+          style={{
+            borderColor: "rgba(0, 16, 60, 0.15)",
+          }}
+        >
+          <div className="flex flex-col lg:flex-row lg:w-full">
+            <div className="lg:w-3/12">
+              <img
+                className="lg:h-60 w-full md:w-10/12 lg:w-full"
+                src={data.img}
+                alt="mentor"
+              />
+            </div>
+            <div className="flex-col mt-4 lg:w-9/12 lg:ml-4 lg:mt-0">
+              <div className="flex justify-between lg:w-full">
+                <p className="font-bold font-primayfont text-lg text-dark-blue lg:text-xl">
+                  {data.name}
+                </p>
+                {data.isFavourite ? (
+                  <AiFillHeart className="h-6 w-6" color={Colors.red} />
+                ) : (
+                  <AiOutlineHeart
+                    className="h-6 w-6"
+                    color={Colors.dark_blue}
+                  />
+                )}
               </div>
-            ))}
+              <div className="flex">
+                <p className="font-primayfont text-dark-blue text-base mt-1">
+                  {data.designation}
+                </p>
+                <p className="font-primayfont text-grey text-base mt-1 ml-1">
+                  at
+                </p>
+                <p className="font-primayfont text-dark-blue text-base mt-1 ml-1">
+                  {data.workIn}
+                </p>
+              </div>
+              <div className="flex">
+                <p className="font-primayfont text-grey text-base mt-1">
+                  🎯 Studied
+                </p>
+                <p className="font-primayfont text-dark-blue text-base mt-1 ml-1">
+                  {data.study}
+                </p>
+                <p className="font-primayfont text-grey text-base mt-1 ml-1">
+                  from
+                </p>
+                <p className="font-primayfont text-dark-blue text-base mt-1 ml-1">
+                  {data.studiedFrom}{" "}
+                </p>
+              </div>
+              <hr className="mt-4" style={{ color: Colors.lightgrey }} />
+              <p className="lg:mt-4 font-primayfont text-dark-blue hidden lg:block">
+                {data.about}
+              </p>
+              <div className="my-4 w-full flex-wrap hidden lg:flex mt-3">
+                {data.skills.map((text, index) => (
+                  <p
+                    className="flex flex-row py-2 px-2 capitalize rounded-3xl font-medium font-primayfont text-xs lg:text-sm text-center items-center text-dark-blue mr-1 cursor-pointer mt-1"
+                    style={{ background: Colors.grey }}
+                    key={index}
+                  >
+                    {text}
+                  </p>
+                ))}
+              </div>
+              <h3 className="lg:hidden mt-4 text-dark-blue font-primayfont font-semibold text-lg">
+                {data.price}
+              </h3>
+            </div>
+          </div>
+          <div className="flex justify-evenly items-center">
+            <h3 className="hidden lg:block mt-4 ml-8 lg:ml-0 lg:text-xl lg:mt-0 lg:w-44 text-dark-blue font-primayfont font-semibold">
+              {data.price}
+            </h3>
+            <div className="flex flex-row mt-4 lg:mt-0 w-full lg:w-4/6">
+              <button
+                className="w-full lg:w-40 h-10 text-white rounded-lg font-primayfont font-bold"
+                style={{
+                  background:
+                    "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
+                }}
+              >
+                View Profile
+              </button>
+              <button
+                className="w-full lg:w-40 h-10 text-white font-primayfont font-bold rounded-lg ml-4"
+                style={{
+                  background:
+                    "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
+                }}
+              >
+                Book Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-row">
-        <button className="blue-button my-2 sm:my-0" onClick={onClickButton}>
-          Book 1:1 Session
-        </button>
-        <button className="blue-button my-2 sm:my-0" onClick={onClickProfile}>
-          View Profile
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 

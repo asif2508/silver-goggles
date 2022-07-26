@@ -37,7 +37,7 @@ const Packages = ({ data, id }) => {
       />
       <div className="features flex flex-col w-full">
         {data.features.map((feature, index) => (
-          <div className="my-2 flex items-start">
+          <div className="my-2 flex items-start" key={index}>
             <img src={greencheck} alt="check" />
             <p className="text-base font-primayfont text-dark-blue font-normal ml-3">
               {feature}
