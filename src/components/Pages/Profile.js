@@ -82,15 +82,17 @@ const Profile = () => {
               </div>
               <div className="chips max-w-min mx-auto mb-5 mt-5">
                 <div className="flex flex-wrap justify-center items-center xl:justify-center max-w-min xl:max-w-full">
-                  {user?.mentorProfile.choices.split(",").map((choice) => (
-                    <div
-                      className="chip1  rounded-3xl bg-grey font-medium w-max px-3 py-1 mr-1 my-1 shadow-sm"
-                      key={choice}
-                    >
-                      {choice.charAt(0).toUpperCase().trim() +
-                        choice.slice(1).trim()}
-                    </div>
-                  ))}
+                  {user?.mentorProfile.choices
+                    .split(",")
+                    .map((choice, index) => (
+                      <div
+                        className="chip1  rounded-3xl bg-grey font-medium w-max px-3 py-1 mr-1 my-1 shadow-sm"
+                        key={index}
+                      >
+                        {choice.charAt(0).toUpperCase().trim() +
+                          choice.slice(1).trim()}
+                      </div>
+                    ))}
                 </div>
                 {!user.mentorProfile.isFirstTime && (
                   <div className="flex justify-center items-center py-5">
@@ -146,7 +148,9 @@ const Profile = () => {
                   <button className="blue-button my-1 mx-2">Find Mentor</button>
                 </Link>
                 <Link to="/edit-mentor-profile">
-                  <button className="blue-button my-1 mx-2">Become Mentor</button>
+                  <button className="blue-button my-1 mx-2">
+                    Become Mentor
+                  </button>
                 </Link>
               </div>
             </div>

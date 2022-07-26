@@ -4,7 +4,6 @@ import { BiChevronRight } from "react-icons/bi";
 import Colors from "../../utils/Colors";
 
 const Breadcrumb = ({ navigations }) => {
-  console.log(navigations);
   return (
     <div className="breadcrumb mt-6 lg:mt-9">
       <div className="flex space-x-1 items-center">
@@ -16,7 +15,7 @@ const Breadcrumb = ({ navigations }) => {
         <AiFillHome size={13} color={Colors.textBlack} className="lg:hidden" />
 
         {navigations.map((data, index) => (
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center" key={index}>
             <BiChevronRight
               size={18}
               color={Colors.textBlack}
