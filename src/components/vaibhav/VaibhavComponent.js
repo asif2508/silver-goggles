@@ -24,7 +24,9 @@ const VaibhavComponent = () => {
       img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
       name: "Kalpesh Lohar",
       designation: "Product Designer",
-      study: "B.Tech in Computer Science",
+      workIn: "Google",
+      study: "B.Tech",
+      studiedFrom: "IIT Bombay",
       about:
         "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
       skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
@@ -35,7 +37,22 @@ const VaibhavComponent = () => {
       img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
       name: "Kalpesh Lohar",
       designation: "Product Designer",
-      study: "B.Tech in Computer Science",
+      workIn: "Google",
+      study: "B.Tech",
+      studiedFrom: "IIT Bombay",
+      about:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
+      skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
+      price: "₹699 Onwards",
+      isFavourite: true,
+    },
+    {
+      img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
+      name: "Kalpesh Lohar",
+      designation: "Product Designer",
+      workIn: "Google",
+      study: "B.Tech",
+      studiedFrom: "IIT Bombay",
       about:
         "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
       skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
@@ -46,7 +63,9 @@ const VaibhavComponent = () => {
       img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
       name: "Kalpesh Lohar",
       designation: "Product Designer",
-      study: "B.Tech in Computer Science",
+      workIn: "Google",
+      study: "B.Tech",
+      studiedFrom: "IIT Bombay",
       about:
         "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
       skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
@@ -58,17 +77,22 @@ const VaibhavComponent = () => {
     <>
       <div className="min-h-half">
         <Header />
-        <hr
-          className="hidden lg:block "
-          style={{ color: Colors.white_smoke }}
+        <div
+          className="w-full hidden lg:block"
+          style={{
+            borderColor: "rgba(0, 16, 60, 0.15)",
+            backgroundColor: "rgba(0, 16, 60, 0.15)",
+            borderWidth: 0.5,
+            borderStyle: "solid",
+          }}
         />
         <div className="ml-4 mt-8 lg:ml-24">
           <Breadcrumb navigations={["Our Mentors"]} />
         </div>
-        <div className="px-4 mt-6 lg:ml-24">
+        <div className="px-4 mt-6 lg:px-24">
           <div className="flex flex-col lg:flex-row">
             <div
-              className="rounded-lg h-12 flex py-3 px-4 lg:flex-row justify-center items-center"
+              className="rounded-lg h-12 flex py-3 px-4 lg:flex-row justify-center items-center lg:w-96"
               style={{
                 borderColor: Colors.border,
                 borderWidth: 1,
@@ -82,7 +106,7 @@ const VaibhavComponent = () => {
               />
               <BsSearch className="text-dark-blue h-6 w-6 ml-2" />
             </div>
-            <div className="flex mt-6 flex-row overflow-x-scroll whitespace-nowrap font-primayfont lg:px-3 scrollbar-hide">
+            <div className="flex mt-6 lg:mt-0 flex-row overflow-x-scroll whitespace-nowrap font-primayfont lg:px-3 scrollbar-hide">
               <div
                 className="rounded-lg py-2 inline-flex px-3 justify-center items-center"
                 style={{ borderColor: Colors.border, borderWidth: 1 }}
@@ -132,7 +156,7 @@ const VaibhavComponent = () => {
           </div>
           <div className="mt-6">
             <div>
-              <h2 className="font-primayfont text-base font-semibold text-dark-blue">
+              <h2 className="font-primayfont text-base font-semibold text-dark-blue lg:text-xl">
                 Top Keywords:
               </h2>
             </div>
@@ -146,16 +170,19 @@ const VaibhavComponent = () => {
                 </p>
               ))}
             </div>
-            <div className="flex flex-row mt-7 items-center">
+            <div className="flex flex-row mt-5 items-center">
               <GiCancel className="" />
               <p className="text-base flex text-dark-blue font-semibold ml-1 font-primayfont">
                 Clear All Filter
               </p>
             </div>
           </div>
-          <hr className="mt-6 -mx-4" style={{ color: Colors.hrgrey }} />
+          <hr
+            className="mt-6 -mx-4 lg:-mx-24"
+            style={{ color: Colors.hrgrey }}
+          />
         </div>
-        <div className="flex flex-wrap mt-9 justify-evenly">
+        <div className="flex flex-wrap my-9 justify-evenly">
           {mentors.map((data, index) => (
             <MapComponent data={data} key={index} />
           ))}
