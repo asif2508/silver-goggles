@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { updateProfile } from "../../../actions/auth.js";
 import ErrorMessage from "../../ErrorMessage.js";
+import Header from "../../Header/Header.js";
 import Loading from "../../Loading.js";
-import PageHeading from "../../PageHeading.js";
 
 const EditMentor = () => {
   const user = JSON.parse(localStorage.getItem("userInfo"));
@@ -18,7 +18,7 @@ const EditMentor = () => {
   const [choices, setChoices] = useState("");
   const [pic, setPic] = useState(null);
   const navigate = useNavigate();
-  
+
   const handleSubmit = async (e) => {
     if (!user?.isMentor) {
       e.preventDefault();
@@ -54,7 +54,18 @@ const EditMentor = () => {
     <div className="min-h-half">
       {user && name?.length > 0 ? (
         <>
-          <PageHeading title="Become Mentor" />
+          <div className="header">
+            <Header />
+            <div
+              className="w-full hidden lg:block"
+              style={{
+                borderColor: "rgba(0, 16, 60, 0.15)",
+                backgroundColor: "rgba(0, 16, 60, 0.15)",
+                borderWidth: 0.5,
+                borderStyle: "solid",
+              }}
+            />
+          </div>
           <div className="pt-5 -mb-5">{editing && <Loading />}</div>
           <div className="contact flex flex-col w-full lg:flex-row">
             <div className="left form my-12 mx-4 flex flex-col lg:w-1/2 justify-center items-center">
