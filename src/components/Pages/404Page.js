@@ -14,8 +14,8 @@ const Page404 = () => {
       <div>
         <Header />
       </div>
-      <div className="flex justify-center items-center">
-        <img src={Asset404} alt="404" className="w-1/4 my-5" />
+      <div className="flex justify-center items-center py-20">
+        <img src={Asset404} alt="404" className="w-3/4 lg:w-1/4 sm:w-3/5 md:w-2/5" />
       </div>
     </div>
   );
