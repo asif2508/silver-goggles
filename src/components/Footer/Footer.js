@@ -1,54 +1,138 @@
 import React from "react";
+import Colors from "../../utils/Colors";
+import Icon from "../../images/Vector.svg";
 import { Link } from "react-router-dom";
-import logo from "../../images/NewLogo.svg";
+import { AiOutlineMail } from "react-icons/ai";
+
 const Footer = () => {
   return (
-    <footer>
-      <div className="flex justify-between px-4 flex-col md:flex-row md:py-10 lg:px-28 xl:py-5">
-        <div className="left">
-          <img src={logo} className="w-64" alt="" />
-          <p className="text-base font-primayfont py-3 md:w-3/4 lg:w-3/4 xl:w-2/3">
+    <div>
+      <footer class="text-white bg-dark-blue flex flex-col lg:flex-row pt-11 pb-11 lg:py-20 justify-between lg:px-28 lg:w-full">
+        <div class="flex flex-col px-4 lg:w-1/4 lg:px-0">
+          <div className="flex lg:w-full">
+            <img src={Icon} alt="EduKith" className="w-8 h-8" />
+            <p className="font-primayfont text-3xl ml-2 w-72 lg:w-full">
+              EduKith
+            </p>
+          </div>
+          <p className="font-primayfont mt-7">
             EduKith Taking students from Confusion to College through profiling,
             mentoring, and counseling
           </p>
         </div>
-        <div className="right flex flex-col justify-around md:flex-row md:mx-10">
-          <div className="nav1 md:w-32 lg:mx-10">
-            <h3 className="text-xl font-bold text-dark-blue py-3">
-              Quick Links
-            </h3>
-            <ul className="flex flex-col">
-              <Link className="text-base pt-1" to="/">
-                Home
+        <div class="flex-col hidden lg:flex">
+          <h6 class="font-semibold font-primayfont text-xl flex mt-4 lg:mt-0">
+            Menu
+          </h6>
+          <p class="mt-4 font-primayfont text-base">
+            <Link to="#!">Become a mentor</Link>
+          </p>
+          <p class="mt-4 font-primayfont text-base">
+            <Link to="#!">Our Mentors</Link>
+          </p>
+          <p class="mt-4 font-primayfont text-base">
+            <Link to="#!">About Us</Link>
+          </p>
+          <p class="mt-4 font-primayfont text-base">
+            <Link to="#!">Privacy policy</Link>
+          </p>
+        </div>
+        <div class="flex-col md:ml-10 hidden lg:flex">
+          <h6 class="font-semibold font-primayfont text-xl flex mt-4 lg:mt-0">
+            Links
+          </h6>
+          <p class="mt-4 font-primayfont text-base">
+            <Link to="#!">FAQs</Link>
+          </p>
+          <p class="mt-4 font-primayfont text-base">
+            <Link to="#!">Contact Us</Link>
+          </p>
+          <p class="mt-4 font-primayfont text-base">
+            <Link to="#!">Career</Link>
+          </p>
+          <p class="mt-4 font-primayfont text-base">
+            <Link to="#!">Code of conduct</Link>
+          </p>
+        </div>
+        <div class="flex-col mt-10 md:mt-0 md:ml-10 hidden lg:flex lg:mt-0">
+          <h6 class="font-semibold font-primayfont text-xl flex">
+            Contact Info
+          </h6>
+          <div class="flex mt-6 flex-col">
+            <div className="flex">
+              <AiOutlineMail size={24} color={Colors.white} />
+              <Link to="#!" class="ml-2 font-primayfont text-base">
+                info.edukith@gmail.com
               </Link>
-              <Link className="text-base" to="/login">
-                Login
-              </Link>
-              <Link className="text-base" to="/edit-mentor-profile">
-                Become Mentor
-              </Link>
-            </ul>
-          </div>
-          <div className="nav2 my-3 md:my-0">
-            <h3 className="text-xl font-bold text-dark-blue py-3">Company</h3>
-            <ul className="flex flex-col">
-              <Link className="text-base pt-1" to="/about">
-                About
-              </Link>
-              <Link className="text-base" to="/contact">
-                Contact
-              </Link>
-              <Link className="text-base" to="/mentors">
-                Our Mentors
-              </Link>
-            </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="bottombar bottom-0 bg-dark-blue w-full text-white py-3 flex justify-center">
-        <p className="">Copyright © EduKith 2022. All rights reserved.</p>
-      </div>
-    </footer>
+        <div className="pl-7 pr-16 flex flex-col md:flex-row mt-10 lg:mt-0 lg:px-0 lg:py-0 lg:w-3/4 justify-center lg:hidden">
+          <div className="flex justify-between md:w-full lg:justify-center lg:hidden">
+            <div class="flex flex-col">
+              <h6 class="font-semibold font-primayfont text-xl flex mt-4 lg:mt-0">
+                Menu
+              </h6>
+              <p class="mt-4 font-primayfont text-base">
+                <Link to="#!">Become a mentor</Link>
+              </p>
+              <p class="mt-4 font-primayfont text-base">
+                <Link to="#!">Our Mentors</Link>
+              </p>
+              <p class="mt-4 font-primayfont text-base">
+                <Link to="#!">About Us</Link>
+              </p>
+              <p class="mt-4 font-primayfont text-base">
+                <Link to="#!">Privacy policy</Link>
+              </p>
+            </div>
+            <div class="flex flex-col md:ml-10">
+              <h6 class="font-semibold font-primayfont text-xl flex mt-4 lg:mt-0">
+                Links
+              </h6>
+              <p class="mt-4 font-primayfont text-base">
+                <Link to="#!">FAQs</Link>
+              </p>
+              <p class="mt-4 font-primayfont text-base">
+                <Link to="#!">Contact Us</Link>
+              </p>
+              <p class="mt-4 font-primayfont text-base">
+                <Link to="#!">Career</Link>
+              </p>
+              <p class="mt-4 font-primayfont text-base">
+                <Link to="#!">Code of conduct</Link>
+              </p>
+            </div>
+            <div class="flex-col mt-10 md:mt-0 md:ml-10 hidden md:flex lg:mt-0">
+              <h6 class="font-semibold font-primayfont text-xl flex">
+                Contact Info
+              </h6>
+              <div class="flex mt-6 flex-col">
+                <div className="flex">
+                  <AiOutlineMail size={24} color={Colors.white} />
+                  <Link to="#!" class="ml-2 font-primayfont text-base">
+                    info.edukith@gmail.com
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col mt-10 md:hidden">
+            <h6 class="font-semibold font-primayfont text-xl flex">
+              Contact Info
+            </h6>
+            <div class="flex mt-6 flex-col">
+              <div className="flex">
+                <AiOutlineMail size={24} color={Colors.white} />
+                <Link to="#!" class="ml-2 font-primayfont text-base">
+                  info.edukith@gmail.com
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 };
 

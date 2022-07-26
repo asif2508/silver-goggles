@@ -14,7 +14,6 @@ import MentorProfile from "./components/Pages/Profile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DedicateMentor from "./components/Pages/Mentors/DedicateMentor.js";
 import BecomeMentor from "./components/Pages/Mentors/BecomeMentor.js";
-import VaibhavFooter from "./components/vaibhav/VaibhavFooter.js";
 import BookMentorNow from "./components/Pages/Mentors/BookMentorNow.js";
 import VaibhavComponent from "./components/vaibhav/VaibhavComponent.js";
 
@@ -36,7 +35,6 @@ const App = () => {
             <Route path="/become-mentor" element={<BecomeMentor />} />
             <Route path="/mentors/:id" element={<DedicateMentor />} />
             <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />
-            <Route path="/footer" element={<VaibhavFooter />} />
             <Route path="/component" element={<VaibhavComponent />} />
           </Routes>
         </div>
