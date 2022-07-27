@@ -17,6 +17,7 @@ import BecomeMentor from "./components/Pages/Mentors/BecomeMentor.js";
 import VaibhavFooter from "./components/vaibhav/VaibhavFooter.js";
 import BookMentorNow from "./components/Pages/Mentors/BookMentorNow.js";
 import VaibhavComponent from "./components/vaibhav/VaibhavComponent.js";
+import DashBoard from "./components/vaibhav/DashBoard.js";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />
             <Route path="/footer" element={<VaibhavFooter />} />
             <Route path="/component" element={<VaibhavComponent />} />
+            <Route path="/dashboard" element={<DashBoard />} />
           </Routes>
         </div>
         <Footer />
