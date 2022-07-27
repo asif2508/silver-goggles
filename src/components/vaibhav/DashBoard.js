@@ -5,7 +5,7 @@ import { FiUsers } from "react-icons/fi";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import Icon from "../../images/Ellipse.svg";
 import Header from "../Header/Header";
-import CircleImg from '../../images/Circle_Back_2_.svg';
+import CircleImg from '../../images/Group_7048.svg';
 const DashBoard = () => {
   return (
     <>
@@ -56,10 +56,15 @@ const DashBoard = () => {
             >
               Explore Mentors
             </button>
-         <div className="border-2 mt-14">
+         <div className="mt-14 mb-12">
             <img src={CircleImg} />
          </div>
         </div>
+      <div className="flex flex-row">
+      <p>Recommended Mentors</p>
+      <p className="">See All</p>
+      </div>
+
       </div>
     </>
   );

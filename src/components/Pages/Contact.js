@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import PageHeading from "../PageHeading.js";
 import { useDispatch, useSelector } from "react-redux";
 import { contact } from "../../actions/forms.js";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header/Header.js";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -42,7 +42,18 @@ const Contact = () => {
   return (
     <>
       <div className="min-h-half">
-        <PageHeading title="Contact Us" />
+        <div className="header">
+          <Header />
+          <div
+            className="w-full hidden lg:block"
+            style={{
+              borderColor: "rgba(0, 16, 60, 0.15)",
+              backgroundColor: "rgba(0, 16, 60, 0.15)",
+              borderWidth: 0.5,
+              borderStyle: "solid",
+            }}
+          />
+        </div>
         {/* {loading && <Loading />} */}
         <div className="contact flex flex-col w-full lg:flex-row">
           <div className="left form my-12 mx-4 flex flex-col lg:w-1/2 justify-center items-center">

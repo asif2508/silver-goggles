@@ -38,11 +38,11 @@ const HomeSlider = () => {
       renderPagination={({ pages, activePage, onClick }) => {
         return (
           <div className="flex">
-            {pages.map((page) => {
+            {pages.map((page, index) => {
               const isActivePage = activePage === page;
               return (
                 <div
-                  key={page}
+                  key={index}
                   onClick={() => onClick(page)}
                   className={`rounded-full h-4 w-4 mx-1 mt-8 ${
                     isActivePage ? "bg-primary" : "bg-white"

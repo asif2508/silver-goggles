@@ -15,7 +15,7 @@ const Breadcrumb = ({ navigations }) => {
         <AiFillHome size={13} color={Colors.textBlack} className="lg:hidden" />
 
         {navigations.map((data, index) => (
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center" key={index}>
             <BiChevronRight
               size={18}
               color={Colors.textBlack}

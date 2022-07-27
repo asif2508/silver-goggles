@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import PageHeading from "../PageHeading.js";
 import missionimg from "../../images/aboutmisson.jpg";
 import kalpesh from "../../images/kalpesh.jpg";
 import aayu from "../../images/aayu.jpg";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header/Header";
 
 const About = () => {
   const navigate = useNavigate();
@@ -14,8 +14,18 @@ const About = () => {
   return (
     <>
       <div className="min-h-half">
-        {/* Heading */}
-        <PageHeading title="About Us" />
+        <div className="header">
+          <Header />
+          <div
+            className="w-full hidden lg:block"
+            style={{
+              borderColor: "rgba(0, 16, 60, 0.15)",
+              backgroundColor: "rgba(0, 16, 60, 0.15)",
+              borderWidth: 0.5,
+              borderStyle: "solid",
+            }}
+          />
+        </div>
         {/* Content */}
         <div className="mission flex flex-col justify-center xl:gap-x-4 xl:py-10 items-center py-8 xl:flex-row xl:px-24 xl:items-center">
           <div className="imagemission flex flex-col justify-between items-center lg:w-96 xl:w-1/2">
