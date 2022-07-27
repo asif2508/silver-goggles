@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DedicateMentor from "./components/Pages/Mentors/DedicateMentor.js";
 import BookMentorNow from "./components/Pages/Mentors/BookMentorNow.js";
 import Page404 from "./components/Pages/404Page.js";
+import BecomeMentor from "./components/Pages/BecomeMentor.js";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/mentors" element={<Mentors />} />
             <Route path="/mentors/:id" element={<DedicateMentor />} />
             <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />
+            <Route path="/become-mentor" element={<BecomeMentor />} />
           </Routes>
         </div>
         <Footer />
