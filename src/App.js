@@ -12,6 +12,9 @@ import DedicateMentor from "./components/Pages/Mentors/DedicateMentor.js";
 import BookMentorNow from "./components/Pages/Mentors/BookMentorNow.js";
 import Page404 from "./components/Pages/404Page.js";
 import BecomeMentor from "./components/Pages/BecomeMentor.js";
+import MentorEditProfile from "./components/Pages/Mentors/MentorFormFilling/MentorEditProfile.js";
+import MentorEditQual from "./components/Pages/Mentors/MentorFormFilling/MentorEditQual.js";
+import MentorEditReview from "./components/Pages/Mentors/MentorFormFilling/MentorEditReview.js";
 
 const App = () => {
   return (
@@ -30,6 +33,18 @@ const App = () => {
             <Route path="/mentors/:id" element={<DedicateMentor />} />
             <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />
             <Route path="/become-mentor" element={<BecomeMentor />} />
+            <Route
+              path="/become-mentor/edit-profile"
+              element={<MentorEditProfile />}
+            />
+            <Route
+              path="/become-mentor/edit-qualifications"
+              element={<MentorEditQual />}
+            />
+            <Route
+              path="/become-mentor/in-review"
+              element={<MentorEditReview />}
+            />
           </Routes>
         </div>
         <Footer />

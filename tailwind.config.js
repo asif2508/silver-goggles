@@ -12,8 +12,11 @@ module.exports = {
       grey: "#798196",
       chipGrey: "#EFEFEF",
       green: "#1DFF4E",
-
+      textInputBorder: "#00103c73",
       textBlack: "#00103ccc",
+    },
+    borderWidth: {
+      1: "1px",
     },
     minHeight: {
       mentor: "35vh",

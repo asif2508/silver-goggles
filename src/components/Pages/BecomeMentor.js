@@ -7,10 +7,14 @@ import CustomButton from "../Component/CustomButton";
 import Faq from "../Component/Home/Faq";
 import Header from "../Header/Header";
 import AssetHome3 from "../../images/asset_home_3.svg";
-import TestimonialsSlider from "../Component/Home/TestimonialsSlider";
 import Features from "../Component/BecomeMentor/Features";
+import { useNavigate } from "react-router-dom";
 
 const BecomeMentor = () => {
+  const navigate = useNavigate();
+  const navigateToBecomeMentor = () => {
+    navigate("/become-mentor/edit-profile");
+  };
   return (
     <div className="min-h-half">
       <div
@@ -36,7 +40,11 @@ const BecomeMentor = () => {
               & skills you have. Grow together with us.
             </h2>
           </div>
-          <CustomButton text={"Become a mentor"} style="mt-6" />
+          <CustomButton
+            text={"Become a mentor"}
+            onClick={navigateToBecomeMentor}
+            style="mt-6"
+          />
         </section>
       </div>
       <section className="mt-12 -mb-40 lg:-mb-52 px-6 sm:px-20 lg:px-44 w-full flex justify-center">
@@ -99,7 +107,11 @@ const BecomeMentor = () => {
           </div>
           <Features />
           <div className="flex justify-center">
-            <CustomButton text={"Become a mentor"} style="mt-6" />
+            <CustomButton
+              text={"Become a mentor"}
+              onClick={navigateToBecomeMentor}
+              style="mt-6"
+            />
           </div>
         </div>
       </section>
