@@ -4,8 +4,11 @@ import { BiHomeAlt } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import Icon from "../../images/Ellipse.svg";
-import Header from "../Header/Header";
 import CircleImg from '../../images/Group_7048.svg';
+import Header from "../Header/Header";
+import { Link, NavLink } from "react-router-dom";
+import HomeDashBoard from "./HomeDashBoard";
+import SessionDashBoard from "./SessionDashBoard";
 const DashBoard = () => {
   return (
     <>
@@ -22,22 +25,31 @@ const DashBoard = () => {
             </p>
           </div>
           <div className="flex flex-row overflow-x-scroll whitespace-nowrap font-primayfont scrollbar-hide">
+          <Link to="/dashboard" >
             <div className="inline-flex items-center text-center">
               <BiHomeAlt />
               <p className="ml-2">Home</p>
+              
             </div>
+            </Link>
+            <Link to="/dashboard/session">
             <div className="inline-flex items-center text-center ml-6">
               <AiFillCreditCard />
               <p className="ml-2">Session</p>
             </div>
+            </Link>
+            <Link to="/dashboard/mentor">
             <div className="inline-flex items-center text-center ml-6">
               <FiUsers />
               <p className="ml-2">Your mentors</p>
             </div>
+            </Link>
+            <Link to="/dashboard/manageprofile">
             <div className="inline-flex items-center text-center ml-6">
               <MdOutlineManageAccounts />
               <p className="ml-2">Manage Profile</p>
             </div>
+            </Link>
           </div>
         </div>
         <div className="mt-12">
@@ -60,10 +72,6 @@ const DashBoard = () => {
             <img src={CircleImg} />
          </div>
         </div>
-      <div className="flex flex-row">
-      <p>Recommended Mentors</p>
-      <p className="">See All</p>
-      </div>
 
       </div>
     </>
