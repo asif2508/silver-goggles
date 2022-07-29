@@ -7,13 +7,13 @@ const MentorBox = ({ data }) => {
     <>
       <div className="py-5 px-4">
         <div
-          className="rounded-lg border-2 px-5 py-5 max-w-threethirty lg:max-w-lg"
+          className="rounded-lg px-5 py-5 max-w-threethirty lg:max-w-lg"
           style={{
-            borderColor: "rgba(0, 16, 60, 0.15)",
+            border: "2px solid rgba(0, 16, 60, 0.45)",
           }}
         >
           <div className="flex flex-col lg:flex-row lg:w-full">
-            <div className="lg:w-3/12">
+            <div className="lg:w-3/12 flex justify-center">
               <img
                 className="lg:h-60 w-full md:w-10/12 lg:w-full"
                 src={data.img}

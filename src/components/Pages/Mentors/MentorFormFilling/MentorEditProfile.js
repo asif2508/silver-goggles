@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Breadcrumb from "../../../Component/Breadcrumb";
 import Header from "../../../Header/Header";
 import Asset from "../../../../images/asset_edit_mentor_1.svg";
 import AssetLarge from "../../../../images/asset_edit_mentor_1_large.svg";
 import CustomButton from "../../../Component/CustomButton";
 import HeaderSeprater from "../../../Component/HeaderSeprater";
+import { Chip } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const MentorEditProfile = () => {
+  const [skills, setSkills] = React.useState([]);
+  const [skillString, setSkillString] = React.useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [navigate]);
+
   return (
     <div className="min-h-half">
       <Header />
@@ -113,11 +123,22 @@ const MentorEditProfile = () => {
                 <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
                   Gender
                 </p>
-                <input
-                  type="text"
-                  placeholder="Other"
+                <select
+                  name="Gender"
+                  id="gender-select"
+                  ons
                   className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
-                />
+                >
+                  <option className="bg-white text-dark-blue" value="male">
+                    Male
+                  </option>
+                  <option className="bg-white text-dark-blue" value="female">
+                    Female
+                  </option>
+                  <option className="bg-white text-dark-blue" value="other">
+                    Other
+                  </option>
+                </select>
               </div>
             </div>
             {/* linkedin and address  */}
@@ -187,7 +208,7 @@ const MentorEditProfile = () => {
                 type="text"
                 placeholder="Write about your expectations and future plans."
                 maxLength={150}
-                className="border-1 h-40 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
+                className="border-1 h-40 align-top border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
               />
             </div>
             {/* Skills  */}
@@ -196,15 +217,39 @@ const MentorEditProfile = () => {
                 Write the best keywords which discribes your industry. (Mentees
                 will find you through these.)
               </p>
-              <input
-                type="text"
-                placeholder="Add tag, Comma Seprated"
-                maxLength={150}
-                className="border-1 h-40 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
-              />
+              <div className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full">
+                <div className="space-x-2">
+                  {skills.map((skill, index) => {
+                    return <Chip key={index} label={skill} />;
+                  })}
+                </div>
+                <input
+                  type="text"
+                  className="outline-none"
+                  value={skillString}
+                  onChange={(e) => {
+                    setSkills(
+                      e.target.value
+                        .split(",")
+                        .slice(0, e.target.value.split(",").length - 1)
+                    );
+                    setSkillString(
+                      e.target.value.split(",").length > 0
+                        ? e.target.value.split(",").slice(0, -1)
+                        : e.target.value
+                    );
+                  }}
+                />
+              </div>
             </div>
             <div className="w-full mt-9 lg:mt-12 mb-16 lg:mb-24">
-              <CustomButton text="Save & Next" style="w-full" />
+              <CustomButton
+                text="Save & Next"
+                style="w-full"
+                onClick={() => {
+                  navigate("/become-mentor/edit-qualifications");
+                }}
+              />
             </div>
           </div>
         </div>

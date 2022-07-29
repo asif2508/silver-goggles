@@ -50,25 +50,16 @@ const Footer = () => {
           <p className="mt-4 font-primayfont text-base">
             <Link to={links.About}>About Us</Link>
           </p>
-          <p className="mt-4 font-primayfont text-base">
-            <Link to={links.privacyPolicy}>Privacy policy</Link>
-          </p>
         </div>
         <div className="flex-col md:ml-10 hidden lg:flex">
           <h6 className="font-semibold font-primayfont text-xl flex mt-4 lg:mt-0">
             Links
           </h6>
           <p className="mt-4 font-primayfont text-base">
-            <Link to={links.faqs}>FAQs</Link>
-          </p>
-          <p className="mt-4 font-primayfont text-base">
             <Link to={links.Contact}>Contact Us</Link>
           </p>
           <p className="mt-4 font-primayfont text-base">
-            <Link to={links.career}>Career</Link>
-          </p>
-          <p className="mt-4 font-primayfont text-base">
-            <Link to={links.codeOfConduct}>Code of conduct</Link>
+            <Link to={links.privacyPolicy}>Privacy policy</Link>
           </p>
         </div>
         <div className="flex-col mt-10 md:mt-0 md:ml-10 hidden lg:flex lg:mt-0">
@@ -99,25 +90,16 @@ const Footer = () => {
               <p className="mt-4 font-primayfont text-base">
                 <Link to={links.About}>About Us</Link>
               </p>
-              <p className="mt-4 font-primayfont text-base">
-                <Link to={links.privacyPolicy}>Privacy policy</Link>
-              </p>
             </div>
             <div className="flex flex-col md:ml-10">
               <h6 className="font-semibold font-primayfont text-xl flex mt-4 lg:mt-0">
                 Links
               </h6>
               <p className="mt-4 font-primayfont text-base">
-                <Link to={links.faqs}>FAQs</Link>
-              </p>
-              <p className="mt-4 font-primayfont text-base">
                 <Link to={links.Contact}>Contact Us</Link>
               </p>
               <p className="mt-4 font-primayfont text-base">
-                <Link to={links.career}>Career</Link>
-              </p>
-              <p className="mt-4 font-primayfont text-base">
-                <Link to={links.codeOfConduct}>Code of conduct</Link>
+                <Link to={links.privacyPolicy}>Privacy policy</Link>
               </p>
             </div>
             <div className="flex-col mt-10 md:mt-0 md:ml-10 hidden md:flex lg:mt-0">

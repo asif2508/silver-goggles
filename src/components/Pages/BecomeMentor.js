@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Colors from "../../utils/Colors";
 import HomeStrings from "../../utils/Strings/HomeStrings";
 import BecomeMentorDesktopSlider from "../Component/BecomeMentor/BecomeMentorDesktopSlider";
@@ -15,6 +15,11 @@ const BecomeMentor = () => {
   const navigateToBecomeMentor = () => {
     navigate("/become-mentor/edit-profile");
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [navigate]);
+
   return (
     <div className="min-h-half">
       <div
@@ -30,7 +35,14 @@ const BecomeMentor = () => {
         <section className="flex flex-col justify-center items-center">
           <div className="px-4 sm:px-16 lg:px-48 flex flex-col justify-center items-center">
             <div className="flex pt-10 flex-wrap">
-              <h1 className="font-bold font-primayfont text-3xl text-dark-blue align-middle text-center lg:text-4xl px-2">
+              <h1 className="font-bold flex lg:hidden font-primayfont text-2xl text-dark-blue align-middle text-center">
+                Help other learn & progress because Being a mentor is new
+                superHero
+              </h1>
+              <h1
+                className="font-bold hidden lg:flex font-primayfont text-dark-blue align-middle text-center"
+                style={{ fontSize: 52 }}
+              >
                 Help other learn & progress because Being a mentor is new
                 superHero
               </h1>
@@ -50,7 +62,16 @@ const BecomeMentor = () => {
       <section className="mt-12 -mb-40 lg:-mb-52 px-6 sm:px-20 lg:px-44 w-full flex justify-center">
         <iframe
           src="https://www.youtube.com/embed/zFcEIOYhrV8"
-          className="h-56 md:h-80 lg:h-96 w-full lg:w-2/3"
+          className="h-56 md:h-80 w-full lg:hidden"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen={false}
+          title="video"
+        />
+        <iframe
+          src="https://www.youtube.com/embed/zFcEIOYhrV8"
+          style={{ width: 1051, height: 608 }}
+          className="hidden lg:block"
           frameborder="0"
           allow="autoplay; encrypted-media"
           allowfullscreen={false}
