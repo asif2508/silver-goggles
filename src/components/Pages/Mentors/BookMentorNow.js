@@ -29,7 +29,10 @@ const BookMentorNow = () => {
         <HeaderSeprater />
 
         <div className="ml-5 mb-8 -mt-3">
-          <Breadcrumb navigations={["Mentors", "Kalpesh", "Book Now"]} />
+          <Breadcrumb
+            navigations={["Mentors", "Kalpesh", "Book Now"]}
+            onPressRoutes={["/mentors","/","/"]}
+          />
         </div>
 
         {/* aside sectionn start here */}

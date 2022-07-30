@@ -127,7 +127,10 @@ const DedicateMentor = () => {
       <div className="maincontainer px-4 md:px-24">
         <div className="flex lg:flex-row flex-col justify-evenly">
           <div className="lg:w-3/5">
-            <Breadcrumb navigations={["Mentors", "Kalpesh"]} />
+            <Breadcrumb
+              navigations={["Mentors", "Kalpesh"]}
+              onPressRoutes={["/mentors","/"]}
+            />
             <div className="userInro mt-6 lg:mt-12 w-full">
               <div className="upperpart flex justify-between">
                 <img

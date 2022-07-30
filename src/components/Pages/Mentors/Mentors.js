@@ -81,7 +81,10 @@ const Mentors = () => {
         <HeaderSeprater />
 
         <div className="ml-4 mt-8 lg:ml-24">
-          <Breadcrumb navigations={["Our Mentors"]} />
+          <Breadcrumb
+            navigations={["Our Mentors"]}
+            onPressRoutes={["/mentors"]}
+          />
         </div>
         <div className="px-4 mt-6 lg:px-24">
           <div className="flex flex-col lg:flex-row">

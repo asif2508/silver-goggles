@@ -22,7 +22,10 @@ const MentorEditProfile = () => {
       <Header />
       <HeaderSeprater />
       <div className="px-4 md:px-16 mt-8 lg:px-24 flex flex-col">
-        <Breadcrumb navigations={["Become a Mentor"]} />
+        <Breadcrumb
+          navigations={["Become a Mentor"]}
+          onPressRoutes={["/become-mentor"]}
+        />
         <div className="header mt-7 lg:mt-12">
           <h3 className="font-primayfont text-dark-blue text-xl lg:text-2xl font-bold">
             Applying As A Mentor
@@ -32,7 +35,7 @@ const MentorEditProfile = () => {
             help us know about you more & why you’d like to become a mentor.
             Please give it your best.
           </p>
-          <div className="w-full flex flex-col justify-center">
+          <div className="w-full flex flex-col justify-center items-center">
             <img
               src={Asset}
               alt="Navigate"
@@ -243,13 +246,15 @@ const MentorEditProfile = () => {
               </div>
             </div>
             <div className="w-full mt-9 lg:mt-12 mb-16 lg:mb-24">
-              <CustomButton
-                text="Save & Next"
-                style="w-full"
-                onClick={() => {
-                  navigate("/become-mentor/edit-qualifications");
-                }}
-              />
+              <div className="w-full mt-9 lg:mt-12 mb-16 lg:mb-24 flex justify-center">
+                <CustomButton
+                  text="Save & Next"
+                  style="w-full lg:w-96"
+                  onClick={() => {
+                    navigate("/become-mentor/edit-qualifications");
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
