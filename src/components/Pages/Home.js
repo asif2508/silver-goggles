@@ -75,6 +75,12 @@ const Home = () => {
     "Frontend",
     "Startup",
     "Study Abroad",
+    "UI/UX Designer",
+    "Frontend",
+    "Startup",
+    "Frontend",
+    "Startup",
+    "Study Abroad",
   ];
 
   return (
@@ -92,11 +98,17 @@ const Home = () => {
         <section className="flex flex-col justify-center items-center">
           <div className="px-4 lg:px-60 flex flex-col justify-center items-center">
             <div className="flex pt-10 flex-wrap">
-              <h1 className="font-bold font-primayfont text-2xl text-dark-blue align-middle text-center lg:text-3xl">
+              <h1 className="font-bold flex lg:hidden font-primayfont text-2xl text-dark-blue align-middle text-center">
+                Find Out what you like doing best with your buddy mentors
+              </h1>
+              <h1
+                className="font-bold hidden lg:flex font-primayfont text-dark-blue align-middle text-center"
+                style={{ fontSize: 52 }}
+              >
                 Find Out what you like doing best with your buddy mentors
               </h1>
             </div>
-            <h2 className="font-normal text-base text-dark-blue text-center align-middle mb-8">
+            <h2 className="font-normal text-base lg:text-lg mt-5 text-dark-blue text-center align-middle mb-8">
               Book & meet expert{" "}
               <b>mentors from top companies & get 1:1 mentorship sessions.</b>{" "}
               Join our growing community today.
@@ -140,15 +152,15 @@ const Home = () => {
               {HomeStrings.search_mentor}
             </button>
           </div>
-          <div className="mt-8 px-4">
+          <div className="mt-8 px-4 w-2/3">
             <h3 className="font-semibold text-base font-primayfont text-dark-blue lg:text-lg">
               {HomeStrings.trending_keywords}
             </h3>
-            <div className="my-4 flex w-full flex-wrap">
+            <div className="my-4 flex w-full flex-wrap justify-center">
               {searchChips.map((text, index) => (
                 <p
                   key={index}
-                  className="flex flex-row text-yellow font-bold font-primayfont text-xs mx-2 my-1 cursor-pointer lg:text-lg"
+                  className="flex flex-row text-yellow font-bold font-primayfont text-xs mr-10 my-1 cursor-pointer lg:text-lg"
                 >
                   {text}
                 </p>

@@ -11,6 +11,7 @@ import PopUpMentorBookNow from "../../Component/PopUpMentorBookNow";
 import Breadcrumb from "../../Component/Breadcrumb";
 import Header from "../../Header/Header";
 import { useNavigate } from "react-router-dom";
+import HeaderSeprater from "../../Component/HeaderSeprater";
 
 const BookMentorNow = () => {
   const navigate = useNavigate();
@@ -25,17 +26,13 @@ const BookMentorNow = () => {
     <>
       <div className="min-h-half mb-24">
         <Header />
-        <div
-          className="w-full hidden lg:block"
-          style={{
-            borderColor: "rgba(0, 16, 60, 0.15)",
-            backgroundColor: "rgba(0, 16, 60, 0.15)",
-            borderWidth: 0.5,
-            borderStyle: "solid",
-          }}
-        />
+        <HeaderSeprater />
+
         <div className="ml-5 mb-8 -mt-3">
-          <Breadcrumb navigations={["Mentors", "Kalpesh", "Book Now"]} />
+          <Breadcrumb
+            navigations={["Mentors", "Kalpesh", "Book Now"]}
+            onPressRoutes={["/mentors","/","/"]}
+          />
         </div>
 
         {/* aside sectionn start here */}

@@ -18,6 +18,10 @@ import DashBoard from "./components/vaibhav/DashBoard.js";
 import SessionDashBoard from "./components/vaibhav/SessionDashBoard.js";
 import MentorDash from "./components/vaibhav/MentorDash.js";
 import ManageProfileDash from "./components/vaibhav/ManageProfileDash.js";
+import MentorEditProfile from "./components/Pages/Mentors/MentorFormFilling/MentorEditProfile.js";
+import MentorEditQual from "./components/Pages/Mentors/MentorFormFilling/MentorEditQual.js";
+import MentorEditReview from "./components/Pages/Mentors/MentorFormFilling/MentorEditReview.js";
+
 const App = () => {
   return (
     <>
@@ -39,6 +43,18 @@ const App = () => {
             <Route path="/dashboard/session" element={<SessionDashBoard />}/>
             <Route path="/dashboard/mentor" element={<MentorDash />}/>
             <Route path="/dashboard/manageprofile" element={<ManageProfileDash />}/>
+            <Route
+              path="/become-mentor/edit-profile"
+              element={<MentorEditProfile />}
+            />
+            <Route
+              path="/become-mentor/edit-qualifications"
+              element={<MentorEditQual />}
+            />
+            <Route
+              path="/become-mentor/in-review"
+              element={<MentorEditReview />}
+            />
           </Routes>
         </div>
         <Footer />

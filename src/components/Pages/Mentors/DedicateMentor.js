@@ -9,6 +9,7 @@ import Packages from "../../Component/DedicateMentor/Packages";
 import SimilarMentorBox from "../../Component/DedicateMentor/SimilarMentorBox";
 import Review from "../../Component/DedicateMentor/Review";
 import Breadcrumb from "../../Component/Breadcrumb";
+import HeaderSeprater from "../../Component/HeaderSeprater";
 
 const DedicateMentor = () => {
   const { id } = useParams();
@@ -121,20 +122,15 @@ const DedicateMentor = () => {
     <div className="min-h-half h-full">
       <div className="header">
         <Header />
-        <div
-          className="w-full hidden lg:block"
-          style={{
-            borderColor: "rgba(0, 16, 60, 0.15)",
-            backgroundColor: "rgba(0, 16, 60, 0.15)",
-            borderWidth: 0.5,
-            borderStyle: "solid",
-          }}
-        />
+        <HeaderSeprater />
       </div>
       <div className="maincontainer px-4 md:px-24">
         <div className="flex lg:flex-row flex-col justify-evenly">
           <div className="lg:w-3/5">
-            <Breadcrumb navigations={["Mentors", "Kalpesh"]} />
+            <Breadcrumb
+              navigations={["Mentors", "Kalpesh"]}
+              onPressRoutes={["/mentors","/"]}
+            />
             <div className="userInro mt-6 lg:mt-12 w-full">
               <div className="upperpart flex justify-between">
                 <img

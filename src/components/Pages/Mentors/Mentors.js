@@ -6,6 +6,7 @@ import Colors from "../../../utils/Colors";
 import Breadcrumb from "../../Component/Breadcrumb";
 import MentorBox from "../../Component/MentorBox";
 import Header from "../../Header/Header";
+import HeaderSeprater from "../../Component/HeaderSeprater";
 
 const Mentors = () => {
   const searchChips = [
@@ -77,17 +78,13 @@ const Mentors = () => {
     <>
       <div className="min-h-half">
         <Header />
-        <div
-          className="w-full hidden lg:block"
-          style={{
-            borderColor: "rgba(0, 16, 60, 0.15)",
-            backgroundColor: "rgba(0, 16, 60, 0.15)",
-            borderWidth: 0.5,
-            borderStyle: "solid",
-          }}
-        />
+        <HeaderSeprater />
+
         <div className="ml-4 mt-8 lg:ml-24">
-          <Breadcrumb navigations={["Our Mentors"]} />
+          <Breadcrumb
+            navigations={["Our Mentors"]}
+            onPressRoutes={["/mentors"]}
+          />
         </div>
         <div className="px-4 mt-6 lg:px-24">
           <div className="flex flex-col lg:flex-row">
