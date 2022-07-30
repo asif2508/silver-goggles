@@ -17,6 +17,7 @@ module.exports = {
     },
     borderWidth: {
       1: "1px",
+      2: "2px",
     },
     minHeight: {
       mentor: "35vh",
