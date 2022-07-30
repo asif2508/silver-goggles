@@ -14,46 +14,67 @@ const ManageProfileDash = () => {
     setShowtab(e);
   };
   return (
-    <div className="pl-4">
-        <Header />
-         <div className="mt-6">
-          <div className="flex flex-col  mx-32 w-32 h-32  ">
-            <img className="w-16 h-16 mx-6" src={Icon} />
-            <p className=" text-base text-dark-blue font-bold font-primayfont mt-2 ">
-              Kalpesh Lohar
-            </p>
-            <p className="font-primayfont text-dark-blue text-xs mx-3 font-normal">
-              Complete Profile
-            </p>
+    <div>
+      <Header />
+      <div
+          className="w-full hidden lg:block"
+          style={{
+            borderColor: "rgba(0, 16, 60, 0.15)",
+            backgroundColor: "rgba(0, 16, 60, 0.15)",
+            borderWidth: 0.5,
+            borderStyle: "solid",
+          }}
+        />
+        <div className="flex flex-col lg:flex-row mx-6">
+         <div className="mt-6 px-4 flex flex-col lg:pl-28 lg:pr-28 lg:h-screen">
+            <div className="flex flex-col w-full lg:flex-row items-center ">
+              <img className="w-16 h-16" src={Icon} />
+              <div className="w-full lg:ml-4">
+                <p className="w-full lg:w-max text-center text-base text-dark-blue font-bold font-primayfont mt-2 ">
+                  Kalpesh Lohar
+                </p>
+                <p className="w-full lg:w-max text-center font-primayfont text-dark-blue text-xs font-normal">
+                  Complete Profile
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-row lg:mt-16 lg:flex-col overflow-x-scroll whitespace-nowrap font-primayfont scrollbar-hide">
+              <Link to="/dashboard">
+                <div className="inline-flex items-center text-center">
+                  <BiHomeAlt />
+                  <p className="ml-2">Home</p>
+                </div>
+              </Link>
+              <Link to="/dashboard/session" className="lg:mt-7">
+                <div className="inline-flex items-center text-center ml-6 lg:ml-0">
+                  <AiFillCreditCard />
+                  <p className="ml-2">Session</p>
+                </div>
+              </Link>
+              <Link to="/dashboard/mentor" className="lg:mt-7">
+                <div className="inline-flex items-center text-center ml-6 lg:ml-0">
+                  <FiUsers />
+                  <p className="ml-2">Your mentors</p>
+                </div>
+              </Link>
+              <Link to="/dashboard/manageprofile" className="lg:mt-7">
+                <div className="inline-flex items-center text-center ml-6 lg:ml-0">
+                  <MdOutlineManageAccounts />
+                  <p className="ml-2">Manage Profile</p>
+                </div>
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-row overflow-x-scroll whitespace-nowrap font-primayfont scrollbar-hide">
-          <Link to="/dashboard" >
-            <div className="inline-flex items-center text-center">
-              <BiHomeAlt />
-              <p className="ml-2">Home</p>
-              
-            </div>
-            </Link>
-            <Link to="/dashboard/session">
-            <div className="inline-flex items-center text-center ml-6">
-              <AiFillCreditCard />
-              <p className="ml-2">Session</p>
-            </div>
-            </Link>
-            <Link to="/dashboard/mentor">
-            <div className="inline-flex items-center text-center ml-6">
-              <FiUsers />
-              <p className="ml-2">Your mentors</p>
-            </div>
-            </Link>
-            <Link to="/dashboard/manageprofile">
-            <div className="inline-flex items-center text-center ml-6">
-              <MdOutlineManageAccounts />
-              <p className="ml-2">Manage Profile</p>
-            </div>
-            </Link>
-          </div>
-        </div>
+          <div
+          className="h-[150vh] hidden lg:block"
+          style={{
+            borderColor: "rgba(0, 16, 60, 0.15)",
+            backgroundColor: "rgba(0, 16, 60, 0.15)",
+            borderWidth: 0.5,
+            borderStyle: "solid",
+          }}
+        />
+         <div className="lg:ml-11 lg:pr-24">
       <p className="font-primayfont font-bold text-dark-blue text-xl">
         Manage Profile
       </p>
@@ -264,7 +285,10 @@ const ManageProfileDash = () => {
         </form>
       </div>
       {/* login security form end here */}
+      </div>
     </div>
+    </div>
+    
   );
 };
 

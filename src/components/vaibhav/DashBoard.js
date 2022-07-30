@@ -1,5 +1,5 @@
-import React from "react";
-import { AiFillCreditCard } from "react-icons/ai";
+import React, { useState, useEffect } from "react";
+import { AiFillCreditCard, AiOutlineClose } from "react-icons/ai";
 import { BiHomeAlt } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { MdOutlineManageAccounts } from "react-icons/md";
@@ -7,8 +7,14 @@ import Icon from "../../images/Ellipse.svg";
 import CircleImg from "../../images/Group_7048.svg";
 import Header from "../Header/Header";
 import { Link } from "react-router-dom";
+import Colors from "../../utils/Colors";
+import PopUpOtp from "./PopUpOtp";
 
 const DashBoard = () => {
+  const [showMyModel, setMyModel] = useState(false);
+  const handleOnClose = () => setMyModel(false);
+
+  const[isClicked, setisClicked] = useState(false);
   return (
     <>
       <div className="min-h-half">
@@ -72,6 +78,21 @@ const DashBoard = () => {
             }}
           />
           <div className="mt-12 px-4 lg:h-full lg:w-full">
+            <div
+              className={` flex-row items-center text-center pl-6 py-2 w-3/4 mb-10 rounded-lg  ${isClicked?"hidden":"flex"}`}
+              style={{ background: Colors.bg_grey }}
+            >
+              <p className="font-primayfont font-normal text-base text-dark-blue">
+                Complete profile by verifying your phone number.
+              </p>
+              <p
+                className="text-primary font-primayfont font-semibold text-base cursor-pointer"
+                onClick={() => setMyModel(true)}
+              >
+                Click Here.
+              </p>
+              <AiOutlineClose className={`h-6 w-6 ml-44` } onClick={()=>setisClicked(true)} />
+            </div>
             <p className="font-primayfont text-dark-blue font-bold text-xl">
               Upcoming Session
             </p>
@@ -95,6 +116,7 @@ const DashBoard = () => {
             </div>
           </div>
         </div>
+        <PopUpOtp onClose={handleOnClose} visible={showMyModel} />
       </div>
     </>
   );
