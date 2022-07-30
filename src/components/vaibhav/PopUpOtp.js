@@ -23,8 +23,14 @@ const PopUpOtp = ({ visible, onClose }) => {
           className="bg-white shadow-xl p-2 rounded-lg w-2/3 font-primayfont pl-6 flex flex-col justify-center"
           style={{ width: 482 }}
         >
-          <p className="font-primayfont text-2xl text-dark-blue font-bold"> Enter OTP</p>
-          <input type='text' className="mt-5 rounded-lg h-12 px-4" style={{background:Colors.grey}} />
+          <p className="font-primayfont text-lg lg:text-xl text-dark-blue font-bold">
+            Enter OTP
+          </p>
+          <input
+            type="text"
+            className="mt-5 rounded-lg h-12 px-4"
+            style={{ background: Colors.grey }}
+          />
           <div
             className="rounded-lg h-10 text-white cursor-pointer font-bold flex justify-center items-center mb-7 w-full mt-6 "
             style={{
