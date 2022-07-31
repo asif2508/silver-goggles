@@ -44,10 +44,10 @@ const Login = () => {
     : Colors.dark_blue;
 
   const activeBackgroundMentee = menteeButtonPressed
-    ? "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)"
+    ? Constants.gradient
     : "#fff0";
   const activeBackgroundMentor = mentorButtonPressed
-    ? "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)"
+    ? Constants.gradient
     : "#fff0";
 
   const activeborderMentee = menteeButtonPressed
@@ -76,12 +76,12 @@ const Login = () => {
       <div className="flex flex-col px-4 lg:flex-row md:px-28 sm:px-16 mt-12 mb-12">
         <div className="img sm:ml-9 flex justify-center items-center sm:flex-col mt-7 lg:w-1/2">
           <img
-            className="bg-cover bg-center h-1/2 w-1/2 lg:h-96 lg:w-3/4 "
+            className="bg-cover bg-center w-2/3 lg:h-96 lg:w-3/4 "
             src={image}
             alt="image"
           />
         </div>
-        <div className="form lg:w-1/2">
+        <div className="form mt-3 lg:w-1/2">
           <h2 className="font-bold font-primayfont text-lg text-dark-blue">
             {LoginString.login}
           </h2>
@@ -144,7 +144,7 @@ const Login = () => {
               onClick={handleSubmit}
               className="rounded-lg h-10 text-white font-bold flex justify-center items-center w-full mt-6 cursor-pointer"
               style={{
-                background: "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
+                background: Constants.gradient,
               }}
             >
               <p>{LoginString.login}</p>

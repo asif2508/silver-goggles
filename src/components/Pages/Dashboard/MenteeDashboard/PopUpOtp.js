@@ -1,5 +1,6 @@
 import React from "react";
 import Colors from "../../../../utils/Colors";
+import Constants from "../../../../utils/Constants";
 
 const PopUpOtp = ({ visible, onClose }) => {
   const handleOnClose = (e) => {
@@ -33,7 +34,7 @@ const PopUpOtp = ({ visible, onClose }) => {
           <div
             className="rounded-lg h-10 text-white cursor-pointer font-bold flex justify-center items-center mb-7 w-full mt-6 "
             style={{
-              background: "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
+              background: Constants.gradient,
             }}
             onClick={onclose}
           >

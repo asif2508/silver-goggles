@@ -12,6 +12,7 @@ import Breadcrumb from "../../Component/Breadcrumb";
 import Header from "../../Header/Header";
 import { useNavigate } from "react-router-dom";
 import HeaderSeprater from "../../Component/HeaderSeprater";
+import Constants from "../../../utils/Constants";
 
 const BookMentorNow = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const BookMentorNow = () => {
         <div className="ml-5 mb-8 -mt-3">
           <Breadcrumb
             navigations={["Mentors", "Kalpesh", "Book Now"]}
-            onPressRoutes={["/mentors","/","/"]}
+            onPressRoutes={["/mentors", "/", "/"]}
           />
         </div>
 
@@ -319,7 +320,7 @@ const BookMentorNow = () => {
             <div
               className="rounded-lg h-10 text-white cursor-pointer font-bold flex justify-center items-center mb-7 w-full mt-6 "
               style={{
-                background: "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
+                background: Constants.gradient,
               }}
               onClick={() => setMyModel(true)}
             >

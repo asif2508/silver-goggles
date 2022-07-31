@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import Colors from "../../utils/Colors";
+import Constants from "../../utils/Constants";
 
 const MentorBox = ({ data }) => {
   return (
@@ -34,7 +35,7 @@ const MentorBox = ({ data }) => {
                   />
                 )}
               </div>
-              <div className="flex">
+              <div className="flex flex-wrap">
                 <p className="font-primayfont text-dark-blue text-base mt-1">
                   {data.designation}
                 </p>
@@ -45,7 +46,7 @@ const MentorBox = ({ data }) => {
                   {data.workIn}
                 </p>
               </div>
-              <div className="flex">
+              <div className="flex flex-wrap">
                 <p className="font-primayfont text-grey text-base mt-1">
                   🎯 Studied
                 </p>
@@ -87,8 +88,7 @@ const MentorBox = ({ data }) => {
               <button
                 className="w-full lg:w-40 h-10 text-white rounded-lg font-primayfont font-bold"
                 style={{
-                  background:
-                    "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
+                  background: Constants.gradient,
                 }}
               >
                 View Profile
@@ -96,8 +96,7 @@ const MentorBox = ({ data }) => {
               <button
                 className="w-full lg:w-40 h-10 text-white font-primayfont font-bold rounded-lg ml-4"
                 style={{
-                  background:
-                    "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
+                  background: Constants.gradient,
                 }}
               >
                 Book Now

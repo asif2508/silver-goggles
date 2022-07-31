@@ -20,7 +20,7 @@ const MentorEditReview = () => {
     <div className="min-h-half">
       <Header />
       <HeaderSeprater />
-      <div className="px-4 md:px-16 mt-8 lg:px-24 flex flex-col">
+      <div className="px-4 md:px-16 lg:px-24 flex flex-col">
         <Breadcrumb
           navigations={["Become a Mentor"]}
           onPressRoutes={["/become-mentor"]}

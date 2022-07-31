@@ -9,6 +9,7 @@ import Header from "../Header/Header";
 import AssetHome3 from "../../images/asset_home_3.svg";
 import Features from "../Component/BecomeMentor/Features";
 import { useNavigate } from "react-router-dom";
+import Constants from "../../utils/Constants";
 
 const BecomeMentor = () => {
   const navigate = useNavigate();
@@ -22,12 +23,7 @@ const BecomeMentor = () => {
 
   return (
     <div className="min-h-half">
-      <div
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(43, 195, 252, 0.2) 0%, rgba(255, 255, 255, 0) 100%)",
-        }}
-      >
+      <div style={{ background: Constants.homeBackgroundGradient }}>
         <div>
           <Header />
         </div>
@@ -41,7 +37,7 @@ const BecomeMentor = () => {
               </h1>
               <h1
                 className="font-bold hidden lg:flex font-primayfont text-dark-blue align-middle text-center"
-                style={{ fontSize: 52 }}
+                style={{ fontSize: 48 }}
               >
                 Help other learn & progress because Being a mentor is new
                 superHero
@@ -79,7 +75,7 @@ const BecomeMentor = () => {
         />
       </section>
       <section className="px-4 bg-dark-blue md:px-28">
-        <div className="pt-36 md:pt-52 lg:pt-72">
+        <div className="pt-52 lg:pt-72">
           <h3 className="font-bold font-primayfont text-xl text-white lg:text-4xl">
             How it works?
           </h3>

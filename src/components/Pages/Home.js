@@ -17,6 +17,7 @@ import Colors from "../../utils/Colors";
 import HomeSliderDesktop from "../Component/Home/HomeSliderDesktop";
 import MentorSliderDesktop from "../Component/Home/MentorSliderDesktop";
 import PackageSliderDesktop from "../Component/Home/PackageSliderDesktop";
+import Constants from "../../utils/Constants";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -85,12 +86,7 @@ const Home = () => {
 
   return (
     <div className="min-h-half">
-      <div
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(43, 195, 252, 0.2) 0%, rgba(255, 255, 255, 0) 100%)",
-        }}
-      >
+      <div style={{ background: Constants.homeBackgroundGradient }}>
         <div>
           <Header />
         </div>
@@ -103,7 +99,7 @@ const Home = () => {
               </h1>
               <h1
                 className="font-bold hidden lg:flex font-primayfont text-dark-blue align-middle text-center"
-                style={{ fontSize: 52 }}
+                style={{ fontSize: 48 }}
               >
                 Find Out what you like doing best with your buddy mentors
               </h1>
@@ -116,7 +112,7 @@ const Home = () => {
           </div>
           <div
             className="h-10 flex flex-row align-middle rounded-md bg-white justify-center lg:h-12 px-4 w-10/12 md:w-2/3"
-            style={{ borderWidth: 1, borderColor: "rgba(0, 16, 60, 0.45)" }}
+            style={{ borderWidth: 1, borderColor: Colors.textInputBorder }}
           >
             <div className="flex flex-row align-middle w-full">
               <BiSearch
@@ -152,15 +148,15 @@ const Home = () => {
               {HomeStrings.search_mentor}
             </button>
           </div>
-          <div className="mt-8 px-4 w-2/3">
+          <div className="mt-8 px-4 w-full md:w-2/3">
             <h3 className="font-semibold text-base font-primayfont text-dark-blue lg:text-lg">
               {HomeStrings.trending_keywords}
             </h3>
-            <div className="my-4 flex w-full flex-wrap justify-center">
+            <div className="my-4 flex w-full flex-wrap justify-start">
               {searchChips.map((text, index) => (
                 <p
                   key={index}
-                  className="flex flex-row text-yellow font-bold font-primayfont text-xs mr-10 my-1 cursor-pointer lg:text-lg"
+                  className="flex flex-row text-yellow font-bold font-primayfont text-xs mr-4 lg:mr-9 my-1 cursor-pointer lg:text-lg"
                 >
                   {text}
                 </p>
@@ -171,11 +167,11 @@ const Home = () => {
       </div>
 
       {/* section 2 */}
-      <section className="px-4 mb-12 items-center flex justify-center h-2/3 ">
+      <section className="px-4 mb-48 sm:mb-36 lg:mb-20 items-center flex justify-center h-2/3 ">
         <img className="w-10/12 md:w-2/3" alt="Home page" src={AssetHome1} />
       </section>
-      <section className="px-4 -mt-44 bg-dark-blue md:px-28">
-        <div className="pt-36">
+      <section className="px-4 -mt-80 bg-dark-blue md:px-28">
+        <div className="pt-40 sm:pt-48 lg:pt-64">
           <h3 className="font-bold font-primayfont text-xl text-white lg:text-4xl">
             {HomeStrings.how_it_works}
           </h3>
@@ -193,8 +189,7 @@ const Home = () => {
       {/* Our Mentors  */}
       <section
         style={{
-          background:
-            "linear-gradient(180deg, rgba(43, 195, 252, 0.2) 0%, rgba(255, 255, 255, 0) 100%)",
+          background: Constants.homeBackgroundGradient,
         }}
         className="py-5 px-4 md:px-28"
       >
@@ -329,8 +324,7 @@ const Home = () => {
       {/* testimonials  */}
       <section
         style={{
-          background:
-            "linear-gradient(180deg, rgba(43, 195, 252, 0.2) 0%, rgba(255, 255, 255, 0) 100%)",
+          background: Constants.homeBackgroundGradient,
         }}
         className="px-4 py-16"
       >

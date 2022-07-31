@@ -7,6 +7,7 @@ import Colors from "../../../../utils/Colors";
 import PopUpOtp from "./PopUpOtp";
 import HeaderSeprater from "../../../Component/HeaderSeprater";
 import DashboardNavigator from "../../../Component/MenteeDashboard/DashboardMenteeNavigator";
+import Constants from "../../../../utils/Constants";
 
 const DashBoardHome = () => {
   const [showMyModel, setMyModel] = useState(false);
@@ -88,8 +89,7 @@ const DashBoardHome = () => {
               <button
                 className="py-2 px-7 mt-6 rounded-lg text-white font-bold text-base"
                 style={{
-                  background:
-                    "linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
+                  background: Constants.gradient,
                 }}
                 onClick={() => navigation("/mentors")}
               >
@@ -97,14 +97,14 @@ const DashBoardHome = () => {
               </button>
             </div>
 
-            <div className="mt-8 w-full flex justify-center items-center">
+            <div className="mt-8 w-full flex justify-center items-center mb-12 lg:mb-0">
               <img
                 src={CircleImg}
                 className="w-full sm:w-3/4 md:w-2/3 lg:w-6/12 lg:max-w-threethirty"
               />
             </div>
 
-            <div className="mt-10">
+            <div className="mt-10 hidden lg:flex lg:flex-col">
               <div className="flex justify-between items-end">
                 <p className="font-primayfont text-dark-blue font-bold text-xl">
                   Recommended Mentors
