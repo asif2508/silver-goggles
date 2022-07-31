@@ -5,7 +5,6 @@ import Header from "../Header/Header";
 import Img from "../../images/Ellipse_9.svg";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Link } from "react-router-dom";
-import ChangeMindPopUp from "./ChangeMindPopUp";
 import HeaderSeprater from "../Component/HeaderSeprater";
 import DashboardNavigator from "../Component/DashboardMenteeNavigator";
 import CustomButton from "../Component/CustomButton";
@@ -175,7 +174,6 @@ const SessionDashBoard = () => {
           </div>
         </div>
       </div>
-      <ChangeMindPopUp onClose={handleOnClose} visible={showMyModel} />
     </div>
   );
 };
