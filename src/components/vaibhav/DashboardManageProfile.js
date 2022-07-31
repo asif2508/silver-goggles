@@ -59,15 +59,15 @@ const ManageProfileDash = () => {
             {/* Basic information from start */}
 
             <form className="pr-4">
-              <div class="mb-4">
+              <div className="mb-4">
                 <label
-                  class="block text-textBlack text-sm font-normal font-primayfont mb-2"
-                  for="username"
+                  className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+                  htmlFor="username"
                 >
                   Country
                 </label>
                 <input
-                  class=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
+                  className=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
                   id="username"
                   type="text"
                   placeholder="Name Your Country"
@@ -76,15 +76,15 @@ const ManageProfileDash = () => {
                   }}
                 />
               </div>
-              <div class="mb-4">
+              <div className="mb-4">
                 <label
-                  class="block text-textBlack text-sm font-normal font-primayfont mb-2"
-                  for="username"
+                  className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+                  htmlFor="username"
                 >
                   Phone Number
                 </label>
                 <input
-                  class=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
+                  className=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
                   id="username"
                   type="text"
                   placeholder="1234567890"
@@ -94,13 +94,13 @@ const ManageProfileDash = () => {
                 />
               </div>
               <label
-                class="block text-textBlack text-sm font-normal font-primayfont mb-2"
-                for="username"
+                className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+                htmlFor="username"
               >
                 Enter your timezone
               </label>
               <div
-                class=" rounded w-full h-12 text-gray-700 border-2 pl-4 mb-4"
+                className=" rounded w-full h-12 text-gray-700 border-2 pl-4 mb-4"
                 style={{
                   borderColor: "rgba(0, 16, 60, 0.15)",
                 }}
@@ -113,15 +113,15 @@ const ManageProfileDash = () => {
                 />
                 {/* <IoIosArrowDown /> */}
               </div>
-              <div class="mb-4">
+              <div className="mb-4">
                 <label
-                  class="block text-textBlack text-sm font-normal font-primayfont mb-2"
-                  for="username"
+                  className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+                  htmlFor="username"
                 >
                   What is your domain?
                 </label>
                 <input
-                  class=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
+                  className=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
                   id="username"
                   type="text"
                   placeholder="Computer Science"
@@ -130,15 +130,15 @@ const ManageProfileDash = () => {
                   }}
                 />
               </div>
-              <div class="mb-4">
+              <div className="mb-4">
                 <label
-                  class="block text-textBlack text-sm font-normal font-primayfont mb-2"
-                  for="username"
+                  className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+                  htmlFor="username"
                 >
                   Company/school
                 </label>
                 <input
-                  class=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
+                  className=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
                   id="username"
                   type="text"
                   placeholder="Name of Your Company/School"
@@ -147,15 +147,15 @@ const ManageProfileDash = () => {
                   }}
                 />
               </div>
-              <div class="mb-4">
+              <div className="mb-4">
                 <label
-                  class="block text-textBlack text-sm font-normal font-primayfont mb-2"
-                  for="username"
+                  className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+                  htmlFor="username"
                 >
                   About you
                 </label>
                 <textarea
-                  class=" rounded w-full h-36 pt-3 text-gray-700 leading-6 border-grey border-2 pl-4"
+                  className=" rounded w-full h-36 pt-3 text-gray-700 leading-6 border-grey border-2 pl-4"
                   id="username"
                   type="text"
                   placeholder="Tell us something about you"
@@ -178,17 +178,17 @@ const ManageProfileDash = () => {
           {/* Basic Infromation from end */}
 
           {/* Login security form start */}
-          <div class={showtab === 2 ? "pt-6 pr-4" : "hidden"}>
+          <div className={showtab === 2 ? "pt-6 pr-4" : "hidden"}>
             <form className="mr-4">
-              <div class="mb-4">
+              <div className="mb-4">
                 <label
-                  class="block text-textBlack text-sm font-normal font-primayfont mb-2"
-                  for="username"
+                  className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+                  htmlFor="username"
                 >
                   Email
                 </label>
                 <input
-                  class=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
+                  className=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
                   id="username"
                   type="email"
                   placeholder="email@example.com"
@@ -197,15 +197,15 @@ const ManageProfileDash = () => {
                   }}
                 />
               </div>
-              <div class="mb-4">
+              <div className="mb-4">
                 <label
-                  class="block text-textBlack text-sm font-normal font-primayfont mb-2"
-                  for="username"
+                  className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+                  htmlFor="username"
                 >
                   Password
                 </label>
                 <input
-                  class=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
+                  className=" rounded w-full h-12 text-gray-700 leading-6 border-grey border-2 pl-4"
                   id="username"
                   type="password"
                   placeholder="Your Password here"

@@ -3,17 +3,159 @@ import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
 import Colors from "../../utils/Colors";
 import Header from "../Header/Header";
 import Img from "../../images/Ellipse_9.svg";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Link } from "react-router-dom";
 import ChangeMindPopUp from "./ChangeMindPopUp";
 import HeaderSeprater from "../Component/HeaderSeprater";
 import DashboardNavigator from "../Component/DashboardMenteeNavigator";
+import CustomButton from "../Component/CustomButton";
 
 const SessionDashBoard = () => {
   const [showMyModel, setMyModel] = useState(false);
   const handleOnClose = () => setMyModel(false);
 
-  const [show, setShow] = useState(true);
+  const sessions = [
+    {
+      sessionWith: "Kapil Batra",
+      designation: "UI/UX Designer, MetaCube",
+      isCompleted: false,
+      date: "Thu, 12 Jun",
+      time: "2:30 pm - 3:00 pm",
+      meetLink: "http://meet.google.com/kir-ubci-qgx",
+      notes:
+        "Lorem ipsum dolor sit amet, consecte tur adipiscing elit. Commodo venena tis adipiscing duis sed. Odio euismod tincidunt amet, lacus, viverra vitae. Quisque in morbi semper aenean aliquam, massa egestas vulputate.",
+      createdAt: "May 20, 2022",
+      paid: "₹699/-",
+    },
+    {
+      sessionWith: "Kapil Batra",
+      designation: "UI/UX Designer, MetaCube",
+      isCompleted: true,
+      date: "Thu, 12 Jun",
+      time: "2:30 pm - 3:00 pm",
+      meetLink: "http://meet.google.com/kir-ubci-qgx",
+      notes:
+        "Lorem ipsum dolor sit amet, consecte tur adipiscing elit. Commodo venena tis adipiscing duis sed. Odio euismod tincidunt amet, lacus, viverra vitae. Quisque in morbi semper aenean aliquam, massa egestas vulputate.",
+      createdAt: "May 20, 2022",
+      paid: "₹699/-",
+    },
+  ];
+
+  const MentorshipComponent = ({ data }) => {
+    const [show, setShow] = useState(data.isCompleted ? false : true);
+
+    return (
+      <div className="border-1 border-textInputBorder mb-6 rounded-lg px-4 py-4 lg:px-9 lg:py-9 lg:w-full">
+        <div className="flex flex-row">
+          <div className="w-11/12">
+            <p className="font-primayfont font-bold text-dark-blue font-blue text-xl lg:text-2xl">
+              Mentorship Session With
+              <span className="font-primayfont text-xl lg:text-2xl ml-1 lg:ml-2 font-bold text-primary ">
+                {data.sessionWith}
+              </span>
+            </p>
+          </div>
+          <div className="w-1/12 flex justify-center items-center">
+            {show ? (
+              <IoIosArrowDown onClick={() => setShow(!show)} size={24} />
+            ) : (
+              <IoIosArrowUp onClick={() => setShow(!show)} size={24} />
+            )}
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:flex-row-reverse justify-between">
+          <p
+            className={`font-primayfont mt-2 font-normal text-base lg:pr-26 ${
+              data.isCompleted ? "text-green" : "text-primar-second"
+            }`}
+          >
+            {data.isCompleted ? "Completed" : "Pending"}
+          </p>
+          <div className="flex flex-row mt-2 items-center text-center">
+            <AiOutlineCalendar className="w-6 h-6" color={Colors.dark_blue} />
+            <p className="font-primayfont ml-1 text-dark-blue text-sm lg:text-base font-normal">
+              {data.date}
+            </p>
+            <AiOutlineClockCircle
+              className="ml-4 w-6 h-6"
+              color={Colors.dark_blue}
+            />
+            <p className="font-primayfont ml-1 text-dark-blue text-sm lg:text-base font-normal">
+              {data.time}
+            </p>
+          </div>
+        </div>
+
+        {show ? (
+          <div className="lg:w-full">
+            <hr className="mt-4" style={{ color: Colors.textInputBorder }} />
+            <p className="font-primayfont text-dark-blue font-bold text-base mt-4">
+              Mentor:
+            </p>
+            <div className="mt-2 flex flex-row ">
+              <div>
+                <img className="h-14 w-14" src={Img} alt="image" />
+              </div>
+              <div className="ml-2">
+                <p className="font-primayfont capitalize text-dark-blue font-medium text-base">
+                  {data.sessionWith}
+                </p>
+                <p
+                  className="font-primayfont font-normal text-sm mt-1"
+                  style={{ color: Colors.dark_grey }}
+                >
+                  {data.designation}
+                </p>
+              </div>
+            </div>
+            <p className="mt-6 font-primayfont font-bold text-dark-blue text-base">
+              Meeting Link:
+            </p>
+            <Link
+              className="font-primayfont mt-2 text-base font-normal text-dark-blue"
+              to="/"
+            >
+              {data.meetLink}
+            </Link>
+            <p className="mt-6 font-primayfont font-bold text-dark-blue text-base">
+              Your Notes:
+            </p>
+            <p className="font-primayfont text-dark-blue font-normal text-base mt-2">
+              {data.notes}
+            </p>
+            <div className="mt-6 flex flex-col lg:flex-row lg:justify-between">
+              <p className="font-primayfont font-bold text-base text-dark-blue">
+                Created:
+                <span className="font-primayfont ml-1 font-normal text-dark-blue">
+                  {data.createdAt}
+                </span>
+              </p>
+              <p className="font-primayfont font-bold text-base mt-2 lg:mt-0 text-dark-blue">
+                Paid:
+                <span className="font-primayfont ml-1 font-normal text-dark-blue">
+                  {data.paid}
+                </span>
+              </p>
+            </div>
+            <div className="mt-6 flex flex-col lg:flex-row lg:space-x-6">
+              <div className="">
+                <CustomButton text="Join Meeting" style="w-full lg:w-max" />
+              </div>
+              <div className="">
+                <CustomButton
+                  text="Change Your Mind?"
+                  style="mt-4 w-full lg:mt-0 lg:w-max"
+                  onClick={() => setMyModel(true)}
+                />
+              </div>
+            </div>
+          </div>
+        ) : null}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-half">
       <Header />
@@ -21,98 +163,15 @@ const SessionDashBoard = () => {
 
       <div className="flex flex-col lg:flex-row">
         <DashboardNavigator activeSession={true} />
-        <div className="px-4 sm:px-16 md:px-28 lg:px-11 w-full lg:h-full lg:w-full">
+        <div className="px-4 sm:px-16 md:px-28 lg:px-11 w-full lg:h-full lg:w-full mb-14">
           <p className="font-primayfont text-dark-blue font-bold text-xl capitalize mt-7">
             Your Sessions
+            <div className="flex flex-col space-y-6 mt-4 max-w-sessionWidth">
+              {sessions.map((data, index) => {
+                return <MentorshipComponent data={data} key={index} />;
+              })}
+            </div>
           </p>
-          <div className=" border-2 mt-4 rounded-lg pl-4 mb-12 py-4 lg:w-full">
-            <div className="flex flex-row">
-              <div className="w-full">
-                <p className="font-primayfont mt-4 text-dark-blue font-blue text-xl w-64">
-                  Mentorship Session With{" "}
-                  <p className="font-primayfont text-xl font-bold text-primary ">
-                    Kapil Batra
-                  </p>
-                </p>
-              </div>
-
-              <IoIosArrowDown
-                onClick={() => setShow(!show)}
-                className="mt-10 w-6 h-6 mr-6 lg:mr-6"
-              />
-            </div>
-
-            <p className="font-primayfont text-primar-second font-normal text-base llg:pr-26 ">
-              Pending
-            </p>
-            <div className="flex flex-row items-center text-center">
-              <AiOutlineCalendar className="w-6 h-6" />
-              <p className="font-primayfont ml-1 ">Thu, 12 Jun</p>
-              <AiOutlineClockCircle className="ml-2 w-6 h-6" />
-              <p className="font-primayfont ml-1">Thu, 12 Jun</p>
-            </div>
-
-            {show ? (
-              <div className="lg:w-full">
-                <hr className="mt-4" style={{ color: Colors.lightgrey }} />
-                <p className="font-primayfont text-dark-blue font-bold text-base mt-4">
-                  Mentor:
-                </p>
-                <div className="mt-2 flex flex-row ">
-                  <div>
-                    <img className="h-14 w-14" src={Img} alt="image" />
-                  </div>
-                  <div className="ml-2">
-                    <p className="font-primayfont text-dark-blue font-medium text-base">
-                      kapil Batra
-                    </p>
-                    <p
-                      className="font-primayfont  font-normal text-sm"
-                      style={{ color: Colors.dark_grey }}
-                    >
-                      UI/UX Designer, MetaCube
-                    </p>
-                  </div>
-                </div>
-                <p className="mt-6 font-primayfont font-bold text-dark-blue text-base">
-                  Meeting Link:
-                </p>
-                <Link to="/">http://meet.google.com/kir-ubci-qgx</Link>
-                <p className="mt-6 font-primayfont font-bold text-dark-blue text-base">
-                  Your Notes:
-                </p>
-                <p className="font-primayfont text-dark-blue font-normal text-base mt-2">
-                  Lorem ipsum dolor sit amet, consecte tur adipiscing elit.
-                  Commodo venena tis adipiscing duis sed. Odio euismod tincidunt
-                  amet, lacus, viverra vitae. Quisque in morbi semper aenean
-                  aliquam, massa egestas vulputate.
-                </p>
-                <p className="font-primayfont font-bold mt-6 text-dark-blue">
-                  Created:
-                  <span className="font-primayfont font-normal text-dark-blue">
-                    May 20,2022
-                  </span>
-                </p>
-                <p className="font-primayfont font-bold mt-2 text-dark-blue">
-                  Paid:
-                  <span className="font-primayfont font-normal text-dark-blue">
-                    ₹699/-
-                  </span>
-                </p>
-                <div className="mt-6">
-                  <button className="bg-primary font-bold text-base text-white w-80 h-12 rounded-lg text-center items-center">
-                    Join Meeting
-                  </button>
-                  <button
-                    className="bg-primary font-bold text-base text-white w-80 h-12 rounded-lg text-center items-center my-4 md:justify-between"
-                    onClick={() => setMyModel(true)}
-                  >
-                    Change Your Mind?
-                  </button>
-                </div>
-              </div>
-            ) : null}
-          </div>
         </div>
       </div>
       <ChangeMindPopUp onClose={handleOnClose} visible={showMyModel} />

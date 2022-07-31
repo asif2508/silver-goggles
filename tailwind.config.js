@@ -39,6 +39,8 @@ module.exports = {
       box: "150px",
       mentorbox: "550px",
       packagebox: "400px",
+      sessionWidth: "800px",
+      buttonWidth:'188px',
     },
     fontFamily: {
       primayfont: ["Poppins", "sans-serif"],

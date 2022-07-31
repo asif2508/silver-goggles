@@ -32,7 +32,7 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [navigate]);
-  
+
   useEffect(() => {
     if (data) {
       alert(data);
@@ -64,7 +64,7 @@ const Contact = () => {
             >
               <div className="flex w-full flex-wrap -mx-3 mb-6">
                 <div className="w-full px-3">
-                  <label className="label-form" htmlFor="grid-password">
+                  <label className="label-form" htmlhtmlFor="grid-password">
                     Name
                   </label>
                   <input
@@ -78,7 +78,7 @@ const Contact = () => {
               </div>
               <div className="flex w-full flex-wrap -mx-3 mb-6">
                 <div className="w-full px-3">
-                  <label className="label-form" htmlFor="grid-password">
+                  <label className="label-form" htmlhtmlFor="grid-password">
                     Email
                   </label>
                   <input
@@ -92,7 +92,7 @@ const Contact = () => {
               </div>
               <div className="flex w-full flex-wrap -mx-3 mb-6">
                 <div className="w-full px-3">
-                  <label className="label-form" htmlFor="grid-password">
+                  <label className="label-form" htmlhtmlFor="grid-password">
                     Phone No.
                   </label>
                   <input
@@ -108,7 +108,7 @@ const Contact = () => {
               </div>
               <div className="flex flex-wrap w-full   mb-6">
                 <div className="w-full px-3">
-                  <label className="label-form" htmlFor="grid-password">
+                  <label className="label-form" htmlhtmlFor="grid-password">
                     Message
                   </label>
                   <textarea
