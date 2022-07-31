@@ -9,6 +9,7 @@ import { signin } from "../../../actions/auth";
 import Header from "../../Header/Header";
 import image from "../../../images/Edukith_login_img.svg";
 import Google from "../../../images/flat_color_icons_google.svg";
+import Constants from "../../../utils/Constants";
 
 const Login = () => {
   const [mentorButtonPressed, setMentorButtonPressed] = React.useState(false);
@@ -21,7 +22,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signin(email, password, navigate));
+    if (mentorButtonPressed) {
+      navigate("/mentor/dashboard");
+    } else {
+      navigate("/mentee/dashboard");
+    }
+    // dispatch(signin(email, password, navigate));
   };
 
   useEffect(() => {

@@ -17,11 +17,11 @@ import BecomeMentor from "./components/Pages/BecomeMentor.js";
 import MentorEditProfile from "./components/Pages/Mentors/MentorFormFilling/MentorEditProfile.js";
 import MentorEditQual from "./components/Pages/Mentors/MentorFormFilling/MentorEditQual.js";
 import MentorEditReview from "./components/Pages/Mentors/MentorFormFilling/MentorEditReview.js";
-import DashBoard from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
-import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
+
 import DashBoardSession from "./components/Pages/Dashboard/MenteeDashboard/DashBoardSession.js";
 import DashBoardMentors from "./components/Pages/Dashboard/MenteeDashboard/DashboardMentors.js";
 import DashBoardManageProfile from "./components/Pages/Dashboard/MenteeDashboard/DashboardManageProfile.js";
+import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
 
 const App = () => {
   return (
@@ -40,13 +40,6 @@ const App = () => {
             <Route path="/mentors/:id" element={<DedicateMentor />} />
             <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />
             <Route path="/become-mentor" element={<BecomeMentor />} />
-            <Route path="/dashboard" element={<DashBoardHome />} />
-            <Route path="/dashboard/session" element={<DashBoardSession />} />
-            <Route path="/dashboard/mentor" element={<DashBoardMentors />} />
-            <Route
-              path="/dashboard/manageprofile"
-              element={<DashBoardManageProfile />}
-            />
             <Route
               path="/become-mentor/edit-profile"
               element={<MentorEditProfile />}
@@ -58,6 +51,14 @@ const App = () => {
             <Route
               path="/become-mentor/in-review"
               element={<MentorEditReview />}
+            />
+
+            <Route path="/mentee/dashboard" element={<DashBoardHome />} />
+            <Route path="/mentee/dashboard/session" element={<DashBoardSession />} />
+            <Route path="/mentee/dashboard/mentors" element={<DashBoardMentors />} />
+            <Route
+              path="/mentee/dashboard/manageprofile"
+              element={<DashBoardManageProfile />}
             />
           </Routes>
         </div>
