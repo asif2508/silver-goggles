@@ -34,8 +34,6 @@ const App = () => {
             <Route path="" element={<Page404 />} />
             <Route element={<Page404 />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/mentors" element={<Mentors />} />
             <Route path="/mentors/:id" element={<DedicateMentor />} />
             <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />
