@@ -17,6 +17,9 @@ const Colors = {
   buttongrey: "#EFEFEF",
   hrgrey: "#00000040",
   red: "#FF0B0B",
+  dark_grey: " #798196",
+  bg_grey: "#FAFAFA",
+  hrlightBlue: "#00103c26",
 };
 
 export default Colors;

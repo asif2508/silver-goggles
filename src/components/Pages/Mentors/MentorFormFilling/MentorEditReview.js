@@ -5,7 +5,6 @@ import Asset from "../../../../images/asset_edit_mentor_3.svg";
 import AssetLarge from "../../../../images/asset_edit_mentor_3_large.svg";
 import CustomButton from "../../../Component/CustomButton";
 import HeaderSeprater from "../../../Component/HeaderSeprater";
-import { Chip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const MentorEditReview = () => {

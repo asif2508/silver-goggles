@@ -195,7 +195,7 @@ const MentorEditProfile = () => {
               <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
                 Tell us about yourself (This will be visible to your profile)
               </p>
-              <input
+              <textarea
                 type="text"
                 placeholder="Max 150 words"
                 maxLength={150}
@@ -207,7 +207,7 @@ const MentorEditProfile = () => {
               <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
                 Why do you want to be a mentor? (Non-visible)
               </p>
-              <input
+              <textarea
                 type="text"
                 placeholder="Write about your expectations and future plans."
                 maxLength={150}
