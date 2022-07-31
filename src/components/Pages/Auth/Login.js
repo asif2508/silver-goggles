@@ -24,8 +24,10 @@ const Login = () => {
     e.preventDefault();
     if (mentorButtonPressed) {
       navigate("/mentor/dashboard");
+      localStorage.setItem(Constants.userType, Constants.mentor);
     } else {
       navigate("/mentee/dashboard");
+      localStorage.setItem(Constants.userType, Constants.mentee);
     }
     // dispatch(signin(email, password, navigate));
   };
