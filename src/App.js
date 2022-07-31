@@ -13,13 +13,15 @@ import BookMentorNow from "./components/Pages/Mentors/BookMentorNow.js";
 
 import Page404 from "./components/Pages/404Page.js";
 import BecomeMentor from "./components/Pages/BecomeMentor.js";
-import DashBoard from "./components/vaibhav/DashBoardHome.js";
-import SessionDashBoard from "./components/vaibhav/DashBoardSession.js";
-import MentorDash from "./components/vaibhav/DashboardMentors.js";
-import ManageProfileDash from "./components/vaibhav/DashboardManageProfile.js";
+
 import MentorEditProfile from "./components/Pages/Mentors/MentorFormFilling/MentorEditProfile.js";
 import MentorEditQual from "./components/Pages/Mentors/MentorFormFilling/MentorEditQual.js";
 import MentorEditReview from "./components/Pages/Mentors/MentorFormFilling/MentorEditReview.js";
+import DashBoard from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
+import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
+import DashBoardSession from "./components/Pages/Dashboard/MenteeDashboard/DashBoardSession.js";
+import DashBoardMentors from "./components/Pages/Dashboard/MenteeDashboard/DashboardMentors.js";
+import DashBoardManageProfile from "./components/Pages/Dashboard/MenteeDashboard/DashboardManageProfile.js";
 
 const App = () => {
   return (
@@ -38,12 +40,12 @@ const App = () => {
             <Route path="/mentors/:id" element={<DedicateMentor />} />
             <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />
             <Route path="/become-mentor" element={<BecomeMentor />} />
-            <Route path="/dashboard" element={<DashBoard />} />
-            <Route path="/dashboard/session" element={<SessionDashBoard />} />
-            <Route path="/dashboard/mentor" element={<MentorDash />} />
+            <Route path="/dashboard" element={<DashBoardHome />} />
+            <Route path="/dashboard/session" element={<DashBoardSession />} />
+            <Route path="/dashboard/mentor" element={<DashBoardMentors />} />
             <Route
               path="/dashboard/manageprofile"
-              element={<ManageProfileDash />}
+              element={<DashBoardManageProfile />}
             />
             <Route
               path="/become-mentor/edit-profile"

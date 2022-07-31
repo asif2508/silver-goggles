@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
-import Colors from "../../utils/Colors";
+import Colors from "../../../../utils/Colors";
 
 const PopUpOtp = ({ visible, onClose }) => {
   const handleOnClose = (e) => {

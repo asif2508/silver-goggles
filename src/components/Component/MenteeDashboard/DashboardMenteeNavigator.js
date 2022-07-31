@@ -3,9 +3,9 @@ import { AiFillCreditCard } from "react-icons/ai";
 import { BiHomeAlt } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { MdOutlineManageAccounts } from "react-icons/md";
-import Icon from "../../images/Ellipse.svg";
+import Icon from "../../../images/Ellipse.svg";
 import { Link } from "react-router-dom";
-import Colors from "../../utils/Colors";
+import Colors from "../../../utils/Colors";
 
 const DashboardNavigator = ({
   activeHome = false,

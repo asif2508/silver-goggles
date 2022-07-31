@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { BsPencil, BsSearch } from "react-icons/bs";
-import Colors from "../../utils/Colors";
-import MentorBox from "../Component/MentorBox";
-import Header from "../Header/Header";
-import HeaderSeprater from "../Component/HeaderSeprater";
-import DashboardNavigator from "../Component/DashboardMenteeNavigator";
+import MentorBox from "../../../Component/MentorBox";
+import DashboardNavigator from "../../../Component/MenteeDashboard/DashboardMenteeNavigator";
+import HeaderSeprater from "../../../Component/HeaderSeprater";
+import Header from "../../../Header/Header";
+import Colors from "../../../../utils/Colors";
 
-const MentorDash = () => {
+const DashBoardMentors = () => {
   const mentors = [
     {
       img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
@@ -192,4 +192,4 @@ const MentorDash = () => {
   );
 };
 
-export default MentorDash;
+export default DashBoardMentors;

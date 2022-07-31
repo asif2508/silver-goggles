@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
-import Colors from "../../utils/Colors";
-import Header from "../Header/Header";
-import Img from "../../images/Ellipse_9.svg";
+import Colors from "../../../../utils/Colors";
+import Header from "../../../Header/Header";
+import Img from "../../../../images/Ellipse_9.svg";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Link } from "react-router-dom";
-import HeaderSeprater from "../Component/HeaderSeprater";
-import DashboardNavigator from "../Component/DashboardMenteeNavigator";
-import CustomButton from "../Component/CustomButton";
+import HeaderSeprater from "../../../Component/HeaderSeprater";
+import DashboardNavigator from "../../../Component/MenteeDashboard/DashboardMenteeNavigator";
+import CustomButton from "../../../Component/CustomButton";
 
-const SessionDashBoard = () => {
+const DashBoardSession = () => {
   const [showMyModel, setMyModel] = useState(false);
   const handleOnClose = () => setMyModel(false);
 
@@ -178,4 +178,4 @@ const SessionDashBoard = () => {
   );
 };
 
-export default SessionDashBoard;
+export default DashBoardSession;

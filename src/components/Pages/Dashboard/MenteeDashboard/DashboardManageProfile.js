@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Img from "../../images/Group_214.svg";
-import Header from "../Header/Header";
-import HeaderSeprater from "../Component/HeaderSeprater";
-import DashboardNavigator from "../Component/DashboardMenteeNavigator";
-import Colors from "../../utils/Colors";
+import Img from "../../../../images/Group_214.svg";
+import HeaderSeprater from "../../../Component/HeaderSeprater";
+import Header from "../../../Header/Header";
+import Colors from "../../../../utils/Colors";
+import DashboardNavigator from "../../../Component/MenteeDashboard/DashboardMenteeNavigator";
 
-const ManageProfileDash = () => {
+const DashBoardManageProfile = () => {
   const [showtab, setShowtab] = useState(1);
   const handletab = (e) => {
     setShowtab(e);
@@ -242,4 +242,4 @@ const ManageProfileDash = () => {
   );
 };
 
-export default ManageProfileDash;
+export default DashBoardManageProfile;

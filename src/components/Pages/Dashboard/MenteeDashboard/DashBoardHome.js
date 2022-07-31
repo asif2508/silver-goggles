@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import CircleImg from "../../images/Group_7048.svg";
-import Header from "../Header/Header";
+import CircleImg from "../../../../images/Group_7048.svg";
+import Header from "../../../Header/Header";
 import { useNavigate } from "react-router-dom";
-import Colors from "../../utils/Colors";
+import Colors from "../../../../utils/Colors";
 import PopUpOtp from "./PopUpOtp";
-import HeaderSeprater from "../Component/HeaderSeprater";
-import DashboardNavigator from "../Component/DashboardMenteeNavigator";
+import HeaderSeprater from "../../../Component/HeaderSeprater";
+import DashboardNavigator from "../../../Component/MenteeDashboard/DashboardMenteeNavigator";
 
-const DashBoard = () => {
+const DashBoardHome = () => {
   const [showMyModel, setMyModel] = useState(false);
   const handleOnClose = () => setMyModel(false);
   const navigation = useNavigate();
@@ -148,4 +148,4 @@ const DashBoard = () => {
   );
 };
 
-export default DashBoard;
+export default DashBoardHome;
