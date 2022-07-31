@@ -18,6 +18,7 @@ module.exports = {
     borderWidth: {
       1: "1px",
       2: "2px",
+      4: "4px",
     },
     minHeight: {
       mentor: "35vh",
@@ -40,13 +41,10 @@ module.exports = {
       mentorbox: "550px",
       packagebox: "400px",
       sessionWidth: "800px",
-      buttonWidth:'188px',
+      buttonWidth: "188px",
     },
     fontFamily: {
       primayfont: ["Poppins", "sans-serif"],
-    },
-    border: {
-      1: "1px",
     },
   },
   variants: {

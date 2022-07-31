@@ -166,12 +166,13 @@ const SessionDashBoard = () => {
         <div className="px-4 sm:px-16 md:px-28 lg:px-11 w-full lg:h-full lg:w-full mb-14">
           <p className="font-primayfont text-dark-blue font-bold text-xl capitalize mt-7">
             Your Sessions
-            <div className="flex flex-col space-y-6 mt-4 max-w-sessionWidth">
-              {sessions.map((data, index) => {
-                return <MentorshipComponent data={data} key={index} />;
-              })}
-            </div>
           </p>
+
+          <div className="flex flex-col space-y-6 mt-4 max-w-sessionWidth">
+            {sessions.map((data, index) => {
+              return <MentorshipComponent data={data} key={index} />;
+            })}
+          </div>
         </div>
       </div>
       <ChangeMindPopUp onClose={handleOnClose} visible={showMyModel} />
