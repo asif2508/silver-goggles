@@ -13,10 +13,10 @@ import BookMentorNow from "./components/Pages/Mentors/BookMentorNow.js";
 
 import Page404 from "./components/Pages/404Page.js";
 import BecomeMentor from "./components/Pages/BecomeMentor.js";
-import DashBoard from "./components/vaibhav/DashBoard.js";
-import SessionDashBoard from "./components/vaibhav/SessionDashBoard.js";
-import MentorDash from "./components/vaibhav/MentorDash.js";
-import ManageProfileDash from "./components/vaibhav/ManageProfileDash.js";
+import DashBoard from "./components/vaibhav/DashBoardHome.js";
+import SessionDashBoard from "./components/vaibhav/DashBoardSession.js";
+import MentorDash from "./components/vaibhav/DashboardMentors.js";
+import ManageProfileDash from "./components/vaibhav/DashboardManageProfile.js";
 import MentorEditProfile from "./components/Pages/Mentors/MentorFormFilling/MentorEditProfile.js";
 import MentorEditQual from "./components/Pages/Mentors/MentorFormFilling/MentorEditQual.js";
 import MentorEditReview from "./components/Pages/Mentors/MentorFormFilling/MentorEditReview.js";

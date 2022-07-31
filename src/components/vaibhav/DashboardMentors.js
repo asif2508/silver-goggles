@@ -3,14 +3,8 @@ import { BsSearch } from "react-icons/bs";
 import Colors from "../../utils/Colors";
 import MentorBox from "../Component/MentorBox";
 import Header from "../Header/Header";
-import { AiFillCreditCard } from "react-icons/ai";
-import { BiHomeAlt } from "react-icons/bi";
-import { FiUsers } from "react-icons/fi";
-import { MdOutlineManageAccounts } from "react-icons/md";
-import Icon from "../../images/Ellipse.svg";
-import { Link, NavLink } from "react-router-dom";
-import HomeDashBoard from "./HomeDashBoard";
-import SessionDashBoard from "./SessionDashBoard";
+import HeaderSeprater from "../Component/HeaderSeprater";
+import DashboardNavigator from "../Component/DashboardMenteeNavigator";
 
 const MentorDash = () => {
   const mentors = [
@@ -74,69 +68,17 @@ const MentorDash = () => {
   const handletab = (e) => {
     setShowtab(e);
   };
+  
   return (
     <div className="min-h-half">
       <Header />
-      <div
-        className="w-full hidden lg:block"
-        style={{
-          borderColor: "rgba(0, 16, 60, 0.15)",
-          backgroundColor: "rgba(0, 16, 60, 0.15)",
-          borderWidth: 0.5,
-          borderStyle: "solid",
-        }}
-      />
+      <HeaderSeprater />
+
       <div className="flex flex-col lg:flex-row">
-        <div className="mt-6 px-4 flex flex-col lg:pl-28 lg:pr-28 lg:h-screen">
-          <div className="flex flex-col w-full lg:flex-row items-center ">
-            <img className="w-16 h-16" src={Icon} />
-            <div className="w-full lg:ml-4">
-              <p className="w-full lg:w-max text-center text-base text-dark-blue font-bold font-primayfont mt-2 ">
-                Kalpesh Lohar
-              </p>
-              <p className="w-full lg:w-max text-center font-primayfont text-dark-blue text-xs font-normal">
-                Complete Profile
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-row lg:mt-16 lg:flex-col overflow-x-scroll whitespace-nowrap font-primayfont scrollbar-hide">
-            <Link to="/dashboard">
-              <div className="inline-flex items-center text-center">
-                <BiHomeAlt />
-                <p className="ml-2">Home</p>
-              </div>
-            </Link>
-            <Link to="/dashboard/session" className="lg:mt-7">
-              <div className="inline-flex items-center text-center ml-6 lg:ml-0">
-                <AiFillCreditCard />
-                <p className="ml-2">Session</p>
-              </div>
-            </Link>
-            <Link to="/dashboard/mentor" className="lg:mt-7">
-              <div className="inline-flex items-center text-center ml-6 lg:ml-0">
-                <FiUsers />
-                <p className="ml-2">Your mentors</p>
-              </div>
-            </Link>
-            <Link to="/dashboard/manageprofile" className="lg:mt-7">
-              <div className="inline-flex items-center text-center ml-6 lg:ml-0">
-                <MdOutlineManageAccounts />
-                <p className="ml-2">Manage Profile</p>
-              </div>
-            </Link>
-          </div>
-        </div>
-        <div
-          className="h-[150vh] hidden lg:block"
-          style={{
-            borderColor: "rgba(0, 16, 60, 0.15)",
-            backgroundColor: "rgba(0, 16, 60, 0.15)",
-            borderWidth: 0.5,
-            borderStyle: "solid",
-          }}
-        />
-        <div className="mt-12 px-4 lg:h-full lg:w-full">
-          <p className="font-primayfont text-dark-blue font-bold text-xl">
+        <DashboardNavigator activeMentors={true} />
+
+        <div className="px-4 sm:px-16 md:px-28 lg:px-11 w-full lg:h-full lg:w-full">
+          <p className="font-primayfont text-dark-blue font-bold text-xl mt-7">
             Your Mentors
           </p>
           <div
@@ -177,20 +119,20 @@ const MentorDash = () => {
             </button>
 
             <div
-            className="rounded-lg h-12 px-4 mr-4 py-3 border-2 lg:flex justify-center items-center hidden lg:block lg:ml-24 lg:w-80"
-            style={{
-              borderColor: Colors.border,
+              className="rounded-lg h-12 px-4 mr-4 py-3 border-2 lg:flex justify-center items-center hidden lg:block lg:ml-24 lg:w-80"
+              style={{
+                borderColor: Colors.border,
 
-              color: Colors.text_color,
-            }}
-          >
-            <input
-              className="w-full outline-none border-none text-dark-blue text-sm font-normal lg:w-4/5"
-              type="search"
-              placeholder="Search anything on this page"
-            />
-            <BsSearch className="text-primary h-6 w-6 ml-2" />
-          </div>
+                color: Colors.text_color,
+              }}
+            >
+              <input
+                className="w-full outline-none border-none text-dark-blue text-sm font-normal lg:w-4/5"
+                type="search"
+                placeholder="Search anything on this page"
+              />
+              <BsSearch className="text-primary h-6 w-6 ml-2" />
+            </div>
           </div>
           {/* pervious mentor start here */}
           <div
