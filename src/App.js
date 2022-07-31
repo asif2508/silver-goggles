@@ -1,8 +1,6 @@
 import React from "react";
 import Footer from "./components/Footer/Footer.js";
 import Home from "./components/Pages/Home.js";
-import About from "./components/Pages/About.js";
-import Contact from "./components/Pages/Contact.js";
 
 import Login from "./components/Pages/Auth/Login.js";
 import Mentors from "./components/Pages/Mentors/Mentors.js";
@@ -52,8 +50,14 @@ const App = () => {
             />
 
             <Route path="/mentee/dashboard" element={<DashBoardHome />} />
-            <Route path="/mentee/dashboard/session" element={<DashBoardSession />} />
-            <Route path="/mentee/dashboard/mentors" element={<DashBoardMentors />} />
+            <Route
+              path="/mentee/dashboard/session"
+              element={<DashBoardSession />}
+            />
+            <Route
+              path="/mentee/dashboard/mentors"
+              element={<DashBoardMentors />}
+            />
             <Route
               path="/mentee/dashboard/manageprofile"
               element={<DashBoardManageProfile />}

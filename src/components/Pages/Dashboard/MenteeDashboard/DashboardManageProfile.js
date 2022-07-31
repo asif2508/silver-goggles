@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Img from "../../../../images/Group_214.svg";
 import HeaderSeprater from "../../../Component/HeaderSeprater";
 import Header from "../../../Header/Header";
 import Colors from "../../../../utils/Colors";
 import DashboardNavigator from "../../../Component/MenteeDashboard/DashboardMenteeNavigator";
+import { useNavigate } from "react-router-dom";
 
 const DashBoardManageProfile = () => {
   const [showtab, setShowtab] = useState(1);
   const handletab = (e) => {
     setShowtab(e);
   };
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [navigate]);
+
   return (
     <div className="min-h-half">
       <Header />

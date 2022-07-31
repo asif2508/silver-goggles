@@ -28,7 +28,7 @@ const DashboardNavigator = ({
           </div>
         </div>
         <div className="mt-4 flex flex-row lg:px-28 lg:mt-16 lg:flex-col overflow-x-scroll sm:justify-center whitespace-nowrap font-primayfont scrollbar-hide">
-          <Link to="/dashboard" className="">
+          <Link to="/mentee/dashboard" className="">
             <div className="inline-flex items-center text-center h-full">
               <BiHomeAlt
                 size={20}
@@ -43,7 +43,7 @@ const DashboardNavigator = ({
               </p>
             </div>
           </Link>
-          <Link to="/dashboard/session" className="ml-6 lg:ml-0 lg:mt-5">
+          <Link to="/mentee/dashboard/session" className="ml-6 lg:ml-0 lg:mt-5">
             <div className="inline-flex items-center text-center h-full">
               <AiFillCreditCard
                 size={20}
@@ -60,7 +60,7 @@ const DashboardNavigator = ({
               </p>
             </div>
           </Link>
-          <Link to="/dashboard/mentor" className="ml-6 lg:ml-0 lg:mt-5">
+          <Link to="/mentee/dashboard/mentors" className="ml-6 lg:ml-0 lg:mt-5">
             <div className="inline-flex items-center text-center h-full">
               <FiUsers
                 size={20}
@@ -77,7 +77,10 @@ const DashboardNavigator = ({
               </p>
             </div>
           </Link>
-          <Link to="/dashboard/manageprofile" className="ml-6 lg:ml-0 lg:mt-5">
+          <Link
+            to="/mentee/dashboard/manageprofile"
+            className="ml-6 lg:ml-0 lg:mt-5"
+          >
             <div className="inline-flex items-center text-center h-full">
               <MdOutlineManageAccounts
                 size={20}

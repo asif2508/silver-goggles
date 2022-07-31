@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
 import Colors from "../../../../utils/Colors";
 import Header from "../../../Header/Header";
 import Img from "../../../../images/Ellipse_9.svg";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HeaderSeprater from "../../../Component/HeaderSeprater";
 import DashboardNavigator from "../../../Component/MenteeDashboard/DashboardMenteeNavigator";
 import CustomButton from "../../../Component/CustomButton";
@@ -12,6 +12,7 @@ import CustomButton from "../../../Component/CustomButton";
 const DashBoardSession = () => {
   const [showMyModel, setMyModel] = useState(false);
   const handleOnClose = () => setMyModel(false);
+  const navigate = useNavigate();
 
   const sessions = [
     {
@@ -39,6 +40,10 @@ const DashBoardSession = () => {
       paid: "₹699/-",
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [navigate]);
 
   const MentorshipComponent = ({ data }) => {
     const [show, setShow] = useState(data.isCompleted ? false : true);

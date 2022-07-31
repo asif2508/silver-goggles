@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import CircleImg from "../../../../images/Group_7048.svg";
 import Header from "../../../Header/Header";
@@ -14,6 +14,10 @@ const DashBoardHome = () => {
   const navigation = useNavigate();
 
   const [isClicked, setisClicked] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [navigation]);
 
   const mentors = [
     {

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsPencil, BsSearch } from "react-icons/bs";
 import MentorBox from "../../../Component/MentorBox";
 import DashboardNavigator from "../../../Component/MenteeDashboard/DashboardMenteeNavigator";
 import HeaderSeprater from "../../../Component/HeaderSeprater";
 import Header from "../../../Header/Header";
 import Colors from "../../../../utils/Colors";
+import { useNavigate } from "react-router-dom";
 
 const DashBoardMentors = () => {
   const mentors = [
@@ -68,6 +69,11 @@ const DashBoardMentors = () => {
   const handletab = (e) => {
     setShowtab(e);
   };
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [navigate]);
 
   return (
     <div className="min-h-half">
