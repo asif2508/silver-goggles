@@ -14,6 +14,35 @@ const DashBoard = () => {
   const navigation = useNavigate();
 
   const [isClicked, setisClicked] = useState(false);
+
+  const mentors = [
+    {
+      img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
+      name: "Brooklyn Simmons",
+      designation: "Product Designer",
+    },
+    {
+      img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
+      name: "Brooklyn Simmons",
+      designation: "Product Designer",
+    },
+    {
+      img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
+      name: "Brooklyn Simmons",
+      designation: "Product Designer",
+    },
+    {
+      img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
+      name: "Brooklyn Simmons",
+      designation: "Product Designer",
+    },
+    {
+      img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
+      name: "Brooklyn Simmons",
+      designation: "Product Designer",
+    },
+  ];
+
   return (
     <>
       <div className="min-h-half">
@@ -64,11 +93,52 @@ const DashBoard = () => {
               </button>
             </div>
 
-            <div className="mt-14 mb-12 w-full flex justify-center items-center">
+            <div className="mt-8 w-full flex justify-center items-center">
               <img
                 src={CircleImg}
-                className="w-full sm:w-3/4 md:w-2/3 lg:w-6/12"
+                className="w-full sm:w-3/4 md:w-2/3 lg:w-6/12 lg:max-w-threethirty"
               />
+            </div>
+
+            <div className="mt-10">
+              <div className="flex justify-between items-end">
+                <p className="font-primayfont text-dark-blue font-bold text-xl">
+                  Recommended Mentors
+                </p>
+                <p
+                  className="font-primayfont text-primar-second font-medium text-base cursor-pointer"
+                  onClick={() => navigation("/mentors")}
+                >
+                  See all
+                </p>
+              </div>
+              <div className="mt-5 mb-20">
+                {mentors.map((mentor, index) => {
+                  return (
+                    <div className="mb-5 flex justify-between">
+                      <div className="flex flex-col lg:w-max w-full lg:flex-row items-center lg:justify-center ">
+                        <img className="w-12 h-12" src={mentor.img} />
+                        <div className="ml-3">
+                          <p className="w-full text-base text-dark-blue font-medium">
+                            {mentor.name}
+                          </p>
+                          <p className="w-full text-sm text-grey">
+                            {mentor.designation}
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <button className="px-8 py-2 border-1 border-textInputBorder rounded-lg text-dark-blue">
+                          View profile
+                        </button>
+                        <button className="ml-6 px-8 py-2 border-1 border-textInputBorder rounded-lg text-dark-blue">
+                          Book
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
