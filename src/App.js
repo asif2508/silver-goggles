@@ -20,6 +20,10 @@ import DashBoardSession from "./components/Pages/Dashboard/MenteeDashboard/DashB
 import DashBoardMentors from "./components/Pages/Dashboard/MenteeDashboard/DashboardMentors.js";
 import DashBoardManageProfile from "./components/Pages/Dashboard/MenteeDashboard/DashboardManageProfile.js";
 import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
+import MentorDashboardHome from "./components/vaibhav/MentorDashboardHome.js";
+import MentorDashboardCalender from "./components/vaibhav/MentorDashboardCalender.js";
+import MentorDashboardReviews from "./components/vaibhav/MentorDashboardReviews.js";
+import MentorDashboardPayment from "./components/vaibhav/MentorDashboardPayment.js";
 
 const App = () => {
   return (
@@ -61,6 +65,22 @@ const App = () => {
             <Route
               path="/mentee/dashboard/manageprofile"
               element={<DashBoardManageProfile />}
+            />
+             <Route
+              path="/mentor/dashboard/mentordashboardhome"
+              element={<MentorDashboardHome />}
+            />
+            <Route
+              path="/mentor/dashboard/mentordashboardcalender"
+              element={<MentorDashboardCalender />}
+            />
+             <Route
+              path="/mentor/dashboard/mentordashboardreview"
+              element={<MentorDashboardReviews />}
+            />
+             <Route
+              path="/mentor/dashboard/mentordashboardpayment"
+              element={<MentorDashboardPayment />}
             />
           </Routes>
         </div>
