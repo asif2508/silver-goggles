@@ -9,7 +9,7 @@ import Header from "../Header/Header";
 import AssetHome3 from "../../images/asset_home_3.svg";
 import Features from "../Component/BecomeMentor/Features";
 import { useNavigate } from "react-router-dom";
-import Constants from "../../utils/Constants";
+import Constants from "../../constants/Constants";
 
 const BecomeMentor = () => {
   const navigate = useNavigate();

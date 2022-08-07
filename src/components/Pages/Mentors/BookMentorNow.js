@@ -12,7 +12,7 @@ import Breadcrumb from "../../Component/Breadcrumb";
 import Header from "../../Header/Header";
 import { useNavigate } from "react-router-dom";
 import HeaderSeprater from "../../Component/HeaderSeprater";
-import Constants from "../../../utils/Constants";
+import Constants from "../../../constants/Constants";
 
 const BookMentorNow = () => {
   const navigate = useNavigate();

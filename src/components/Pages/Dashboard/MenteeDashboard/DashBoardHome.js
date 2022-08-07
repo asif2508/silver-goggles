@@ -7,7 +7,7 @@ import Colors from "../../../../utils/Colors";
 import PopUpOtp from "./PopUpOtp";
 import HeaderSeprater from "../../../Component/HeaderSeprater";
 import DashboardNavigator from "../../../Component/MenteeDashboard/DashboardMenteeNavigator";
-import Constants from "../../../../utils/Constants";
+import Constants from "../../../../constants/Constants";
 
 const DashBoardHome = () => {
   const [showMyModel, setMyModel] = useState(false);

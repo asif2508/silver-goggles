@@ -1,131 +1,167 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signup } from "../../../actions/auth";
 import { useNavigate } from "react-router-dom";
-import ErrorMessage from "../../ErrorMessage";
-import Loading from "../../Loading";
+import Colors from "../../../utils/Colors";
+import LoginString from "../../../utils/Strings/LoginString";
+import Header from "../../Header/Header";
+import image from "../../../images/Edukith_login_img.svg";
+import Google from "../../../images/flat_color_icons_google.svg";
+import Constants from "../../../constants/Constants";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
-
-  const [message, setMessage] = useState(null);
-  const error = false;
-  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const user = JSON.parse(localStorage.getItem("userInfo"));
+  const user = JSON.parse(localStorage.getItem(Constants.userInfo));
+
+  const emailRegex = Constants.emailRegex;
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (password !== confirmpassword) {
-      setMessage("Passwords do not match", true);
-    } else if (password.length < 8) {
-      setMessage("Password must be at least 8 characters", true);
-    } else if (phone.length > 11) {
-      setMessage("Phone number must be 10 numbers", true);
-    } else {
-      setLoading(true);
-      try {
-        dispatch(signup({ name, email, password, phone }, navigate));
-        setLoading(false);
-      } catch (error) {
-        alert(error.response.data.message);
+    if (name.length > 0) {
+      if (emailRegex.test(email)) {
+        if (password !== confirmpassword) {
+          alert("Passwords does not match");
+        } else if (password.length < 8) {
+          alert("Password must be at least 8 characters");
+        } else {
+          try {
+            dispatch(signup({ name, email, password }, navigate));
+          } catch (error) {
+            alert(error.response.data.message);
+          }
+        }
+      } else {
+        alert("Enter valid email!")
       }
+    } else {
+      alert("Enter valid name!")
     }
   };
 
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [navigate])
+
   return (
-    !user && (
-      <div className="min-h-half">
-        <main className="min-h-screen w-full bg-gray-900 mx-auto py-20 px-5">
-          <form className="mx-auto max-w-md space-y-10 flex flex-col">
-            <p className="text-4xl font-bold text-center">Register</p>
-
-            {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-            {message && <ErrorMessage variant="danger">{message}</ErrorMessage>}
-            {loading && <Loading />}
-
-            <input
-              type="text"
-              placeholder="Name"
-              className="placeholder:italic text-lg w-full bg-transparent border-b-2 focus:border-orange-500 outline-none transform duration-300"
-              required
-              name="name"
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-            />
-
-            <input
-              type="email"
-              placeholder="Email"
-              className="placeholder:italic text-lg w-full bg-transparent border-b-2 focus:border-orange-500 outline-none transform duration-300"
-              name="email"
-              required
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-
-            <input
-              type="tel"
-              placeholder="Phone No."
-              className="placeholder:italic text-lg w-full bg-transparent border-b-2 focus:border-orange-500 outline-none transform duration-300"
-              name="phone"
-              required
-              onChange={(e) => setPhone(e.target.value)}
-              value={phone}
-            />
-
-            <input
-              type="password"
-              autocomplete="true"
-              placeholder="Password"
-              className="placeholder:italic text-lg w-full bg-transparent border-b-2 focus:border-orange-500 outline-none transform duration-300"
-              required
-              name="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-
-            <input
-              type="password"
-              autocomplete="true"
-              placeholder="Confirm Password"
-              required
-              className="placeholder:italic text-lg w-full bg-transparent border-b-2 focus:border-orange-500 outline-none transform duration-300"
-              name="confirmpassword"
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              value={confirmpassword}
-            />
-
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="bg-dark-blue text-white hover:bg-light-blue transform duration-300 py-2 font-semibold rounded-sm"
-            >
-              Register
-            </button>
-
-            <p className="text-lg text-center">
-              Already have account?
-              <Link
-                to="/login"
-                className="text-light-blue hover:underline font-medium underline-offset-4"
-              >
-                Login
-              </Link>
-            </p>
-          </form>
-        </main>
+    <div className="min-h-half">
+      <div>
+        <Header />
       </div>
-    )
-  );
-};
+      <div className="flex flex-col px-4 lg:flex-row md:px-28 sm:px-16 mt-12 mb-12">
+        <div className="img sm:ml-9 flex justify-center items-center sm:flex-col mt-7 lg:w-1/2">
+          <img
+            className="bg-cover bg-center w-2/3 lg:h-96 lg:w-3/4 "
+            src={image}
+            alt="image"
+          />
+        </div>
+        <div className="form mt-3 lg:w-1/2">
+          <h2 className="font-bold font-primayfont text-lg text-dark-blue">
+            {LoginString.signup}
+          </h2>
+
+          <div>
+            <label className="inline-block pt-6 font-primayfont font-normal text-sm">
+              {LoginString.name_label}
+            </label>
+            <br />
+            <input
+              className="w-full rounded-lg h-10 px-4 py-3 mt-2 outline-white"
+              style={{ borderWidth: 1, borderColor: Colors.textInputBorder }}
+              type="text"
+              placeholder={LoginString.name_placeholder}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label className="inline-block pt-6 font-primayfont font-normal text-sm">
+              {LoginString.email_label}
+            </label>
+            <br />
+            <input
+              className="w-full rounded-lg h-10 px-4 py-3 mt-2 outline-white"
+              style={{ borderWidth: 1, borderColor: Colors.textInputBorder }}
+              type="email"
+              placeholder={LoginString.email_placeholder}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label className="inline-block pt-6 font-primayfont font-normal text-sm">
+              {LoginString.password_label}
+            </label>{" "}
+            <br />
+            <input
+              className="w-full rounded-lg h-10 px-4 py-3 mt-2 outline-white"
+              style={{ borderWidth: 1, borderColor: Colors.textInputBorder }}
+              type="password"
+              placeholder={LoginString.password_placeholder}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            ></input>
+          </div>
+          <div>
+            <label className="inline-block pt-6 font-primayfont font-normal text-sm">
+              {LoginString.confirm_password_label}
+            </label>{" "}
+            <br />
+            <input
+              className="w-full rounded-lg h-10 px-4 py-3 mt-2 outline-white"
+              style={{ borderWidth: 1, borderColor: Colors.textInputBorder }}
+              type="password"
+              placeholder={LoginString.password_placeholder}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+              }}
+            ></input>
+          </div>
+          <div className="flex flex-col justify-between">
+            <div
+              onClick={handleSubmit}
+              className="rounded-lg h-10 text-white font-bold flex justify-center items-center w-full mt-6 cursor-pointer"
+              style={{
+                background: Constants.gradient,
+              }}
+            >
+              <p className="uppercase">{LoginString.signup}</p>
+            </div>
+            <div
+              className="rounded-lg h-10 text-white font-bold flex justify-center items-center mt-6 w-full cursor-pointer"
+              style={{ background: Colors.buttonBlue }}
+            >
+              <img
+                className="mr-4 bg-white rounded-full px-1 py-1"
+                src={Google}
+              />
+              <p className="sm:text-base">{LoginString.signup_google}</p>
+            </div>
+            <p className="font-bold text-center pt-6">
+              {LoginString.already_registered}
+              <span className="text-primary cursor-pointer ml-1">
+                <Link to={"/login"} className="normal-case">{LoginString.login}</Link>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default Register;

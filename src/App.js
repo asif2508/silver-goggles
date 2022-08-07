@@ -20,6 +20,7 @@ import DashBoardSession from "./components/Pages/Dashboard/MenteeDashboard/DashB
 import DashBoardMentors from "./components/Pages/Dashboard/MenteeDashboard/DashboardMentors.js";
 import DashBoardManageProfile from "./components/Pages/Dashboard/MenteeDashboard/DashboardManageProfile.js";
 import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
+import Register from "./components/Pages/Auth/Register.js";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="" element={<Page404 />} />
             <Route element={<Page404 />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Register />} />
             <Route path="/mentors" element={<Mentors />} />
             <Route path="/mentors/:id" element={<DedicateMentor />} />
             <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />

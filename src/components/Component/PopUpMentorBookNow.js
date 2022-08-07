@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
 import Colors from "../../utils/Colors";
-import Constants from "../../utils/Constants";
+import Constants from "../../constants/Constants";
 
 const PopUpMentorBookNow = ({ visible, onClose }) => {
   const handleOnClose = (e) => {

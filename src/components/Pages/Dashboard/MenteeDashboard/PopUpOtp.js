@@ -1,6 +1,6 @@
 import React from "react";
 import Colors from "../../../../utils/Colors";
-import Constants from "../../../../utils/Constants";
+import Constants from "../../../../constants/Constants";
 
 const PopUpOtp = ({ visible, onClose }) => {
   const handleOnClose = (e) => {

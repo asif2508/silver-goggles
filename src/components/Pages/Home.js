@@ -17,7 +17,7 @@ import Colors from "../../utils/Colors";
 import HomeSliderDesktop from "../Component/Home/HomeSliderDesktop";
 import MentorSliderDesktop from "../Component/Home/MentorSliderDesktop";
 import PackageSliderDesktop from "../Component/Home/PackageSliderDesktop";
-import Constants from "../../utils/Constants";
+import Constants from "../../constants/Constants";
 
 const Home = () => {
   const navigate = useNavigate();

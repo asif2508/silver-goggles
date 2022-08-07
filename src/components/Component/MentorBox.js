@@ -1,7 +1,7 @@
 import React from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import Colors from "../../utils/Colors";
-import Constants from "../../utils/Constants";
+import Constants from "../../constants/Constants";
 
 const MentorBox = ({ data }) => {
   return (

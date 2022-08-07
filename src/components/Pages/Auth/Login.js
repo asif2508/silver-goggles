@@ -9,7 +9,7 @@ import { signin } from "../../../actions/auth";
 import Header from "../../Header/Header";
 import image from "../../../images/Edukith_login_img.svg";
 import Google from "../../../images/flat_color_icons_google.svg";
-import Constants from "../../../utils/Constants";
+import Constants from "../../../constants/Constants";
 
 const Login = () => {
   const [mentorButtonPressed, setMentorButtonPressed] = React.useState(false);
@@ -22,14 +22,20 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (mentorButtonPressed) {
-      navigate("/mentor/dashboard");
-      localStorage.setItem(Constants.userType, Constants.mentor);
+    if (Constants.emailRegex.test(email)) {
+      if (password.length >= 8) {
+        dispatch(signin(email, password, navigate));
+        if (mentorButtonPressed) {
+          localStorage.setItem(Constants.userType, Constants.mentor);
+        } else {
+          localStorage.setItem(Constants.userType, Constants.mentee);
+        }
+      } else {
+        alert("Password must be at least 8 characters")
+      }
     } else {
-      navigate("/mentee/dashboard");
-      localStorage.setItem(Constants.userType, Constants.mentee);
+      alert("Enter valid email!")
     }
-    // dispatch(signin(email, password, navigate));
   };
 
   useEffect(() => {
@@ -115,7 +121,7 @@ const Login = () => {
             </label>
             <br />
             <input
-              className="w-full rounded-lg h-10 px-4 py-3 mt-2"
+              className="w-full rounded-lg h-10 px-4 py-3 mt-2 outline-white"
               style={{ borderWidth: 1, borderColor: Colors.textInputBorder }}
               type="email"
               placeholder={LoginString.email_placeholder}
@@ -130,7 +136,7 @@ const Login = () => {
             </label>{" "}
             <br />
             <input
-              className="w-full rounded-lg h-10 px-4 py-3 mt-2"
+              className="w-full rounded-lg h-10 px-4 py-3 mt-2 outline-white"
               style={{ borderWidth: 1, borderColor: Colors.textInputBorder }}
               type="password"
               placeholder={LoginString.password_placeholder}

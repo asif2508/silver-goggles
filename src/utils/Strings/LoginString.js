@@ -1,5 +1,6 @@
 const LoginString = {
   login_google: "LOGIN WITH GOOGLE",
+  signup_google: "SIGNUP WITH GOOGLE",
   login: "LOGIN",
   mentee_button: "MENTEE",
   mentor_button: "MENTOR",
@@ -7,6 +8,10 @@ const LoginString = {
   email_placeholder: "email@example.com",
   password_label: "Password",
   password_placeholder: "Your Password here",
+  confirm_password_label: "Confirm Password",
+  confirm_password_placeholder: "Your Password here",
+  name_label: "Name",
+  name_placeholder: "Your Name here",
   forgot_text: " Forgot Your Username/Password?",
   click_here: "Click Here",
   // section part start here
@@ -33,5 +38,8 @@ const LoginString = {
   view: "View All",
   timeslot: "Available Time Slot",
   book_session: "Book Session For 6 Jun,2:30 PM",
+
+  signup: "SIGN UP",
+  already_registered: "Already Registered?"
 };
 export default LoginString;
