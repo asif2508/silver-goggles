@@ -171,6 +171,12 @@ const Login = () => {
                 <Link to={"/"}>{LoginString.click_here}</Link>
               </span>
             </p>
+            <p className="font-bold text-center pt-6">
+              {LoginString.dont_account}
+              <span className="text-primary cursor-pointer ml-1">
+                <Link to={"/signup"} className="capitalize">{LoginString.signup}</Link>
+              </span>
+            </p>
           </div>
         </div>
       </div>

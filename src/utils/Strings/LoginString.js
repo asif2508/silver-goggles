@@ -40,6 +40,7 @@ const LoginString = {
   book_session: "Book Session For 6 Jun,2:30 PM",
 
   signup: "SIGN UP",
-  already_registered: "Already Registered?"
+  already_registered: "Already Registered?",
+  dont_account:"Don't have account?"
 };
 export default LoginString;
