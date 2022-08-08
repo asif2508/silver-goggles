@@ -24,6 +24,8 @@ import MentorDashboardHome from "./components/vaibhav/MentorDashboardHome.js";
 import MentorDashboardCalender from "./components/vaibhav/MentorDashboardCalender.js";
 import MentorDashboardReviews from "./components/vaibhav/MentorDashboardReviews.js";
 import MentorDashboardPayment from "./components/vaibhav/MentorDashboardPayment.js";
+import MentorDashboardSession from "./components/vaibhav/MentorDashboardSession.js";
+import MentorDashboardManageProfile from "./components/vaibhav/MentorDashboardManageProfile.js";
 
 const App = () => {
   return (
@@ -81,6 +83,14 @@ const App = () => {
              <Route
               path="/mentor/dashboard/mentordashboardpayment"
               element={<MentorDashboardPayment />}
+            />
+              <Route
+              path="/mentor/dashboard/mentordashboardsession"
+              element={<MentorDashboardSession />}
+            />
+             <Route
+              path="/mentor/dashboard/mentordashboardmanageprofile"
+              element={<MentorDashboardManageProfile />}
             />
           </Routes>
         </div>

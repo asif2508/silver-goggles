@@ -148,7 +148,7 @@ const DashboardMentorNavigator = ({
             </div>
           </Link>
           <Link
-            to="#"
+            to="/mentor/dashboard/mentordashboardmanageprofile"
             className="ml-6 lg:ml-0 lg:mt-5"
           >
             <div className="inline-flex items-center text-center h-full">

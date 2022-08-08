@@ -3,27 +3,34 @@ import HeaderSeprater from "../Component/HeaderSeprater";
 import Header from "../Header/Header";
 import DashboardMentorNavigator from "./DashboardMentorNavigator";
 import calender from "../../images/calender.svg";
-import { AiOutlinePlus } from "react-icons/ai";
-
-import Switch from "@mui/material/Switch";
-import { FormControlLabel, FormGroup } from "@mui/material";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import IsChecked from "./IsChecked";
 
 const MentorDashboardCalender = () => {
   const [showtab, setShowtab] = useState(1);
   const handletab = (e) => {
     setShowtab(e);
   };
-  const [showswitch, setShowswitch] = useState(true);
-  const [data, setData]=useState(null);
-  const [print, setPrint]=useState(false);
 
-
-  function getData(val)
-  {
-    setData(val.target.value)
-    
-  }
+  const check = [
+    {
+      isChecked: true,
+      day: "Sunday",
+      timings: ["8:00AM TO 9:00AM", "10:00AM to 12:00AM"],
+      ready: "unavailable",
+    },
+    {
+      isChecked: false,
+      day: "Monday",
+      timings: [],
+      ready: "unavailable",
+    },
+    {
+      isChecked: false,
+      day: "Tuesday",
+      timings: [],
+      ready: "unavailable",
+    },
+  ];
   return (
     <div className="min-h-half">
       <Header />
@@ -84,167 +91,11 @@ const MentorDashboardCalender = () => {
               </div>
             </div>
             <hr />
-            <div className="flex flex-row justify-between py-8">
-              <div className="flex flex-row">
-                <FormControlLabel
-                  onClick={() => setShowswitch(!showswitch)}
-                  control={<Switch />}
-                />
 
-                <p className="font-primayfont font-bold text-base text-dark-blue">
-                  SUNDAYS
-                </p>
-              </div>
-              {showswitch ? (
-                <p className="font-primayfont text-base text-grey ">
-                  unavailable
-                </p>
-              ) : (
-              
-
-                <div className="" >
-                  <div className="border-2 flex flex-row rounded-lg pl-2 w-32">
-                 
-                      <input
-                        onChange={getData}
-                        type="select"
-                        className="outline-none border-none w-24"
-                      />
-                  
-                      <IoIosArrowDown />
-                    
-                  </div>
-                  <p>To</p>
-                  <div className="border-2 flex flex-row rounded-lg pl-2 w-32">
-                 
-                      <input
-                      onChange={getData}
-                        type="select"
-                        className="outline-none border-none w-24"
-                      />
-                  
-                      <IoIosArrowDown />
-                    
-                  </div>
-                </div>
-              )}
-
-                {
-                  print?
-                  <p>{data}</p>
-                  :null
-                }
-              <div>
-                <AiOutlinePlus onClick={()=>setPrint(true)} />
-              </div>
-            </div>
-
-            <hr />
-            <div className="flex flex-row justify-between py-8">
-              <div className="flex flex-row">
-                <FormControlLabel control={<Switch />} />
-
-                <p className="font-primayfont font-bold text-base text-dark-blue">
-                  MONDAYS
-                </p>
-              </div>
-              <p className="font-primayfont text-base text-grey items-center text-center">
-                unavailable
-              </p>
-
-              <div>
-                <AiOutlinePlus />
-              </div>
-            </div>
-
-            <hr />
-            <div className="flex flex-row justify-between py-8">
-              <div className="flex flex-row">
-                <FormControlLabel control={<Switch />} />
-
-                <p className="font-primayfont font-bold text-base text-dark-blue">
-                  TUESDAY
-                </p>
-              </div>
-              <p className="font-primayfont text-base text-grey items-center text-center">
-                unavailable
-              </p>
-
-              <div>
-                <AiOutlinePlus />
-              </div>
-            </div>
-
-            <hr />
-            <div className="flex flex-row justify-between py-8">
-              <div className="flex flex-row">
-                <FormControlLabel control={<Switch />} />
-
-                <p className="font-primayfont font-bold text-base text-dark-blue">
-                  WEDNESDAYS
-                </p>
-              </div>
-              <p className="font-primayfont text-base text-grey items-center text-center">
-                unavailable
-              </p>
-
-              <div>
-                <AiOutlinePlus />
-              </div>
-            </div>
-
-            <hr />
-            <div className="flex flex-row justify-between py-8">
-              <div className="flex flex-row ">
-                <FormControlLabel control={<Switch />} />
-
-                <p className="font-primayfont font-bold text-base text-dark-blue">
-                  THRUSDAYS
-                </p>
-              </div>
-              <p className="font-primayfont text-base text-grey items-center  text-center">
-                unavailable
-              </p>
-
-              <div>
-                <AiOutlinePlus />
-              </div>
-            </div>
-
-            <hr />
-            <div className="flex flex-row justify-between py-8">
-              <div className="flex flex-row">
-                <FormControlLabel control={<Switch />} />
-
-                <p className="font-primayfont font-bold text-base text-dark-blue">
-                  FRIDAYS
-                </p>
-              </div>
-              <p className="font-primayfont text-base text-grey items-center text-center">
-                unavailable
-              </p>
-
-              <div>
-                <AiOutlinePlus />
-              </div>
-            </div>
-
-            <hr />
-            <div className="flex flex-row justify-between py-8">
-              <div className="flex flex-row">
-                <FormControlLabel control={<Switch />} />
-
-                <p className="font-primayfont font-bold text-base text-dark-blue">
-                  SATURDAYS
-                </p>
-              </div>
-              <p className="font-primayfont text-base text-grey items-center text-center">
-                unavailable
-              </p>
-
-              <div>
-                <AiOutlinePlus />
-              </div>
+            <div className="flex flex-col mt-5">
+              {check.map((data, index) => (
+                <IsChecked key={index} data={data} />
+              ))}
             </div>
 
             <hr />

@@ -8,6 +8,7 @@ import Img from "../../images/Ellipse_9.svg";
 import { AiOutlineClose } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
+import CircularProgressWithLabel from '@mui/material/CircularProgress';
 
 const MentorDashboardHome = () => {
   const [showMyModel, setMyModel] = useState(false);
@@ -149,10 +150,9 @@ const MentorDashboardHome = () => {
           </div>
        
       </div>
-
-
-
-
+             
+      <CircularProgressWithLabel variant="determinate" value={70} />
+              
 
 
 
