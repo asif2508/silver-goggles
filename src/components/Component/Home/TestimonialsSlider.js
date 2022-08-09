@@ -6,7 +6,6 @@ import Carousel from "react-elastic-carousel";
 import image from "../../../images/kalpesh.jpg";
 import DoubleQuote from "../../../images/double_quote.svg";
 
-
 const TestimonialsSlider = () => {
   const testimonials = [
     {
@@ -42,15 +41,14 @@ const TestimonialsSlider = () => {
       renderPagination={({ pages, activePage, onClick }) => {
         return (
           <div className="flex max-w-md">
-            {pages.map((page,index) => {
+            {pages.map((page, index) => {
               const isActivePage = activePage === page;
               return (
                 <div
                   key={index}
                   onClick={() => onClick(page)}
-                  className={`rounded-full h-4 w-4 mx-1 mt-8 ${
-                    isActivePage ? "bg-primary" : "bg-grey"
-                  }`}
+                  className={`rounded-full h-4 w-4 mx-1 mt-8 ${isActivePage ? "bg-primary" : "bg-grey"
+                    }`}
                 />
               );
             })}
@@ -60,40 +58,38 @@ const TestimonialsSlider = () => {
     >
       {testimonials.map((testimonial, index) => {
         return (
-          <>
-            <div
-              key={index}
-              className="rounded-lg px-6 py-6 mx-1 justify-center flex flex-col bg-white max-w-md"
-              style={{
-                borderWidth: 1.11,
-                borderBottomColor: Colors.dark_blue,
-                borderBottomWidth: 3.227,
-                borderRightWidth: 3.227,
-              }}
-            >
-              <div className="flex justify-between items-center">
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.img}
-                    alt="user"
-                    className="h-16 w-16 rounded-full"
-                  />
-                  <div className="flex flex-col ml-3">
-                    <h3 className="font-primayfont text-dark-blue text-base font-bold">
-                      {testimonial.name}
-                    </h3>
-                    <p className="mt-1 font-primayfont font-medium text-sm text-dark-blue">
-                      {testimonial.designation}
-                    </p>
-                  </div>
+          <div
+            key={index}
+            className="rounded-lg px-6 py-6 mx-1 justify-center flex flex-col bg-white max-w-md"
+            style={{
+              borderWidth: 1.11,
+              borderBottomColor: Colors.dark_blue,
+              borderBottomWidth: 3.227,
+              borderRightWidth: 3.227,
+            }}
+          >
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <img
+                  src={testimonial.img}
+                  alt="user"
+                  className="h-16 w-16 rounded-full"
+                />
+                <div className="flex flex-col ml-3">
+                  <h3 className="font-primayfont text-dark-blue text-base font-bold">
+                    {testimonial.name}
+                  </h3>
+                  <p className="mt-1 font-primayfont font-medium text-sm text-dark-blue">
+                    {testimonial.designation}
+                  </p>
                 </div>
-                <img src={DoubleQuote} alt="Quote" className="w-12 h-12" />
               </div>
-              <p className="mt-3 font-primayfont text-dark-blue text-sm">
-                {testimonial.review}
-              </p>
+              <img src={DoubleQuote} alt="Quote" className="w-12 h-12" />
             </div>
-          </>
+            <p className="mt-3 font-primayfont text-dark-blue text-sm">
+              {testimonial.review}
+            </p>
+          </div>
         );
       })}
     </Carousel>

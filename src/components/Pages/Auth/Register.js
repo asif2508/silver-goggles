@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signup } from "../../../actions/auth";
+import { signup, signupwithgoogle } from "../../../actions/auth";
 import { useNavigate } from "react-router-dom";
 import Colors from "../../../utils/Colors";
 import LoginString from "../../../utils/Strings/LoginString";
@@ -9,8 +9,13 @@ import Header from "../../Header/Header";
 import image from "../../../images/Edukith_login_img.svg";
 import Google from "../../../images/flat_color_icons_google.svg";
 import Constants from "../../../constants/Constants";
+import { GoogleLogin } from 'react-google-login';
+import { gapi } from "gapi-script";
+import { signUpWithGoogle } from "../../../api";
 
 const Register = () => {
+  const clientId = "258909471666-e26acjhjps0cqfb1aeitq4fqmag5uohq.apps.googleusercontent.com";
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -52,6 +57,26 @@ const Register = () => {
       navigate("/");
     }
   }, [navigate])
+
+
+  const responseGoogle = (response) => {
+    const user = response.profileObj;
+    dispatch(signupwithgoogle({ name: user.name, email: user.email, imageUrl: user.imageUrl }, navigate));
+  }
+
+  const responseGoogleFailure = (response) => {
+    alert("There are some error occured!!")
+  }
+
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: clientId,
+        scope: ""
+      })
+    }
+    gapi.load("client:auth2", start)
+  })
 
   return (
     <div className="min-h-half">
@@ -141,16 +166,27 @@ const Register = () => {
             >
               <p className="uppercase">{LoginString.signup}</p>
             </div>
-            <div
-              className="rounded-lg h-10 text-white font-bold flex justify-center items-center mt-6 w-full cursor-pointer"
-              style={{ background: Colors.buttonBlue }}
-            >
-              <img
-                className="mr-4 bg-white rounded-full px-1 py-1"
-                src={Google}
-              />
-              <p className="sm:text-base">{LoginString.signup_google}</p>
-            </div>
+
+            <GoogleLogin
+              render={renderProps => (
+                <div
+                  onClick={renderProps.onClick}
+                  className="rounded-lg h-10 text-white font-bold flex justify-center items-center mt-6 w-full cursor-pointer"
+                  style={{ background: Colors.buttonBlue }}
+                >
+                  <img
+                    className="mr-4 bg-white rounded-full px-1 py-1"
+                    src={Google}
+                  />
+                  <p className="sm:text-base">{LoginString.signup_google}</p>
+                </div>)}
+              clientId={clientId}
+              onSuccess={responseGoogle}
+              buttonText="Login with Google"
+              onFailure={responseGoogleFailure}
+              cookiePolicy="single_host_origin"
+            />
+
             <p className="font-bold text-center pt-6">
               {LoginString.already_registered}
               <span className="text-primary cursor-pointer ml-1">

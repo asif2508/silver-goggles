@@ -5,13 +5,17 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Colors from "../../../utils/Colors";
 import LoginString from "../../../utils/Strings/LoginString";
-import { signin } from "../../../actions/auth";
+import { signin, signinWithGoogle } from "../../../actions/auth";
 import Header from "../../Header/Header";
 import image from "../../../images/Edukith_login_img.svg";
 import Google from "../../../images/flat_color_icons_google.svg";
 import Constants from "../../../constants/Constants";
+import { GoogleLogin } from 'react-google-login';
+import { gapi } from "gapi-script";
 
 const Login = () => {
+  const clientId = "258909471666-e26acjhjps0cqfb1aeitq4fqmag5uohq.apps.googleusercontent.com";
+
   const [mentorButtonPressed, setMentorButtonPressed] = React.useState(false);
   const [menteeButtonPressed, setMenteeButtonPressed] = React.useState(true);
 
@@ -22,9 +26,10 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const authType = "email";
     if (Constants.emailRegex.test(email)) {
       if (password.length >= 8) {
-        dispatch(signin(email, password, navigate));
+        dispatch(signin(email, password, authType, navigate));
         if (mentorButtonPressed) {
           localStorage.setItem(Constants.userType, Constants.mentor);
         } else {
@@ -73,6 +78,30 @@ const Login = () => {
     setMenteeButtonPressed(true);
     setMentorButtonPressed(false);
   };
+
+  const responseGoogle = (response) => {
+    const user = response.profileObj;
+    dispatch(signinWithGoogle({ name: user.name, email: user.email, imageUrl: user.imageUrl }, navigate));
+    if (mentorButtonPressed) {
+      localStorage.setItem(Constants.userType, Constants.mentor);
+    } else {
+      localStorage.setItem(Constants.userType, Constants.mentee);
+    }
+  }
+
+  const responseGoogleFailure = (response) => {
+    alert("There are some error occured!!")
+  }
+
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: clientId,
+        scope: ""
+      })
+    }
+    gapi.load("client:auth2", start)
+  })
 
   return (
     <div className="min-h-half">
@@ -155,16 +184,27 @@ const Login = () => {
             >
               <p>{LoginString.login}</p>
             </div>
-            <div
-              className="rounded-lg h-10 text-white font-bold flex justify-center items-center mt-6 w-full cursor-pointer"
-              style={{ background: Colors.buttonBlue }}
-            >
-              <img
-                className="mr-4 bg-white rounded-full px-1 py-1"
-                src={Google}
-              />
-              <p className="sm:text-base">{LoginString.login_google}</p>
-            </div>
+
+            <GoogleLogin
+              render={renderProps => (
+                <div
+                  onClick={renderProps.onClick}
+                  className="rounded-lg h-10 text-white font-bold flex justify-center items-center mt-6 w-full cursor-pointer"
+                  style={{ background: Colors.buttonBlue }}
+                >
+                  <img
+                    className="mr-4 bg-white rounded-full px-1 py-1"
+                    src={Google}
+                  />
+                  <p className="sm:text-base">{LoginString.login_google}</p>
+                </div>)}
+              clientId={clientId}
+              onSuccess={responseGoogle}
+              buttonText="Login with Google"
+              onFailure={responseGoogleFailure}
+              cookiePolicy="single_host_origin"
+            />
+
             <p className="font-bold text-center pt-6">
               {LoginString.forgot_text}
               <span className="text-primary cursor-pointer ml-1">
