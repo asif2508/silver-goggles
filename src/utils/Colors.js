@@ -20,6 +20,7 @@ const Colors = {
   dark_grey: " #798196",
   bg_grey: "#FAFAFA",
   hrlightBlue: "#00103c26",
+  back:"#E0E0E0",
 };
 
 export default Colors;

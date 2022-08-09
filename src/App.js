@@ -21,6 +21,8 @@ import DashBoardMentors from "./components/Pages/Dashboard/MenteeDashboard/Dashb
 import DashBoardManageProfile from "./components/Pages/Dashboard/MenteeDashboard/DashboardManageProfile.js";
 import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
 import Register from "./components/Pages/Auth/Register.js";
+import Availability from "./vaibhav/Availability.js";
+import Packages from "./vaibhav/Packages.js";
 
 const App = () => {
   return (
@@ -63,6 +65,14 @@ const App = () => {
             <Route
               path="/mentee/dashboard/manageprofile"
               element={<DashBoardManageProfile />}
+            />
+             <Route
+              path="/availability"
+              element={<Availability />}
+            />
+            <Route
+              path="/packages"
+              element={<Packages />}
             />
           </Routes>
         </div>
