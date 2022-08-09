@@ -14,7 +14,7 @@ import { GoogleLogin } from 'react-google-login';
 import { gapi } from "gapi-script";
 
 const Login = () => {
-  const clientId = process.env.clientId;
+  const clientId = process.env.REACT_APP_CLIENT_ID;
 
   const [mentorButtonPressed, setMentorButtonPressed] = React.useState(false);
   const [menteeButtonPressed, setMenteeButtonPressed] = React.useState(true);

@@ -13,7 +13,7 @@ import { GoogleLogin } from 'react-google-login';
 import { gapi } from "gapi-script";
 
 const Register = () => {
-  const clientId = process.env.clientId;
+  const clientId = process.env.REACT_APP_CLIENT_ID;
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");

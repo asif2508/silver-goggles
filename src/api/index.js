@@ -3,7 +3,7 @@ import axios from "axios";
 // for developemnt
 // let API = axios.create({ baseURL: "/" });
 // for deployment
-let API = axios.create({ baseURL: "http://localhost:8000" });
+let API = axios.create({ baseURL: "https://edukith.com/api" });
 
 export const signIn = (formData, config) =>
   API.post("/user/signin", formData, config);
