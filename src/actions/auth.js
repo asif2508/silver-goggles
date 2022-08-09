@@ -16,8 +16,8 @@ export const signin = (email, password, router) => async (dispatch) => {
         "Content-type": "application/json",
       },
     };
-    const { data } = await api.signIn({ email, password }, config);
     dispatch({ type: USER_LOGIN_REQUEST });
+    const { data } = await api.signIn({ email, password }, config);
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
     localStorage.setItem(Constants.userInfo, JSON.stringify(data));
     router("/");
@@ -80,7 +80,7 @@ export const signinWithGoogle = (formData, router) => async (dispatch) => {
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
     localStorage.setItem(Constants.userInfo, JSON.stringify(data));
     router("/");
-    
+
   } catch (error) {
     alert(error.response.data.message);
   }
