@@ -23,6 +23,7 @@ import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoar
 import Register from "./components/Pages/Auth/Register.js";
 import Availability from "./vaibhav/Availability.js";
 import Packages from "./vaibhav/Packages.js";
+import DropDown from "./vaibhav/DropDown.js";
 
 const App = () => {
   return (
@@ -73,6 +74,10 @@ const App = () => {
             <Route
               path="/packages"
               element={<Packages />}
+            />
+              <Route
+              path="/dropdown"
+              element={<DropDown />}
             />
           </Routes>
         </div>

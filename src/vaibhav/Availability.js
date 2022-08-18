@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
 import Header from "../components/Header/Header";
 import Colors from "../utils/Colors";
 import Calendar from "react-calendar";
+import Switch from "@mui/material/Switch";
+import { FormControlLabel } from "@mui/material";
+import { IoIosArrowBack, IoIosArrowDown } from "react-icons/io";
 
 const Availability = () => {
   const [showtab, setShowtab] = useState(1);
@@ -40,7 +44,7 @@ const Availability = () => {
                 className="font-medium text-base w-max pb-1 text-dark-blue"
                 onClick={() => handletab(1)}
               >
-                Previous Mentors
+                Available Hours
               </p>
               {showtab === 1 && <div className="h-1 bg-primary rounded-full" />}
             </div>
@@ -49,23 +53,273 @@ const Availability = () => {
                 className="font-medium text-base w-max pb-1 text-dark-blue"
                 onClick={() => handletab(2)}
               >
-                Favourite Mentors
+                Blockouts Dates
               </p>
               {showtab === 2 && <div className="h-1 bg-primary rounded-full" />}
             </div>
           </div>
           <hr
-            className="w-full -mt-1 lg:w-96"
+            className="w-full -mt-1 lg:w-full"
             style={{ color: Colors.hrlightBlue }}
           />
 
-          <div
-            className={
-              showtab === 1
-                ? "flex flex-wrap mt-6 justify-evenly lg:justify-start "
-                : "hidden"
-            }
-          ></div>
+          <div className={showtab === 1 ? "mt-6 pr-4 " : "hidden"}>
+            <div className="lg:hidden">
+              <div className="flex flex-row justify-between">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch />} />
+                  </div>
+                  <div className="mt-1">
+                    <p className="font-primayfont font-bold text-base text-dark-blue">
+                      Sundays
+                    </p>
+                    <p className="font-primayfont text-base text-grey pl-14 pt-3 pb-6">
+                      Unavailable
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr />
+              <div className="flex flex-row justify-between pt-6">
+                <div className="flex flex-row ">
+                  <div>
+                    <FormControlLabel control={<Switch defaultChecked />} />
+                  </div>
+                  <div className="mt-1">
+                    <p className="font-primayfont font-bold text-base text-dark-blue ">
+                      Mondays
+                    </p>
+                  </div>
+                  <div className="flex flex-row mt-6">
+                    <div className="flex flex-row border-1 rounded-lg px-3 py-2">
+                      <div>
+                        <p>9:00 AM</p>
+                      </div>
+                      <div>
+                        <IoIosArrowDown className="mt-1 h-5 w-5 ml-2" />
+                      </div>
+                    </div>
+                    <p className="font-primayfont font-bold text-xs px-6">TO</p>
+                    <div className="flex flex-row border-1 rounded-lg px-3 py-2">
+                      <div>
+                        <p>9:00 AM</p>
+                      </div>
+                      <div>
+                        <IoIosArrowDown className="mt-1 h-5 w-5 ml-2" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr className="mt-6" />
+              <div className="flex flex-row justify-between pt-6">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch />} />
+                  </div>
+                  <div className="mt-1">
+                    <p className="font-primayfont font-bold text-base text-dark-blue">
+                      Tuesdays
+                    </p>
+                    <p className="font-primayfont text-base text-grey pl-14 pt-3 pb-6">
+                      Unavailable
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr />
+
+              <div className="flex flex-row justify-between pt-6">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch />} />
+                  </div>
+                  <div className="mt-1">
+                    <p className="font-primayfont font-bold text-base text-dark-blue">
+                      Wednesdays
+                    </p>
+                    <p className="font-primayfont text-base text-grey pl-14 pt-3 pb-6">
+                      Unavailable
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr className="mt-6" />
+              <div className="flex flex-row justify-between pt-6">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch />} />
+                  </div>
+                  <div className="mt-1">
+                    <p className="font-primayfont font-bold text-base text-dark-blue">
+                      Thrusdays
+                    </p>
+                    <p className="font-primayfont text-base text-grey pl-14 pt-3 pb-6">
+                      Unavailable
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr className="mt-6" />
+              <div className="flex flex-row justify-between pt-6">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch />} />
+                  </div>
+                  <div className="mt-1">
+                    <p className="font-primayfont font-bold text-base text-dark-blue">
+                      Fridays
+                    </p>
+                    <p className="font-primayfont text-base text-grey pl-14 pt-3 pb-6">
+                      Unavailable
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr className="mt-6" />
+                <div className="flex flex-row mt-12">
+              <div className="flex flex-row border-1 rounded-lg px-12 py-2">
+                <div><IoIosArrowBack className="mt-1"/></div>
+                <div><p>Back</p></div>
+              </div>
+              <div>
+                <button className="rounded-lg bg-primary text-white font-bold px-11 ml-4 h-12">Continue</button>
+              </div>
+              </div>
+            </div>
+
+            <div className="hidden lg:block">
+              <div className="flex flex-row justify-between">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch />} />
+                  </div>
+                  <div>
+                    <p className="font-primayfont font-bold pt-1">SUNDAYS</p>
+                  </div>
+                  <p className="font-primayfont text-grey pl-16">Unavailable</p>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr className="mt-8"/>
+              <div className="flex flex-row justify-between pt-8">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch defaultChecked />} />
+                  </div>
+                  <div>
+                    <p className="font-primayfont font-bold pt-1">MONDAYS</p>
+                  </div>
+                  <div className="bg-grey rounded-lg py-2 px-2 ml-8">
+                  <p className="font-primayfont ">8:00 AM to 9:00 AM</p>
+                  </div>
+                  <div className="bg-grey rounded-lg py-2 px-2 ml-8">
+                  <p className="font-primayfont ">8:00 AM to 9:00 AM</p>
+                  </div>
+                  <div className="bg-grey rounded-lg py-2 px-2 ml-8">
+                  <p className="font-primayfont ">8:00 AM to 9:00 AM</p>
+                  </div>
+                  
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr className="mt-6"/>
+              <div className="flex flex-row justify-between pt-8">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch />} />
+                  </div>
+                  <div>
+                    <p className="font-primayfont font-bold pt-1">TUESDAYS</p>
+                  </div>
+                  <p className="font-primayfont text-grey pl-16">Unavailable</p>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr className="mt-8"/>
+              <div className="flex flex-row justify-between pt-8">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch />} />
+                  </div>
+                  <div>
+                    <p className="font-primayfont font-bold pt-1">WEDNESDAYS</p>
+                  </div>
+                  <p className="font-primayfont text-grey pl-16">Unavailable</p>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr className="mt-8"/>
+              <div className="flex flex-row justify-between pt-8">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch />} />
+                  </div>
+                  <div>
+                    <p className="font-primayfont font-bold pt-1">THURSDAYS</p>
+                  </div>
+                  <p className="font-primayfont text-grey pl-16">Unavailable</p>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr className="mt-8"/>
+              <div className="flex flex-row justify-between pt-8">
+                <div className="flex flex-row">
+                  <div>
+                    <FormControlLabel control={<Switch />} />
+                  </div>
+                  <div>
+                    <p className="font-primayfont font-bold pt-1">FRIDAYS</p>
+                  </div>
+                  <p className="font-primayfont text-grey pl-16">Unavailable</p>
+                </div>
+                <div className="mt-1">
+                  <AiOutlinePlus />
+                </div>
+              </div>
+              <hr className="mt-8"/>
+                <div className="flex flex-row mt-14">
+              <div className="flex flex-row border-1 rounded-lg h-12 px-14 py-2">
+                <div><IoIosArrowBack className="w-4 h-4 pt-1" /></div>
+                <div><p className="font-primayfont font-bold">Back</p></div>
+              </div>
+              <div>
+                <button className="rounded-lg bg-primary text-white font-bold ml-4 px-12 h-12">Continue</button>
+              </div>
+              </div>
+            </div>
+
+
+          </div>
 
           <div className={showtab === 2 ? "  " : "hidden"}>
             <div className="py-6">
@@ -74,7 +328,7 @@ const Availability = () => {
             </div>
             <div className="flex flex-row">
               <div className="flex flex-row rounded-lg border-2 py-2 px-12">
-                <MdOutlineKeyboardArrowLeft  className=" mt-1"/>
+                <MdOutlineKeyboardArrowLeft className=" mt-1" />
                 <p>Back</p>
               </div>
               <div className="pl-4">
