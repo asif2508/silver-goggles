@@ -55,7 +55,7 @@ const MentorEditProfile = () => {
             {/* Profile picture  */}
             <div className="field">
               <p className="font-primayfont text-dark-blue text-sm font-normal mt-9 lg:mt-11">
-                Profile picture
+                Profile picture *
               </p>
               <div className="mt-2 flex items-center">
                 <CustomButton text="Choose file" />
@@ -68,7 +68,7 @@ const MentorEditProfile = () => {
             <div className="flex space-x-4 lg:space-x-9">
               <div className="field w-1/2">
                 <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
-                  First Name
+                  First Name *
                 </p>
                 <input
                   type="text"
@@ -78,7 +78,7 @@ const MentorEditProfile = () => {
               </div>
               <div className="field w-1/2">
                 <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
-                  Last Name
+                  Last Name *
                 </p>
                 <input
                   type="text"
@@ -91,7 +91,7 @@ const MentorEditProfile = () => {
             <div className="flex space-x-4 lg:space-x-9">
               <div className="field w-1/2">
                 <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
-                  E-mail
+                  E-mail *
                 </p>
                 <input
                   type="text"
@@ -101,7 +101,7 @@ const MentorEditProfile = () => {
               </div>
               <div className="field w-1/2">
                 <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
-                  Phone Number
+                  Phone Number *
                 </p>
                 <input
                   type="text"
@@ -114,7 +114,7 @@ const MentorEditProfile = () => {
             <div className="flex space-x-4 lg:space-x-9">
               <div className="field w-1/2">
                 <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
-                  Location
+                  Location *
                 </p>
                 <input
                   type="text"
@@ -124,7 +124,7 @@ const MentorEditProfile = () => {
               </div>
               <div className="field w-1/2">
                 <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
-                  Gender
+                  Gender *
                 </p>
                 <select
                   name="Gender"
@@ -171,7 +171,7 @@ const MentorEditProfile = () => {
             <div className="flex space-x-4 lg:space-x-9">
               <div className="field w-1/2">
                 <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
-                  Language you Spoke
+                  Language you Spoke *
                 </p>
                 <input
                   type="text"
@@ -193,7 +193,7 @@ const MentorEditProfile = () => {
             {/* About  */}
             <div className="field w-full">
               <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
-                Tell us about yourself (This will be visible to your profile)
+                Tell us about yourself (This will be visible to your profile) *
               </p>
               <textarea
                 type="text"
@@ -205,7 +205,7 @@ const MentorEditProfile = () => {
             {/* Why Mentor  */}
             <div className="field w-full">
               <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
-                Why do you want to be a mentor? (Non-visible)
+                Why do you want to be a mentor? (Non-visible) *
               </p>
               <textarea
                 type="text"
@@ -218,7 +218,7 @@ const MentorEditProfile = () => {
             <div className="field w-full">
               <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
                 Write the best keywords which discribes your industry. (Mentees
-                will find you through these.)
+                will find you through these.) *
               </p>
               <div className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full">
                 <div className="space-x-2">
