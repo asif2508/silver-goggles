@@ -96,7 +96,7 @@ const MentorDashboardSession = () => {
             <div className="lg:w-full">
               <hr className="mt-4" style={{ color: Colors.textInputBorder }} />
               <p className="font-primayfont text-dark-blue font-bold text-base mt-4">
-                Mentor:
+                Mentee:
               </p>
               <div className="mt-2 flex flex-row ">
                 <div>
@@ -137,7 +137,7 @@ const MentorDashboardSession = () => {
                   </span>
                 </p>
                 <p className="font-primayfont font-bold text-base mt-2 lg:mt-0 text-dark-blue">
-                  Paid:
+                  Payment Received:
                   <span className="font-primayfont ml-1 font-normal text-dark-blue">
                     {data.paid}
                   </span>
