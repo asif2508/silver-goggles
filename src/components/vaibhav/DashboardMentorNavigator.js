@@ -7,7 +7,6 @@ import Icon from "../../images/Ellipse.svg";
 import { Link } from "react-router-dom";
 import Colors from "../../utils/Colors";
 
-
 const DashboardMentorNavigator = ({
   activeHome = false,
   activeSession = false,
@@ -39,9 +38,8 @@ const DashboardMentorNavigator = ({
                 color={activeHome ? Colors["primay-light"] : Colors.dark_blue}
               />
               <p
-                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${
-                  activeHome ? "text-primary" : "text-dark-blue"
-                } `}
+                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${activeHome ? "text-primary" : "text-dark-blue"
+                  } `}
               >
                 Home
               </p>
@@ -56,11 +54,10 @@ const DashboardMentorNavigator = ({
                 }
               />
               <p
-                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${
-                  activeSession ? "text-primary" : "text-dark-blue"
-                } `}
+                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${activeSession ? "text-primary" : "text-dark-blue"
+                  } `}
               >
-               Your Session
+                Your Session
               </p>
             </div>
           </Link>
@@ -73,11 +70,10 @@ const DashboardMentorNavigator = ({
                 }
               />
               <p
-                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${
-                  activeManagePackage ? "text-primary" : "text-dark-blue"
-                } `}
+                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${activeManagePackage ? "text-primary" : "text-dark-blue"
+                  } `}
               >
-               Manage Packages
+                Manage Packages
               </p>
             </div>
           </Link>
@@ -95,11 +91,10 @@ const DashboardMentorNavigator = ({
                 }
               />
               <p
-                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${
-                  activeCalender ? "text-primary" : "text-dark-blue"
-                } `}
+                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${activeCalender ? "text-primary" : "text-dark-blue"
+                  } `}
               >
-               Calender
+                Calender
               </p>
             </div>
           </Link>
@@ -117,11 +112,10 @@ const DashboardMentorNavigator = ({
                 }
               />
               <p
-                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${
-                  activePayment ? "text-primary" : "text-dark-blue"
-                } `}
+                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${activePayment ? "text-primary" : "text-dark-blue"
+                  } `}
               >
-               Payments
+                Payments
               </p>
             </div>
           </Link>
@@ -139,11 +133,10 @@ const DashboardMentorNavigator = ({
                 }
               />
               <p
-                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${
-                  activeReview ? "text-primary" : "text-dark-blue"
-                } `}
+                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${activeReview ? "text-primary" : "text-dark-blue"
+                  } `}
               >
-               Reviews
+                Reviews
               </p>
             </div>
           </Link>
@@ -161,9 +154,8 @@ const DashboardMentorNavigator = ({
                 }
               />
               <p
-                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${
-                  activeManageProfile ? "text-primary" : "text-dark-blue"
-                } `}
+                className={`ml-2 lg:ml-4 font-primayfont text-sm font-semibold align-middle mt-1 lg:text-lg ${activeManageProfile ? "text-primary" : "text-dark-blue"
+                  } `}
               >
                 Manage Profile
               </p>
