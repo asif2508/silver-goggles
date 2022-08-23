@@ -15,7 +15,8 @@ module.exports = {
       textInputBorder: "#00103c73",
       textBlack: "#00103ccc",
       buttongrey: "#EFEFEF",
-      text_color:"#CCCCCC",
+      text_color: "#CCCCCC",
+      hrlightBlue: "#00103c26",
     },
     borderWidth: {
       1: "1px",

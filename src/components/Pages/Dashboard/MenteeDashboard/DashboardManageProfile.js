@@ -86,9 +86,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Name Your Country"
-                  style={{
-                    borderColor: "rgba(0, 16, 60, 0.15)",
-                  }}
+                  border-hrlightBlue
                 />
               </div>
               <div className="mb-4">
@@ -103,9 +101,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="1234567890"
-                  style={{
-                    borderColor: "rgba(0, 16, 60, 0.15)",
-                  }}
+                  border-hrlightBlue
                 />
               </div>
               <label
@@ -116,9 +112,7 @@ const DashBoardManageProfile = () => {
               </label>
               <div
                 className="rounded-lg w-full  py-3 text-gray-700 border-1 px-4 mb-4"
-                style={{
-                  borderColor: "rgba(0, 16, 60, 0.15)",
-                }}
+                border-htlightblue
               >
                 <input
                   className="outline-none w-full"
@@ -140,9 +134,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Computer Science"
-                  style={{
-                    borderColor: "rgba(0, 16, 60, 0.15)",
-                  }}
+                  border-hrlightBlue
                 />
               </div>
               <div className="mb-4">
@@ -157,9 +149,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Name of Your Company/School"
-                  style={{
-                    borderColor: "rgba(0, 16, 60, 0.15)",
-                  }}
+                  border-hrlightBlue
                 />
               </div>
               <div>
@@ -174,9 +164,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Tell us something about you"
-                  style={{
-                    borderColor: "rgba(0, 16, 60, 0.15)",
-                  }}
+                  border-hrlightBlue
                 />
               </div>
               <button
@@ -206,9 +194,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="email"
                   placeholder="email@example.com"
-                  style={{
-                    borderColor: "rgba(0, 16, 60, 0.15)",
-                  }}
+                  border-hrlightBlue
                 />
               </div>
               <div className="mb-4">
@@ -223,9 +209,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="password"
                   placeholder="Your Password here"
-                  style={{
-                    borderColor: "rgba(0, 16, 60, 0.15)",
-                  }}
+                  border-hrlightBlue
                 />
               </div>
               <button

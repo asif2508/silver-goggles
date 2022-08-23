@@ -7,6 +7,7 @@ import { AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
 import Switch from "@mui/material/Switch";
 import { IoIosArrowDown } from "react-icons/io";
 import CustomButton from "../Component/CustomButton";
+import HrBottom from '../../components/Component/HrBottom';
 
 function convertTo24Hour(time) {
   let t = time.split(":");
@@ -109,10 +110,7 @@ const Slots = ({ data, navigate }) => {
           </div>
         </div>
       </div>
-      <hr
-        className="w-full"
-        style={{ color: Colors.hrlightBlue }}
-      />
+      <HrBottom />
     </div>
   )
 }
