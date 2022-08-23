@@ -1,13 +1,13 @@
 import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
-import HeaderSeprater from "../Component/HeaderSeprater";
-import Header from "../Header/Header";
-import DashboardMentorNavigator from "./DashboardMentorNavigator";
-import home from '../../images/home.svg';
+import home from '../../../../images/home.svg';
 import { IoIosArrowDown } from "react-icons/io";
-import Icon from "../../images/Ellipse.svg";
-import HrBottom from "../Component/HrBottom";
-import CustomButton from "../Component/CustomButton";
+import Icon from "../../../../images/Ellipse.svg";
+import Header from "../../../Header/Header";
+import HeaderSeprater from "../../../Component/HeaderSeprater";
+import DashboardMentorNavigator from "../../../Component/MentorDashboard/DashboardMentorNavigator";
+import HrBottom from "../../../Component/HrBottom";
+import CustomButton from "../../../Component/CustomButton";
 
 const MentorDashboardPayment = () => {
   const data = [

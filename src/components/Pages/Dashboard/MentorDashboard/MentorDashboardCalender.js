@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import HeaderSeprater from "../Component/HeaderSeprater";
-import Header from "../Header/Header";
-import DashboardMentorNavigator from "./DashboardMentorNavigator";
-import Colors from "../../utils/Colors";
 import { AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
 import Switch from "@mui/material/Switch";
 import { IoIosArrowDown } from "react-icons/io";
-import CustomButton from "../Component/CustomButton";
-import HrBottom from '../../components/Component/HrBottom';
+import Colors from "../../../../utils/Colors";
+import HrBottom from "../../../Component/HrBottom";
+import CustomButton from "../../../Component/CustomButton";
+import HeaderSeprater from "../../../Component/HeaderSeprater";
+import Header from "../../../Header/Header";
+import DashboardMentorNavigator from "../../../Component/MentorDashboard/DashboardMentorNavigator";
 
 function convertTo24Hour(time) {
   let t = time.split(":");

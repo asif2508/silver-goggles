@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Img from "../../images/Group_214.svg";
-import HeaderSeprater from "../Component/HeaderSeprater";
-import Header from "../Header/Header";
-import Colors from "../../utils/Colors";
-
+import Img from "../../../../images/Group_214.svg";
 import { useNavigate } from "react-router-dom";
-import DashboardMentorNavigator from "./DashboardMentorNavigator";
+import Header from "../../../Header/Header";
+import HeaderSeprater from "../../../Component/HeaderSeprater";
+import Colors from "../../../../utils/Colors";
+import DashboardMentorNavigator from "../../../Component/MentorDashboard/DashboardMentorNavigator";
 
 const MentorDashboardManageProfile = () => {
   const [showtab, setShowtab] = useState(1);
@@ -104,24 +103,6 @@ const MentorDashboardManageProfile = () => {
                   placeholder="1234567890"
                   border-hrlightBlue
                 />
-              </div>
-              <label
-                className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-                htmlFor="username"
-              >
-                Enter your timezone
-              </label>
-              <div
-                className="rounded-lg w-full  py-3 text-gray-700 border-1 px-4 mb-4"
-                border-htlightblue
-              >
-                <input
-                  className="outline-none w-full"
-                  id="username"
-                  type="select"
-                  placeholder="IST"
-                />
-                {/* <IoIosArrowDown /> */}
               </div>
               <div className="mb-4">
                 <label

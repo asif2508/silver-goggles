@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import Colors from "../../utils/Colors";
-import HeaderSeprater from "../Component/HeaderSeprater";
-import Header from "../Header/Header";
-import DashboardMentorNavigator from "./DashboardMentorNavigator";
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
-import Img from "../../images/Ellipse_9.svg";
+import Img from "../../../../images/Ellipse_9.svg";
 import { AiOutlineClose } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
-import CustomButton from "../Component/CustomButton";
-import DonutChartResponse from "../Component/DonutChartResponse";
-import DonutChartReview from "../Component/DonutChartReview";
+import DonutChartResponse from "../../../Component/DonutChartResponse";
+import DonutChartReview from "../../../Component/DonutChartReview";
+import CustomButton from "../../../Component/CustomButton";
+import Header from "../../../Header/Header";
+import HeaderSeprater from "../../../Component/HeaderSeprater";
+import Colors from "../../../../utils/Colors";
+import DashboardMentorNavigator from "../../../Component/MentorDashboard/DashboardMentorNavigator";
 
 const MentorDashboardHome = () => {
   const [showMyModel, setMyModel] = useState(false);

@@ -3,9 +3,9 @@ import { AiFillCreditCard, AiOutlineCalendar } from "react-icons/ai";
 import { BiHomeAlt } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { MdOutlineManageAccounts, MdOutlinePayments, MdOutlineReviews } from "react-icons/md";
-import Icon from "../../images/Ellipse.svg";
+import Icon from "../../../images/Ellipse.svg";
 import { Link } from "react-router-dom";
-import Colors from "../../utils/Colors";
+import Colors from "../../../utils/Colors";
 
 const DashboardMentorNavigator = ({
   activeHome = false,
@@ -31,7 +31,7 @@ const DashboardMentorNavigator = ({
           </div>
         </div>
         <div className="mt-4 flex flex-row lg:px-28 lg:mt-16 lg:flex-col overflow-x-scroll sm:justify-center whitespace-nowrap font-primayfont scrollbar-hide">
-          <Link to="/mentor/dashboard/mentordashboardhome" className="">
+          <Link to="/mentor/dashboard/" className="">
             <div className="inline-flex items-center text-center h-full">
               <BiHomeAlt
                 size={20}
@@ -45,7 +45,7 @@ const DashboardMentorNavigator = ({
               </p>
             </div>
           </Link>
-          <Link to="/mentor/dashboard/mentordashboardsession" className="ml-6 lg:ml-0 lg:mt-5">
+          <Link to="/mentor/dashboard/session" className="ml-6 lg:ml-0 lg:mt-5">
             <div className="inline-flex items-center text-center h-full">
               <AiFillCreditCard
                 size={20}
@@ -61,7 +61,7 @@ const DashboardMentorNavigator = ({
               </p>
             </div>
           </Link>
-          <Link to="#" className="ml-6 lg:ml-0 lg:mt-5">
+          <Link to="/mentor/dashboard/packages" className="ml-6 lg:ml-0 lg:mt-5">
             <div className="inline-flex items-center text-center h-full">
               <FiUsers
                 size={20}
@@ -78,7 +78,7 @@ const DashboardMentorNavigator = ({
             </div>
           </Link>
           <Link
-            to="/mentor/dashboard/mentordashboardcalender"
+            to="/mentor/dashboard/calender"
             className="ml-6 lg:ml-0 lg:mt-5"
           >
             <div className="inline-flex items-center text-center h-full">
@@ -99,7 +99,7 @@ const DashboardMentorNavigator = ({
             </div>
           </Link>
           <Link
-            to="/mentor/dashboard/mentordashboardpayment"
+            to="/mentor/dashboard/payments"
             className="ml-6 lg:ml-0 lg:mt-5"
           >
             <div className="inline-flex items-center text-center h-full">
@@ -120,7 +120,7 @@ const DashboardMentorNavigator = ({
             </div>
           </Link>
           <Link
-            to="/mentor/dashboard/mentordashboardreview"
+            to="/mentor/dashboard/reviews"
             className="ml-6 lg:ml-0 lg:mt-5"
           >
             <div className="inline-flex items-center text-center h-full">
@@ -141,7 +141,7 @@ const DashboardMentorNavigator = ({
             </div>
           </Link>
           <Link
-            to="/mentor/dashboard/mentordashboardmanageprofile"
+            to="/mentor/dashboard/manageprofile"
             className="ml-6 lg:ml-0 lg:mt-5"
           >
             <div className="inline-flex items-center text-center h-full">

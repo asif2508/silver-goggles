@@ -1,12 +1,12 @@
 import React from "react";
-import HeaderSeprater from "../Component/HeaderSeprater";
-import Header from "../Header/Header";
-import DashboardMentorNavigator from "./DashboardMentorNavigator";
 import StarRatings from "react-star-ratings";
-import Colors from "../../utils/Colors";
-import DonutChartReview from "../Component/DonutChartReview";
+import Colors from "../../../../utils/Colors";
+import DonutChartReview from "../../../Component/DonutChartReview";
+import HeaderSeprater from "../../../Component/HeaderSeprater";
+import DashboardMentorNavigator from "../../../Component/MentorDashboard/DashboardMentorNavigator";
+import Header from "../../../Header/Header";
 
-const VaibhavReview = ({ data }) => {
+const RenderReviews = ({ data }) => {
   return (
     <div
       className="rounded-lg mb-6 w-full py-4 px-4 flex flex-col"
@@ -79,7 +79,7 @@ const MentorDashboardReviews = () => {
           </div>
           <div className="flex flex-col -mt-12 lg:max-w-sessionWidth mb-28">
             {reviews.map((data, index) => (
-              <VaibhavReview key={index} data={data} />
+              <RenderReviews key={index} data={data} />
             ))}
           </div>
         </div>

@@ -20,12 +20,14 @@ import DashBoardSession from "./components/Pages/Dashboard/MenteeDashboard/DashB
 import DashBoardMentors from "./components/Pages/Dashboard/MenteeDashboard/DashboardMentors.js";
 import DashBoardManageProfile from "./components/Pages/Dashboard/MenteeDashboard/DashboardManageProfile.js";
 import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
-import MentorDashboardHome from "./components/vaibhav/MentorDashboardHome.js";
-import MentorDashboardCalender from "./components/vaibhav/MentorDashboardCalender.js";
-import MentorDashboardReviews from "./components/vaibhav/MentorDashboardReviews.js";
-import MentorDashboardPayment from "./components/vaibhav/MentorDashboardPayment.js";
-import MentorDashboardSession from "./components/vaibhav/MentorDashboardSession.js";
-import MentorDashboardManageProfile from "./components/vaibhav/MentorDashboardManageProfile.js";
+
+import MentorDashboardHome from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardHome.js";
+import MentorDashboardPackages from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardPackages.js";
+import MentorDashboardCalender from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardCalender.js";
+import MentorDashboardReviews from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardReviews.js";
+import MentorDashboardPayment from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardPayment.js";
+import MentorDashboardSession from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardSession.js";
+import MentorDashboardManageProfile from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardManageProfile.js";
 
 const App = () => {
   return (
@@ -68,29 +70,33 @@ const App = () => {
               path="/mentee/dashboard/manageprofile"
               element={<DashBoardManageProfile />}
             />
-            
-             <Route
-              path="/mentor/dashboard/mentordashboardhome"
+
+            <Route
+              path="/mentor/dashboard"
               element={<MentorDashboardHome />}
             />
             <Route
-              path="/mentor/dashboard/mentordashboardcalender"
+              path="/mentor/dashboard/calender"
               element={<MentorDashboardCalender />}
             />
-             <Route
-              path="/mentor/dashboard/mentordashboardreview"
+            <Route
+              path="/mentor/dashboard/reviews"
               element={<MentorDashboardReviews />}
             />
-             <Route
-              path="/mentor/dashboard/mentordashboardpayment"
+            <Route
+              path="/mentor/dashboard/payments"
               element={<MentorDashboardPayment />}
             />
-              <Route
-              path="/mentor/dashboard/mentordashboardsession"
+            <Route
+              path="/mentor/dashboard/packages"
+              element={<MentorDashboardPackages />}
+            />
+            <Route
+              path="/mentor/dashboard/session"
               element={<MentorDashboardSession />}
             />
-             <Route
-              path="/mentor/dashboard/mentordashboardmanageprofile"
+            <Route
+              path="/mentor/dashboard/manageprofile"
               element={<MentorDashboardManageProfile />}
             />
           </Routes>
