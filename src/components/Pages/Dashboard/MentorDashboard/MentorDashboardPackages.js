@@ -205,52 +205,12 @@ const MentorDashboardPackages = ({ navigate }) => {
       <HeaderSeprater />
 
       <div className="flex flex-col lg:flex-row">
-        <DashboardMentorNavigator activeCalender={true} />
+        <DashboardMentorNavigator activeManagePackage={true} />
         <div className="px-4 sm:px-16 md:px-28 lg:px-11 w-full lg:h-full lg:w-full">
           <p className="font-primayfont text-xl font-bold text-dark-blue pt-9">
-            Availability
+            Manage Packages
           </p>
-          <p className="font-primayfont text-sm mt-2 text-dark-blue font-normal py-2">
-            Edit your availability & blockout dates.
-          </p>
-          <div className="mt-6">
-            <div className="flex flex-row cursor-pointer">
-              <div>
-                <p
-                  className="font-medium text-base w-max pb-1 text-dark-blue"
-                  onClick={() => handletab(1)}
-                >
-                  Available Hours
-                </p>
-                {showtab === 1 && (
-                  <div className="h-1 bg-primary rounded-full" />
-                )}
-              </div>
-              <div className="ml-6">
-                <p
-                  className="font-medium text-base w-max pb-1 text-dark-blue"
-                  onClick={() => handletab(2)}
-                >
-                  Blockout Dates
-                </p>
-                {showtab === 2 && (
-                  <div className="h-1 bg-primary rounded-full" />
-                )}
-              </div>
-            </div>
-            <hr
-              className="w-full"
-              style={{ color: Colors.hrlightBlue }}
-            />
 
-            <div className="flex flex-col mt-5">
-              {check.map((data, index) => (
-                <Slots key={index} navigate={navigate} data={data} />
-              ))}
-            </div>
-
-            <CustomButton text='Update' style='max-w-buttonWidth w-full mt-12 mb-28' />
-          </div>
         </div>
       </div>
     </div>
