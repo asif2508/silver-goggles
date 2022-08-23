@@ -5,50 +5,84 @@ import DashboardMentorNavigator from "./DashboardMentorNavigator";
 import Colors from "../../utils/Colors";
 import { AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
 import Switch from "@mui/material/Switch";
-import { FormControlLabel } from "@mui/material";
 import { IoIosArrowDown } from "react-icons/io";
-import BasicTimePicker from "./BasicTimePicker";
+import CustomButton from "../Component/CustomButton";
 
-const Slots = ({ data }) => {
-  const [showswitch, setShowswitch] = useState(true);
-  const [value, setValue] = useState(null);
+function convertTo24Hour(time) {
+  let t = time.split(":");
+  let hour = parseInt(t[0]);
+  let suffix = hour >= 12 ? "PM" : "AM";
+  let p = ((hour + 11) % 12 + 1) + ":" + t[1] + " " + suffix
+  return p;
+}
+
+const Slots = ({ data, navigate }) => {
   const [isAddClicked, setisAddClicked] = useState(false);
+  const [switchOn, setswitchOn] = React.useState(false);
 
-  function getTime(val) {
-    setValue(val.target.value);
-  }
+  function handleSwitchChange() {
+    if (switchOn) {
+      setswitchOn(false);
+    } else {
+      setswitchOn(true);
+    };
+  };
+
+  React.useEffect(() => {
+    if (data.timings.length > 0) {
+      setswitchOn(true);
+    } else {
+      setswitchOn(false);
+    }
+  }, [navigate]);
 
   return (
     <div>
       <div className="py-8 flex flex-col justify-center items-center">
         <div className="flex flex-row w-full justify-between items-center">
-          <div className="flex flex-row">
-            <FormControlLabel
-              onClick={() => setShowswitch(!showswitch)}
-              control={<Switch />}
-            />
+          <div className="flex flex-row lg:w-56">
+            <Switch onChange={handleSwitchChange} checked={switchOn} />
 
             <p className="font-primayfont font-bold mt-2 text-base text-dark-blue">
               {data.day}
             </p>
           </div>
-          <div className="font-primayfont hidden lg:flex text-dark-blue text-xs font-medium flex-wrap space-y-4">
-            {
-              data.timings.map((item, index) => {
-                return (
-                  <div className="flex bg-buttongrey px-2 py-1 rounded-l w-max justify-center items-center">
-                    <p className="">{item.startTime} To {item.endTime}</p>
-                    <AiOutlineClose className="ml-1 h-3 w-3" />
-                  </div>
-                )
-              })
-            }
+          {/* for larger devices  */}
+          <div className="px-11 w-full hidden lg:flex">
+            <div className="font-primayfont hidden lg:flex mt-6 text-dark-blue text-xs font-medium flex-wrap w-full">
+              {data.timings.length > 0 ?
+                (data.timings.map((item, index) => {
+                  return (
+                    <div key={index} className="flex bg-buttongrey px-2 py-2 rounded-lg mr-2 w-max h-12 justify-start items-center mb-4">
+                      <p className="">{item.startTime} To {item.endTime}</p>
+                      <AiOutlineClose className="ml-1 h-3 w-3" />
+                    </div>
+                  )
+                })) : (
+                  <p className="text-text_color text-base font-primayfont w-full">Unavailable</p>
+                )}
+            </div>
+            {isAddClicked && <div className="flex flex-col items-center mt-4 font-primayfont text-dark-blue text-base space-x-6">
+              <div className="border-1 flex flex-row rounded-lg pl-2 items-center px-3 py-2">
+                <p className="text-xs font-primayfont text-dark-blue w-max">9:00 AM</p>
+                <IoIosArrowDown className="ml-1" color={Colors.dark_blue} />
+              </div>
+              <div className="flex mt-4 items-center">
+                <p className="text-base font-bold mr-6">to</p>
+                <div className="border-1 flex flex-row rounded-lg pl-2 items-center px-3 py-2">
+                  <p className="text-xs font-primayfont text-dark-blue w-max">9:00 AM</p>
+                  <IoIosArrowDown className="ml-1" color={Colors.dark_blue} />
+                </div>
+              </div>
+            </div>}
+
           </div>
           <div>
             <AiOutlinePlus size={24} onClick={() => setisAddClicked(true)} />
           </div>
         </div>
-        <div className="px-11 w-full">
+        {/* for smaller devices  */}
+        <div className="px-11 w-full flex flex-col lg:hidden">
           {isAddClicked && <div className="flex items-center mt-4 font-primayfont text-dark-blue space-x-6">
             <div className="border-1 flex flex-row rounded-lg pl-2 items-center px-3 py-2">
               <p className="text-xs font-primayfont text-dark-blue w-max">9:00 AM</p>
@@ -60,7 +94,7 @@ const Slots = ({ data }) => {
               <IoIosArrowDown className="ml-1" color={Colors.dark_blue} />
             </div>
           </div>}
-          <div className="font-primayfont flex lg:hidden mt-6 text-dark-blue text-xs font-medium flex-wrap w-full">
+          <div className="font-primayfont mt-6 text-dark-blue text-xs font-medium flex-wrap w-full">
             {data.timings.length > 0 ?
               (data.timings.map((item, index) => {
                 return (
@@ -83,7 +117,7 @@ const Slots = ({ data }) => {
   )
 }
 
-const MentorDashboardCalender = () => {
+const MentorDashboardCalender = ({ navigate }) => {
   const [showtab, setShowtab] = useState(1);
   const handletab = (e) => {
     setShowtab(e);
@@ -106,10 +140,6 @@ const MentorDashboardCalender = () => {
     {
       "day": "Monday",
       "timings": [
-        {
-          "startTime": "1:00",
-          "endTime": "2:00"
-        }
       ]
     },
     {
@@ -225,17 +255,11 @@ const MentorDashboardCalender = () => {
 
             <div className="flex flex-col mt-5">
               {check.map((data, index) => (
-                <Slots key={index} data={data} />
+                <Slots key={index} navigate={navigate} data={data} />
               ))}
             </div>
 
-            <hr
-              className="w-full"
-              style={{ color: Colors.hrlightBlue }}
-            />
-            <button className="font-primayfont font-bold text-base bg-primary px-28 h-12 rounded-lg mt-12 text-white">
-              Update
-            </button>
+            <CustomButton text='Update' style='max-w-buttonWidth w-full mt-12 mb-28' />
           </div>
         </div>
       </div>

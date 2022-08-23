@@ -22,6 +22,7 @@ const Colors = {
   hrlightBlue: "#00103c26",
   donutGrey: '#BDBDBD',
   yellow: '#FEB000',
+  switchGreen: '#76EE59',
 };
 
 export default Colors;
