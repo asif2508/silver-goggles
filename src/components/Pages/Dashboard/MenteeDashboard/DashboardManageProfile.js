@@ -86,7 +86,6 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Name Your Country"
-                  border-hrlightBlue
                 />
               </div>
               <div className="mb-4">
@@ -101,7 +100,6 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="1234567890"
-                  border-hrlightBlue
                 />
               </div>
               <label
@@ -112,7 +110,9 @@ const DashBoardManageProfile = () => {
               </label>
               <div
                 className="rounded-lg w-full  py-3 text-gray-700 border-1 px-4 mb-4"
-                border-htlightblue
+                style={{
+                  borderColor: "rgba(0, 16, 60, 0.15)",
+                }}
               >
                 <input
                   className="outline-none w-full"
@@ -134,7 +134,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Computer Science"
-                  border-hrlightBlue
+
                 />
               </div>
               <div className="mb-4">
@@ -149,7 +149,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Name of Your Company/School"
-                  border-hrlightBlue
+
                 />
               </div>
               <div>
@@ -164,7 +164,6 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Tell us something about you"
-                  border-hrlightBlue
                 />
               </div>
               <button
@@ -194,7 +193,6 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="email"
                   placeholder="email@example.com"
-                  border-hrlightBlue
                 />
               </div>
               <div className="mb-4">
@@ -209,7 +207,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="password"
                   placeholder="Your Password here"
-                  border-hrlightBlue
+
                 />
               </div>
               <button
