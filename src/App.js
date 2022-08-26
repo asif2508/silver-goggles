@@ -21,7 +21,6 @@ import DashBoardMentors from "./components/Pages/Dashboard/MenteeDashboard/Dashb
 import DashBoardManageProfile from "./components/Pages/Dashboard/MenteeDashboard/DashboardManageProfile.js";
 import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
 import Register from "./components/Pages/Auth/Register.js";
-import Availability from "./vaibhav/Availability.js";
 import Packages from "./vaibhav/Packages.js";
 import DropDown from "./vaibhav/DropDown.js";
 
@@ -32,6 +31,7 @@ import MentorDashboardReviews from "./components/Pages/Dashboard/MentorDashboard
 import MentorDashboardPayment from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardPayment.js";
 import MentorDashboardSession from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardSession.js";
 import MentorDashboardManageProfile from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardManageProfile.js";
+import AddAvailability from "./components/Pages/Mentors/MentorAddAvailabillity/AddAvailability.js";
 
 const App = () => {
   return (
@@ -77,7 +77,7 @@ const App = () => {
             />
             <Route
               path="/availability"
-              element={<Availability />}
+              element={<AddAvailability />}
             />
             <Route
               path="/packages"
