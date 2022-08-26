@@ -41,6 +41,7 @@ const LoginString = {
 
   signup: "SIGN UP",
   already_registered: "Already Registered?",
-  dont_account:"Don't have account?"
+  dont_account: "Don't have account?",
+  signup_google: "SIGNUP WITH GOOGLE",
 };
 export default LoginString;

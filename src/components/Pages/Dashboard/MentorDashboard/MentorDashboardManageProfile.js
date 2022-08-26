@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Img from "../../../../images/Group_214.svg";
-import HeaderSeprater from "../../../Component/HeaderSeprater";
-import Header from "../../../Header/Header";
-import Colors from "../../../../utils/Colors";
-import DashboardNavigator from "../../../Component/MenteeDashboard/DashboardMenteeNavigator";
 import { useNavigate } from "react-router-dom";
+import Header from "../../../Header/Header";
+import HeaderSeprater from "../../../Component/HeaderSeprater";
+import Colors from "../../../../utils/Colors";
+import DashboardMentorNavigator from "../../../Component/MentorDashboard/DashboardMentorNavigator";
 
-const DashBoardManageProfile = () => {
+const MentorDashboardManageProfile = () => {
   const [showtab, setShowtab] = useState(1);
   const handletab = (e) => {
     setShowtab(e);
@@ -23,7 +23,7 @@ const DashBoardManageProfile = () => {
       <HeaderSeprater />
 
       <div className="flex flex-col lg:flex-row">
-        <DashboardNavigator activeManageProfile={true} />
+        <DashboardMentorNavigator activeManageProfile={true} />
         <div className="px-4 sm:px-16 md:px-28 lg:px-11 w-full lg:h-full lg:w-full mb-14">
           <p className="font-primayfont text-dark-blue font-bold text-xl capitalize mt-7">
             Manage Profile
@@ -86,6 +86,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Name Your Country"
+                  border-hrlightBlue
                 />
               </div>
               <div className="mb-4">
@@ -100,27 +101,8 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="1234567890"
+                  border-hrlightBlue
                 />
-              </div>
-              <label
-                className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-                htmlFor="username"
-              >
-                Enter your timezone
-              </label>
-              <div
-                className="rounded-lg w-full  py-3 text-gray-700 border-1 px-4 mb-4"
-                style={{
-                  borderColor: "rgba(0, 16, 60, 0.15)",
-                }}
-              >
-                <input
-                  className="outline-none w-full"
-                  id="username"
-                  type="select"
-                  placeholder="IST"
-                />
-                {/* <IoIosArrowDown /> */}
               </div>
               <div className="mb-4">
                 <label
@@ -134,7 +116,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Computer Science"
-
+                  border-hrlightBlue
                 />
               </div>
               <div className="mb-4">
@@ -149,7 +131,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Name of Your Company/School"
-
+                  border-hrlightBlue
                 />
               </div>
               <div>
@@ -164,6 +146,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="text"
                   placeholder="Tell us something about you"
+                  border-hrlightBlue
                 />
               </div>
               <button
@@ -193,6 +176,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="email"
                   placeholder="email@example.com"
+                  border-hrlightBlue
                 />
               </div>
               <div className="mb-4">
@@ -207,7 +191,7 @@ const DashBoardManageProfile = () => {
                   id="username"
                   type="password"
                   placeholder="Your Password here"
-
+                  border-hrlightBlue
                 />
               </div>
               <button
@@ -231,4 +215,4 @@ const DashBoardManageProfile = () => {
   );
 };
 
-export default DashBoardManageProfile;
+export default MentorDashboardManageProfile;
