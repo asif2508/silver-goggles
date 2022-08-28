@@ -29,6 +29,8 @@ import MentorDashboardReviews from "./components/Pages/Dashboard/MentorDashboard
 import MentorDashboardPayment from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardPayment.js";
 import MentorDashboardSession from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardSession.js";
 import MentorDashboardManageProfile from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardManageProfile.js";
+import AddAvailability from "./components/Pages/Mentors/MentorAddAvailabillity/AddAvailability.js";
+import AddPackages from "./components/Pages/Mentors/MentorAddAvailabillity/AddPackages.js";
 
 const App = () => {
   return (
@@ -72,7 +74,6 @@ const App = () => {
               path="/mentee/dashboard/manageprofile"
               element={<DashBoardManageProfile />}
             />
-
             <Route
               path="/mentor/dashboard"
               element={<MentorDashboardHome />}
@@ -100,6 +101,14 @@ const App = () => {
             <Route
               path="/mentor/dashboard/manageprofile"
               element={<MentorDashboardManageProfile />}
+            />
+            <Route
+              path="/add-availability/:id"
+              element={<AddAvailability />}
+            />
+            <Route
+              path="/add-packages/:id"
+              element={<AddPackages />}
             />
           </Routes>
         </div>
