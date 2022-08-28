@@ -31,6 +31,7 @@ import MentorDashboardSession from "./components/Pages/Dashboard/MentorDashboard
 import MentorDashboardManageProfile from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardManageProfile.js";
 import AddAvailability from "./components/Pages/Mentors/MentorAddAvailabillity/AddAvailability.js";
 import AddPackages from "./components/Pages/Mentors/MentorAddAvailabillity/AddPackages.js";
+import About from "./components/Pages/About.js";
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="" element={<Page404 />} />
             <Route element={<Page404 />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/about" element={<About />} />
             <Route path="/signup" element={<Register />} />
             <Route path="/mentors" element={<Mentors />} />
             <Route path="/mentors/:id" element={<DedicateMentor />} />

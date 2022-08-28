@@ -24,6 +24,7 @@ const Colors = {
   yellow: '#FEB000',
   switchGreen: '#76EE59',
   newGrey: '#f0f0f0',
+  orageAbout: '#FD805C',
 };
 
 export default Colors;

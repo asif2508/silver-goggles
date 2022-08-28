@@ -18,6 +18,7 @@ module.exports = {
       text_color: "#CCCCCC",
       hrlightBlue: "#00103c26",
       newGrey: '#f0f0f0',
+      orageAbout: '#FD805C',
     },
     borderWidth: {
       1: "1px",
