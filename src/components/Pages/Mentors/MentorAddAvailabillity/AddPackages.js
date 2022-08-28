@@ -155,7 +155,7 @@ const AddPackages = () => {
           </div>
 
           <div className="items-center text-center mt-10 mb-20">
-            <CustomButton text="Complete Setup" className="" style="w-full sm:max-w-packagebox" onClick={() => setMyModel(true)} />
+            <CustomButton text="Complete Setup" className="" styleClass="w-full sm:max-w-packagebox" onClick={() => setMyModel(true)} />
           </div>
 
           <WellDonePopUp onClose={handleOnClose} visible={showMyModel} />

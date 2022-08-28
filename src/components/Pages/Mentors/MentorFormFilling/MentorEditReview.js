@@ -64,7 +64,7 @@ const MentorEditReview = () => {
               mentor’s dashboard.
             </p>
             <div className="w-full mt-9 lg:mt-12 mb-16 lg:mb-24 flex justify-center">
-              <CustomButton text="Submit" style="w-full lg:w-96" />
+              <CustomButton text="Submit" styleClass="w-full lg:w-96" />
             </div>
           </div>
         </div>

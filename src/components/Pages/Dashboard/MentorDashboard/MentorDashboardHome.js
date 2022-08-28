@@ -143,7 +143,7 @@ const MentorDashboardHome = () => {
                 </div>
                 <div className="mt-6 flex flex-col lg:flex-row lg:space-x-6">
                   <div className="">
-                    <CustomButton text="Accept" style="w-full lg:w-max" />
+                    <CustomButton text="Accept" styleClass="w-full lg:w-max" />
                   </div>
                   <button className="py-2 px-8 rounded-lg text-white bg-red font-bold text-base font-primayfont w-full lg:w-max mt-4  lg:mt-0"> Decline</button>
                 </div>

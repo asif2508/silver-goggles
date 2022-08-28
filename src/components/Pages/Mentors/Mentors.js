@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
 import { GiCancel } from "react-icons/gi";
 import { BsSearch } from "react-icons/bs";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";

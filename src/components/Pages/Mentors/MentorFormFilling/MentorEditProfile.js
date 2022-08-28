@@ -249,7 +249,7 @@ const MentorEditProfile = () => {
               <div className="w-full mt-9 lg:mt-12 mb-16 lg:mb-24 flex justify-center">
                 <CustomButton
                   text="Save & Next"
-                  style="w-full lg:w-96"
+                  styleClass="w-full lg:w-96"
                   onClick={() => {
                     navigate("/become-mentor/edit-qualifications");
                   }}

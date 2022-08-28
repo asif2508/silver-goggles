@@ -143,12 +143,12 @@ const MentorDashboardSession = () => {
             </div>
             <div className="mt-6 flex flex-col lg:flex-row lg:space-x-6">
               <div className="">
-                <CustomButton text="Join Meeting" style="w-full lg:w-max" />
+                <CustomButton text="Join Meeting" styleClass="w-full lg:w-max" />
               </div>
               <div className="">
                 <CustomButton
                   text="Change Your Mind?"
-                  style="mt-4 w-full lg:mt-0 lg:w-max"
+                  styleClass="mt-4 w-full lg:mt-0 lg:w-max"
                   onClick={() => setMyModel(true)}
                 />
               </div>

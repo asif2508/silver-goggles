@@ -37,7 +37,7 @@ const HomeMentorBox = ({ mentorName, mentorPost, imgUrl }) => {
         <p className="mt-2 font-primayfont font-normal text-base text text-grey">
           {mentorPost}
         </p>
-        <CustomButton text="Explore all" style="w-11/12 mt-6 h-14" />
+        <CustomButton text="Explore all" styleClass="w-11/12 mt-6 h-14" />
       </div>
     </div>
   );

@@ -131,7 +131,7 @@ const MentorDashboardPayment = () => {
             </div>
           </div>
 
-          <CustomButton text='Save' className="mt-12" style='w-full lg:max-w-buttonWidth w-full mt-12' />
+          <CustomButton text='Save' className="mt-12" styleClass='w-full lg:max-w-buttonWidth w-full mt-12' />
 
           <div className="flex flex-row justify-between pt-9">
             <div>

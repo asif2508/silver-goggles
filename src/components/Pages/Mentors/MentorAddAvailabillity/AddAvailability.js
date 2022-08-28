@@ -253,7 +253,7 @@ const AddAvailability = () => {
                 ))}
               </div>
 
-              <CustomButton text='Continue' style='max-w-buttonWidth w-full mt-12 mb-28' />
+              <CustomButton text='Continue' styleClass='max-w-buttonWidth w-full mt-12 mb-28' />
             </div>
 
             <div className={showtab === 2 ? "  " : "hidden"}>

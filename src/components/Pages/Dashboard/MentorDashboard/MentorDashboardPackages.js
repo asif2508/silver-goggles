@@ -7,7 +7,6 @@ import HrBottom from "../../../Component/HrBottom";
 import Header from "../../../Header/Header";
 import HeaderSeprater from "../../../Component/HeaderSeprater";
 import DashboardMentorNavigator from "../../../Component/MentorDashboard/DashboardMentorNavigator";
-import CustomButton from "../../../Component/CustomButton";
 
 const Slots = ({ data, navigate }) => {
   const [isAddClicked, setisAddClicked] = useState(false);

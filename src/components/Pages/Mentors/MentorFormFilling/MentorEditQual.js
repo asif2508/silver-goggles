@@ -22,8 +22,6 @@ const MentorEditQual = () => {
 
   const educations = [];
 
-  const works = [];
-
   const MapComponent = ({ data }) => {
     console.log("data in component:", data);
     return (
@@ -180,12 +178,12 @@ const MentorEditQual = () => {
               <div className="field w-1/2">
                 <CustomButton
                   text="Save"
-                  style="w-full"
+                  styleClass="w-full"
                   onClick={saveEducation}
                 />
               </div>
               <div className="field w-1/2">
-                <CustomButton text="Add Another" style="w-full" />
+                <CustomButton text="Add Another" styleClass="w-full" />
               </div>
             </div>
 
@@ -262,17 +260,17 @@ const MentorEditQual = () => {
             {/* Buttons */}
             <div className="flex space-x-4 lg:space-x-9 mt-6 mb-9">
               <div className="field w-1/2">
-                <CustomButton text="Save" style="w-full" />
+                <CustomButton text="Save" styleClass="w-full" />
               </div>
               <div className="field w-1/2">
-                <CustomButton text="Add Another" style="w-full" />
+                <CustomButton text="Add Another" styleClass="w-full" />
               </div>
             </div>
 
             <div className="w-full mt-9 lg:mt-12 mb-16 lg:mb-24 flex justify-center">
               <CustomButton
                 text="Save & Next"
-                style="w-full lg:w-96"
+                styleClass="w-full lg:w-96"
                 onClick={() => {
                   navigate("/become-mentor/in-review");
                 }}

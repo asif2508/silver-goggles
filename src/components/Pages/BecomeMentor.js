@@ -51,7 +51,7 @@ const BecomeMentor = () => {
           <CustomButton
             text={"Become a mentor"}
             onClick={navigateToBecomeMentor}
-            style="mt-6"
+            styleClass="mt-6"
           />
         </section>
       </div>
@@ -127,7 +127,7 @@ const BecomeMentor = () => {
             <CustomButton
               text={"Become a mentor"}
               onClick={navigateToBecomeMentor}
-              style="mt-6"
+              styleClass="mt-6"
             />
           </div>
         </div>

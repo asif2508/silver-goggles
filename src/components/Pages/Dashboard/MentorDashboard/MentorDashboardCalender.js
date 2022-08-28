@@ -257,7 +257,7 @@ const MentorDashboardCalender = ({ navigate }) => {
               ))}
             </div>
 
-            <CustomButton text='Update' style='max-w-buttonWidth w-full mt-12 mb-28' />
+            <CustomButton text='Update' styleClass='max-w-buttonWidth w-full mt-12 mb-28' />
           </div>
         </div>
       </div>
