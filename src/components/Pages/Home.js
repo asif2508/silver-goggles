@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import Header from "../Header/Header";
-import AssetHome1 from "../../images/asset_home_1.svg";
+import AssetHome1 from "../../images/asset_home_1.png";
 import Companies from "../../images/companies.svg";
 import image from "../../images/kalpesh.jpg";
 import image2 from "../../images/aayu.jpg";
