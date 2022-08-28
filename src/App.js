@@ -21,8 +21,6 @@ import DashBoardMentors from "./components/Pages/Dashboard/MenteeDashboard/Dashb
 import DashBoardManageProfile from "./components/Pages/Dashboard/MenteeDashboard/DashboardManageProfile.js";
 import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
 import Register from "./components/Pages/Auth/Register.js";
-import Packages from "./vaibhav/Packages.js";
-import DropDown from "./vaibhav/DropDown.js";
 
 import MentorDashboardHome from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardHome.js";
 import MentorDashboardPackages from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardPackages.js";
@@ -32,6 +30,7 @@ import MentorDashboardPayment from "./components/Pages/Dashboard/MentorDashboard
 import MentorDashboardSession from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardSession.js";
 import MentorDashboardManageProfile from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardManageProfile.js";
 import AddAvailability from "./components/Pages/Mentors/MentorAddAvailabillity/AddAvailability.js";
+import AddPackages from "./components/Pages/Mentors/MentorAddAvailabillity/AddPackages.js";
 
 const App = () => {
   return (
@@ -76,18 +75,6 @@ const App = () => {
               element={<DashBoardManageProfile />}
             />
             <Route
-              path="/availability"
-              element={<AddAvailability />}
-            />
-            <Route
-              path="/packages"
-              element={<Packages />}
-            />
-            <Route
-              path="/dropdown"
-              element={<DropDown />}
-            />
-            <Route
               path="/mentor/dashboard"
               element={<MentorDashboardHome />}
             />
@@ -114,6 +101,14 @@ const App = () => {
             <Route
               path="/mentor/dashboard/manageprofile"
               element={<MentorDashboardManageProfile />}
+            />
+            <Route
+              path="/add-availability/:id"
+              element={<AddAvailability />}
+            />
+            <Route
+              path="/add-packages/:id"
+              element={<AddPackages />}
             />
           </Routes>
         </div>
