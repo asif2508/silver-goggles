@@ -17,6 +17,7 @@ module.exports = {
       buttongrey: "#EFEFEF",
       text_color: "#CCCCCC",
       hrlightBlue: "#00103c26",
+      newGrey: '#f0f0f0',
     },
     borderWidth: {
       1: "1px",

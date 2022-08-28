@@ -10,6 +10,7 @@ import Header from "../../Header/Header";
 import HeaderSeprater from "../../Component/HeaderSeprater";
 import { Calendar } from "react-calendar";
 import Slider from "@mui/material/Slider";
+import HrBottom from "../../Component/HrBottom";
 
 const Mentors = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,14 +20,16 @@ const Mentors = () => {
   const [isMenuOpen4, setIsMenuOpen4] = useState(false);
   const [isMenuOpen5, setIsMenuOpen5] = useState(false);
 
-  // Our States
-  const [value, setValue] =  React.useState([2,10]);
-  
-  // Changing State when volume increases/decreases
-  const rangeSelector = (event, newValue) => {
+  const [value, setValue] = React.useState([2000, 10000]);
+
+  const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log(newValue)
-  };  
+  };
+
+  function valuetext(value) {
+    return `₹${value}`;
+  }
+
   const searchChips = [
     "ui design",
     "product design",
@@ -92,6 +95,7 @@ const Mentors = () => {
       isFavourite: true,
     },
   ];
+
   return (
     <>
       <div className="min-h-half">
@@ -107,12 +111,7 @@ const Mentors = () => {
         <div className="px-4 mt-6 lg:px-24">
           <div className="flex flex-col lg:flex-row">
             <div
-              className="rounded-lg h-12 flex py-3 px-4 lg:flex-row justify-center items-center lg:w-96"
-              style={{
-                borderColor: Colors.border,
-                borderWidth: 1,
-                color: Colors.text_color,
-              }}
+              className="rounded-lg border-textInputBorder h-12 flex py-3 px-4 lg:flex-row justify-center text-text_color border-1 items-center lg:w-96"
             >
               <input
                 className="w-full outline-none border-none text-dark-blue text-sm font-normal"
@@ -123,8 +122,7 @@ const Mentors = () => {
             </div>
             <div className="flex mt-6 lg:mt-0 flex-row overflow-x-scroll whitespace-nowrap font-primayfont lg:px-3 scrollbar-hide">
               <div
-                className="rounded-lg py-2 h-12 inline-flex px-3 border-1"
-                style={{ borderColor: Colors.border }}
+                className="rounded-lg py-2 h-12 inline-flex px-3 border-1 border-textInputBorder"
               >
                 <p className="text-base pt-1 font-primayfont font-normal text-dark-blue  ">
                   Domain
@@ -147,30 +145,29 @@ const Mentors = () => {
               </div>
               {isMenuOpen && (
                 <div
-                  className="-ml-28 mt-12 rounded-lg h-44 w-44 bg-white cursor-pointer"
+                  className="mt-14 rounded-lg bg-white cursor-pointer absolute"
                   style={{ boxShadow: "0px 0px 8px rgba(0, 16, 60, 0.1)" }}
                 >
-                  <li className="list-none px-4 py-1 mt-2 text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white">
+                  <li className="list-none px-4 py-1 mt-2 text-dark-blue capitalize font-primayfont hover:bg-newGrey ">
                     Exam Prep Mentors
                   </li>
-                  <li className="list-none px-4 py-1 text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
+                  <li className="list-none px-4 py-1 text-dark-blue capitalize font-primayfont hover:bg-newGrey ">
                     Start up Mentors
                   </li>
-                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
+                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-newGrey  ">
                     Product Management
                   </li>
-                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
-                    Web Development{" "}
+                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-newGrey  ">
+                    Web Development
                   </li>
-                  <li className="list-none px-4 py-1 mb-2 text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
-                    Design{" "}
+                  <li className="list-none px-4 py-1 mb-2 text-dark-blue capitalize font-primayfont hover:bg-newGrey  ">
+                    Design
                   </li>
                 </div>
               )}
 
               <div
-                className="rounded-lg py-2 h-12 inline-flex px-3 justify-center items-center ml-3"
-                style={{ borderColor: Colors.border, borderWidth: 1 }}
+                className="rounded-lg py-2 h-12 inline-flex px-3 justify-center items-center ml-3 border-1 border-textInputBorder"
               >
                 <p className="text-base font-primayfont font-normal text-dark-blue  ">
                   Price
@@ -194,29 +191,37 @@ const Mentors = () => {
 
               {isMenuOpen1 && (
                 <div
-                  className="-ml-20 mt-12 rounded-lg h-28 w-48 bg-white cursor-pointer"
+                  className="mt-14 w-64 rounded-lg bg-white cursor-pointer absolute px-3 py-3"
                   style={{ boxShadow: "0px 0px 8px rgba(0, 16, 60, 0.1)" }}
                 >
-                  <li className="list-none px-1 py-1  text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
-                    Product Management
-                  </li>
-                  <li>
-                    <Slider
-                       value={value}
-                       onChange={rangeSelector}
-                       valueLabelDisplay="auto"
-                    />
-                     <p className="w-4">
-                    {" "}
-                    ₹{value[0]} and ₹{value[1]}{" "}
-                  
-                  </p>
-                  </li>
+                  <div className="flex justify-between w-full">
+                    <p className="text-dark-blue font-primayfont">
+                    </p>
+                    <p className="text-dark-blue font-primayfont">
+                      ₹{value[0]}
+                    </p>
+                  </div>
+                  <Slider
+                    getAriaLabel={() => 'Temperature range'}
+                    value={value}
+                    min={0}
+                    max={10000}
+                    onChange={handleChange}
+                    valueLabelDisplay="auto"
+                    getAriaValueText={valuetext}
+                  />
+                  <div className="flex justify-between w-full">
+                    <p className="text-dark-blue font-primayfont">
+                      FREE
+                    </p>
+                    <p className="text-dark-blue font-primayfont">
+                      ₹{value[1]}
+                    </p>
+                  </div>
                 </div>
               )}
               <div
-                className="rounded-lg py-2 h-12 inline-flex px-3 justify-center items-center ml-3"
-                style={{ borderColor: Colors.border, borderWidth: 1 }}
+                className="rounded-lg py-2 h-12 inline-flex px-3 justify-center items-center ml-3 border-1 border-textInputBorder"
               >
                 <p className="text-base font-primayfont font-normal text-dark-blue  ">
                   Availability
@@ -239,20 +244,16 @@ const Mentors = () => {
               </div>
               {isMenuOpen2 && (
                 <div
-                  className="-ml-28 mt-12 rounded-lg h-52 w-40 bg-white cursor-pointer"
+                  className="ml-32 mt-14 rounded-lg bg-white cursor-pointer absolute"
                   style={{ boxShadow: "0px 0px 8px rgba(0, 16, 60, 0.1)" }}
                 >
-                  <Calendar
-                   
-                  />
-                 
+                  <Calendar />
                 </div>
               )}
               <div
-                className="rounded-lg h-12 py-2 inline-flex px-3 justify-center items-center ml-3"
-                style={{ borderColor: Colors.border, borderWidth: 1 }}
+                className="rounded-lg h-12 py-2 inline-flex px-3 justify-center items-center ml-3 border-textInputBorder border-1"
               >
-                <p className="text-base font-primayfont font-normal text-dark-blue  ">
+                <p className="text-base font-primayfont font-normal text-dark-blue">
                   Services
                 </p>
                 {isMenuOpen3 ? (
@@ -273,25 +274,24 @@ const Mentors = () => {
               </div>
               {isMenuOpen3 && (
                 <div
-                  className="-ml-28 mt-12 rounded-lg h-28 w-40 bg-white cursor-pointer"
+                  className="ml-80 mt-14 rounded-lg bg-white cursor-pointer absolute"
                   style={{ boxShadow: "0px 0px 8px rgba(0, 16, 60, 0.1)" }}
                 >
-                  <li className="list-none px-4 py-1 mt-2 text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white">
+                  <li className="list-none px-4 py-1 mt-2 text-dark-blue capitalize font-primayfont hover:bg-newGrey ">
                     Quick call
                   </li>
-                  <li className="list-none px-4 py-1 text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
+                  <li className="list-none px-4 py-1 text-dark-blue capitalize font-primayfont hover:bg-newGrey  ">
                     CV Review
                   </li>
-                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
+                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-newGrey  ">
                     Career Strategy
                   </li>
                 </div>
               )}
               <div
-                className="rounded-lg py-2 h-12 inline-flex px-3 justify-center items-center ml-3"
-                style={{ borderColor: Colors.border, borderWidth: 1 }}
+                className="rounded-lg py-2 h-12 inline-flex px-3 justify-center items-center ml-3 border-1 border-textInputBorder"
               >
-                <p className="text-base font-primayfont font-normal text-dark-blue  ">
+                <p className="text-base font-primayfont font-normal text-dark-blue">
                   Sort
                 </p>
                 {isMenuOpen4 ? (
@@ -312,24 +312,23 @@ const Mentors = () => {
               </div>
               {isMenuOpen4 && (
                 <div
-                  className="-ml-20 mt-12 rounded-lg h-28 w-40 bg-white cursor-pointer"
+                  className="mt-14 rounded-lg bg-white cursor-pointer absolute"
                   style={{ boxShadow: "0px 0px 8px rgba(0, 16, 60, 0.1)" }}
                 >
-                  <li className="list-none px-4 py-1 mt-2 text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white">
+                  <li className="list-none px-4 py-1 mt-2 text-dark-blue capitalize font-primayfont hover:bg-newGrey ">
                     Quick call
                   </li>
-                  <li className="list-none px-4 py-1 text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
+                  <li className="list-none px-4 py-1 text-dark-blue capitalize font-primayfont hover:bg-newGrey  ">
                     CV Review
                   </li>
-                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
+                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-newGrey  ">
                     Career Strategy etc.
                   </li>
                 </div>
               )}
 
               <div
-                className="rounded-lg py-2 h-12 inline-flex px-3 justify-center items-center ml-3"
-                style={{ borderColor: Colors.border, borderWidth: 1 }}
+                className="rounded-lg py-2 h-12 inline-flex px-3 justify-center items-center ml-3 border-1 border-textInputBorder"
               >
                 <p className="text-base font-primayfont font-normal text-dark-blue  ">
                   Competitive Exam
@@ -352,19 +351,19 @@ const Mentors = () => {
               </div>
               {isMenuOpen5 && (
                 <div
-                  className="-ml-44 mt-12 rounded-lg h-32   w-40 bg-white cursor-pointer"
+                  className="mt-14 rounded-lg bg-white cursor-pointer absolute"
                   style={{ boxShadow: "0px 0px 8px rgba(0, 16, 60, 0.1)" }}
                 >
-                  <li className="list-none px-4 py-1 mt-2 text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white">
+                  <li className="list-none px-4 py-1 mt-2 text-dark-blue capitalize font-primayfont hover:bg-newGrey ">
                     Not Applicable
                   </li>
-                  <li className="list-none px-4 py-1 text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
+                  <li className="list-none px-4 py-1 text-dark-blue capitalize font-primayfont hover:bg-newGrey  ">
                     JEE
                   </li>
-                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white ">
+                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-newGrey  ">
                     CAT
                   </li>
-                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-grey hover:text-white">
+                  <li className="list-none px-4 py-1  text-dark-blue capitalize font-primayfont hover:bg-newGrey ">
                     GATE
                   </li>
                 </div>
@@ -381,7 +380,7 @@ const Mentors = () => {
               {searchChips.map((text, index) => (
                 <p
                   className="flex flex-row py-2 px-3 mb-4 capitalize rounded-lg  font-medium font-primayfont text-base text-center items-center text-dark-blue mr-3  cursor-pointer"
-                  style={{ background: Colors.grey }}
+                  style={{ backgroundColor: Colors.grey }}
                   key={index}
                 >
                   {text}
@@ -395,10 +394,8 @@ const Mentors = () => {
               </p>
             </div>
           </div>
-          <hr
-            className="mt-6 -mx-4 lg:-mx-24"
-            style={{ color: Colors.hrgrey }}
-          />
+          <HrBottom />
+
         </div>
         <div className="flex flex-wrap my-9 justify-evenly">
           {mentors.map((data, index) => (

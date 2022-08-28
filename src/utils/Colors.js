@@ -12,7 +12,6 @@ const Colors = {
   green: "#1DFF4E",
   lightgrey: "#00103c59",
   white_smoke: "#F5F5F5",
-  border: "#00103c73",
   text_color: "#CCCCCC",
   buttongrey: "#EFEFEF",
   hrgrey: "#00000040",
@@ -20,10 +19,11 @@ const Colors = {
   dark_grey: " #798196",
   bg_grey: "#FAFAFA",
   hrlightBlue: "#00103c26",
-  back:"#E0E0E0",
+  back: "#E0E0E0",
   donutGrey: '#BDBDBD',
   yellow: '#FEB000',
   switchGreen: '#76EE59',
+  newGrey: '#f0f0f0',
 };
 
 export default Colors;
