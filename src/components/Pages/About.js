@@ -8,6 +8,8 @@ import Colors from "../../utils/Colors";
 import Constants from "../../constants/Constants";
 import { AiOutlineMail } from "react-icons/ai";
 import CustomButton from "../Component/CustomButton";
+import { useDispatch } from "react-redux";
+import { contactFormSubmission } from "../../actions/web";
 
 const MBox = ({ item }) => {
   return (
@@ -33,6 +35,8 @@ const About = () => {
     window.scrollTo(0, 0);
   }, [navigate]);
 
+  const dispatch = useDispatch();
+
   const teams = [
     {
       name: "Aayu Kharbanda",
@@ -55,7 +59,7 @@ const About = () => {
     if (name === "" || email === "" || query === "") {
       alert("Please fill all fields");
     } else {
-
+      dispatch(contactFormSubmission(name, email, query))
     }
   };
 

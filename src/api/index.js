@@ -1,9 +1,9 @@
 import axios from "axios";
 
 // for developemnt
-// let API = axios.create({ baseURL: "/" });
+let API = axios.create({ baseURL: "http://localhost:8000/" });
 // for deployment
-let API = axios.create({ baseURL: "https://edukith.com/api" });
+// let API = axios.create({ baseURL: "https://edukith.com/api" });
 
 export const signIn = (formData, config) =>
   API.post("/user/signin", formData, config);
@@ -14,3 +14,5 @@ export const signUpWithGoogle = (formData) => API.post("/user/signupwithgoogle",
 export const loginWithGoogle = (formData) => API.post("/user/loginGooglerUser", formData);
 
 export const gets3url = (config) => API.get("/user/gets3url", config);
+
+export const contactUs = (data) => API.post("/web/contact", data);
