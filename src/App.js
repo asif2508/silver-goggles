@@ -12,26 +12,16 @@ import BookMentorNow from "./components/Pages/Mentors/BookMentorNow.js";
 import Page404 from "./components/Pages/404Page.js";
 import BecomeMentor from "./components/Pages/BecomeMentor.js";
 
-import MentorEditProfile from "./components/Pages/Mentors/MentorFormFilling/MentorEditProfile.js";
-import MentorEditQual from "./components/Pages/Mentors/MentorFormFilling/MentorEditQual.js";
-import MentorEditReview from "./components/Pages/Mentors/MentorFormFilling/MentorEditReview.js";
-
-import DashBoardSession from "./components/Pages/Dashboard/MenteeDashboard/DashBoardSession.js";
-import DashBoardMentors from "./components/Pages/Dashboard/MenteeDashboard/DashboardMentors.js";
-import DashBoardManageProfile from "./components/Pages/Dashboard/MenteeDashboard/DashboardManageProfile.js";
 import DashBoardHome from "./components/Pages/Dashboard/MenteeDashboard/DashBoardHome.js";
 import Register from "./components/Pages/Auth/Register.js";
 
-import MentorDashboardHome from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardHome.js";
-import MentorDashboardPackages from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardPackages.js";
-import MentorDashboardCalender from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardCalender.js";
-import MentorDashboardReviews from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardReviews.js";
-import MentorDashboardPayment from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardPayment.js";
-import MentorDashboardSession from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardSession.js";
-import MentorDashboardManageProfile from "./components/Pages/Dashboard/MentorDashboard/MentorDashboardManageProfile.js";
-import AddAvailability from "./components/Pages/Mentors/MentorAddAvailabillity/AddAvailability.js";
-import AddPackages from "./components/Pages/Mentors/MentorAddAvailabillity/AddPackages.js";
 import About from "./components/Pages/About.js";
+import DashboardHome from "./components/Pages/HybridDashboard/DashboardHome.js";
+import DashboardCalender from "./components/Pages/HybridDashboard/DashboardCalender.js";
+import DashboardBecomeMentor from "./components/Pages/HybridDashboard/DashboardBecomeMentor.js";
+import DashboardPackages from "./components/Pages/HybridDashboard/DashboardPackages.js";
+import DashboardSession from "./components/Pages/HybridDashboard/DashboardSession.js";
+import DashboardManageProfile from "./components/Pages/HybridDashboard/DashboardManageProfile.js";
 
 const App = () => {
   return (
@@ -50,7 +40,14 @@ const App = () => {
             <Route path="/mentors/:id" element={<DedicateMentor />} />
             <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />
             <Route path="/become-mentor" element={<BecomeMentor />} />
-            <Route
+            <Route path="/dashboard" element={<DashboardHome />} />
+            <Route path="/dashboard/add-availability" element={<DashboardCalender />} />
+            <Route path="/dashboard/become-mentor" element={<DashboardBecomeMentor />} />
+            <Route path="/dashboard/manage-packages" element={<DashboardPackages />} />
+            <Route path="/dashboard/sessions" element={<DashboardSession />} />
+            <Route path="/dashboard/manage-profile" element={<DashboardManageProfile />} />
+
+            {/* <Route
               path="/become-mentor/edit-profile"
               element={<MentorEditProfile />}
             />
@@ -61,9 +58,9 @@ const App = () => {
             <Route
               path="/become-mentor/in-review"
               element={<MentorEditReview />}
-            />
+            /> */}
 
-            <Route path="/mentee/dashboard" element={<DashBoardHome />} />
+            {/* <Route path="/mentee/dashboard" element={<DashBoardHome />} />
             <Route
               path="/mentee/dashboard/session"
               element={<DashBoardSession />}
@@ -111,7 +108,7 @@ const App = () => {
             <Route
               path="/add-packages/:id"
               element={<AddPackages />}
-            />
+            /> */}
           </Routes>
         </div>
         <Footer />
