@@ -19,6 +19,7 @@ module.exports = {
       hrlightBlue: "#00103c26",
       newGrey: '#f0f0f0',
       orageAbout: '#FD805C',
+      dark_grey: " #798196",
     },
     borderWidth: {
       1: "1px",

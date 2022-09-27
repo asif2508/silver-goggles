@@ -234,17 +234,6 @@ const DashboardCalender = ({ navigate }) => {
                   <div className="h-1 bg-primary rounded-full" />
                 )}
               </div>
-              <div className="ml-6">
-                <p
-                  className="font-medium text-base w-max pb-1 text-dark-blue"
-                  onClick={() => handletab(2)}
-                >
-                  Blockout Dates
-                </p>
-                {showtab === 2 && (
-                  <div className="h-1 bg-primary rounded-full" />
-                )}
-              </div>
             </div>
             <hr
               className="w-full"

@@ -1,203 +1,19 @@
-import React, { useState } from "react";
-import { AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
-import Switch from "@mui/material/Switch";
-import { IoIosArrowDown } from "react-icons/io";
+import React from "react";
 import HybridDashboardNavigator from "../../Component/HybridDashboardNavigator";
-import Colors from "../../../utils/Colors";
-import HrBottom from "../../Component/HrBottom";
 import Header from "../../Header/Header";
 import HeaderSeprater from "../../Component/HeaderSeprater";
-
-const Slots = ({ data, navigate }) => {
-  const [isAddClicked, setisAddClicked] = useState(false);
-  const [switchOn, setswitchOn] = React.useState(false);
-
-  function handleSwitchChange() {
-    if (switchOn) {
-      setswitchOn(false);
-    } else {
-      setswitchOn(true);
-    };
-  };
-
-  React.useEffect(() => {
-    if (data.timings.length > 0) {
-      setswitchOn(true);
-    } else {
-      setswitchOn(false);
-    }
-  }, [navigate]);
-
-  return (
-    <div>
-      <div className="py-8 flex flex-col justify-center items-center">
-        <div className="flex flex-row w-full justify-between items-center">
-          <div className="flex flex-row lg:w-56">
-            <Switch onChange={handleSwitchChange} checked={switchOn} />
-
-            <p className="font-primayfont font-bold mt-2 text-base text-dark-blue">
-              {data.day}
-            </p>
-          </div>
-          {/* for larger devices  */}
-          <div className="px-11 w-full hidden lg:flex">
-            <div className="font-primayfont hidden lg:flex mt-6 text-dark-blue text-xs font-medium flex-wrap w-full">
-              {data.timings.length > 0 ?
-                (data.timings.map((item, index) => {
-                  return (
-                    <div key={index} className="flex bg-buttongrey px-2 py-2 rounded-lg mr-2 w-max h-12 justify-start items-center mb-4">
-                      <p className="">{item.startTime} To {item.endTime}</p>
-                      <AiOutlineClose className="ml-1 h-3 w-3" />
-                    </div>
-                  )
-                })) : (
-                  <p className="text-text_color text-base font-primayfont w-full">Unavailable</p>
-                )}
-            </div>
-            {isAddClicked && <div className="flex flex-col items-center mt-4 font-primayfont text-dark-blue text-base space-x-6">
-              <div className="border-1 flex flex-row rounded-lg pl-2 items-center px-3 py-2">
-                <p className="text-xs font-primayfont text-dark-blue w-max">9:00 AM</p>
-                <IoIosArrowDown className="ml-1" color={Colors.dark_blue} />
-              </div>
-              <div className="flex mt-4 items-center">
-                <p className="text-base font-bold mr-6">to</p>
-                <div className="border-1 flex flex-row rounded-lg pl-2 items-center px-3 py-2">
-                  <p className="text-xs font-primayfont text-dark-blue w-max">9:00 AM</p>
-                  <IoIosArrowDown className="ml-1" color={Colors.dark_blue} />
-                </div>
-              </div>
-            </div>}
-
-          </div>
-          <div>
-            <AiOutlinePlus size={24} onClick={() => setisAddClicked(true)} />
-          </div>
-        </div>
-        {/* for smaller devices  */}
-        <div className="px-11 w-full flex flex-col lg:hidden">
-          {isAddClicked && <div className="flex items-center mt-4 font-primayfont text-dark-blue space-x-6">
-            <div className="border-1 flex flex-row rounded-lg pl-2 items-center px-3 py-2">
-              <p className="text-xs font-primayfont text-dark-blue w-max">9:00 AM</p>
-              <IoIosArrowDown className="ml-1" color={Colors.dark_blue} />
-            </div>
-            <p className="text-xs font-bold">to</p>
-            <div className="border-1 flex flex-row rounded-lg pl-2 items-center px-3 py-2">
-              <p className="text-xs font-primayfont text-dark-blue w-max">9:00 AM</p>
-              <IoIosArrowDown className="ml-1" color={Colors.dark_blue} />
-            </div>
-          </div>}
-          <div className="font-primayfont mt-6 text-dark-blue text-xs font-medium flex-wrap w-full">
-            {data.timings.length > 0 ?
-              (data.timings.map((item, index) => {
-                return (
-                  <div key={index} className="flex bg-buttongrey px-2 py-2 rounded-lg mr-2 w-max justify-start items-center mb-4">
-                    <p className="">{item.startTime} To {item.endTime}</p>
-                    <AiOutlineClose className="ml-1 h-3 w-3" />
-                  </div>
-                )
-              })) : (
-                <p className="text-text_color text-base font-primayfont w-full text-center">Unavailable</p>
-              )}
-          </div>
-        </div>
-      </div>
-      <HrBottom />
-    </div>
-  )
-}
+import greencheck from "../../../images/checkcirclegreen.svg";
+import CustomButton from "../../Component/CustomButton";
+import Colors from "../../../utils/Colors";
+import { BsLock } from "react-icons/bs";
+import { color } from "@mui/system";
 
 const DashboardPackages = ({ navigate }) => {
-  const [showtab, setShowtab] = useState(1);
-  const handletab = (e) => {
-    setShowtab(e);
-  };
-
-  const check = [
-    {
-      "day": "Sunday",
-      "timings": [
-        {
-          "startTime": "1:00",
-          "endTime": "2:00"
-        },
-        {
-          "startTime": "20:00",
-          "endTime": "20:30"
-        }
-      ]
-    },
-    {
-      "day": "Monday",
-      "timings": [
-      ]
-    },
-    {
-      "day": "Tuesday",
-      "timings": [
-        {
-          "startTime": "20:00",
-          "endTime": "20:30"
-        }
-      ]
-    },
-    {
-      "day": "Wednesday",
-      "timings": [
-        {
-          "startTime": "10:00",
-          "endTime": "12:00"
-        },
-        {
-          "startTime": "20:00",
-          "endTime": "20:30"
-        }
-      ]
-    },
-    {
-      "day": "Thursday",
-      "timings": [
-        {
-          "startTime": "10:00",
-          "endTime": "12:00"
-        }
-      ]
-    },
-    {
-      "day": "Friday",
-      "timings": [
-        {
-          "startTime": "10:00",
-          "endTime": "12:00"
-        },
-        {
-          "startTime": "1:00",
-          "endTime": "2:00"
-        },
-        {
-          "startTime": "20:00",
-          "endTime": "20:30"
-        }
-      ]
-    },
-    {
-      "day": "Saturday",
-      "timings": [
-        {
-          "startTime": "10:00",
-          "endTime": "12:00"
-        },
-        {
-          "startTime": "1:00",
-          "endTime": "2:00"
-        },
-        {
-          "startTime": "20:00",
-          "endTime": "20:30"
-        }
-      ]
-    }
+  const features = [
+    "Upto 30 min Virtual Meet",
+    "Introductory Discussions",
+    "Suitable for new Mentees"
   ];
-
   return (
     <div className="min-h-half">
       <Header />
@@ -207,9 +23,47 @@ const DashboardPackages = ({ navigate }) => {
         <HybridDashboardNavigator activeManagePackage={true} />
         <div className="px-4 sm:px-16 md:px-28 lg:px-11 w-full lg:h-full lg:w-full">
           <p className="font-primayfont text-xl font-bold text-dark-blue pt-9">
-            Manage Packages
+            Manage Services
           </p>
-
+          <div
+            className="rounded-lg mb-4 w-full px-4 py-6 flex flex-col max-w-threethirty mt-4"
+            style={{ borderWidth: 1, borderColor: "rgba(0, 16, 60, 0.45)" }}
+          >
+            <div className="flex justify-between items-start w-full">
+              <div className="w-full text-center">
+                <h3 className="text-xl font-primayfont text-dark-blue font-medium">
+                  1:1 Call
+                </h3>
+                <h2 className="text-xl mt-3 font-primayfont text-dark-blue font-bold">
+                  ₹49/-
+                </h2>
+              </div>
+              <div></div>
+            </div>
+            <div
+              className="w-full mt-4"
+              style={{
+                borderColor: "rgba(0, 16, 60, 0.15)",
+                borderWidth: 0.5,
+                borderStyle: "solid",
+              }}
+            />
+            <div className="features flex flex-col w-full">
+              {features.map((feature, index) => (
+                <div className="my-2 flex items-start" key={index}>
+                  <img src={greencheck} alt="check" />
+                  <p className="text-base font-primayfont text-dark-blue font-normal ml-3">
+                    {feature}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="button mt-3">
+              <CustomButton styleClass="w-full" customColor={Colors.dark_grey} text={"Edit (Coming Soon)"} extraProps={{disabled:true}} customIcon={
+                  <BsLock color={Colors.white} size={16} />
+              } />
+            </div>
+          </div>
         </div>
       </div>
     </div>
