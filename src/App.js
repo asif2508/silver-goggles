@@ -41,10 +41,10 @@ const App = () => {
             <Route path="/mentors/:id/book-now" element={<BookMentorNow />} />
             <Route path="/become-mentor" element={<BecomeMentor />} />
             <Route path="/dashboard" element={<DashboardHome />} />
-            <Route path="/dashboard/add-availability" element={<DashboardCalender />} />
+            <Route path="/dashboard/my-availability/" element={<DashboardCalender />} />
             <Route path="/dashboard/become-mentor" element={<DashboardBecomeMentor />} />
-            <Route path="/dashboard/manage-packages" element={<DashboardPackages />} />
-            <Route path="/dashboard/sessions" element={<DashboardSession />} />
+            <Route path="/dashboard/manage-services" element={<DashboardPackages />} />
+            <Route path="/dashboard/my-sessions" element={<DashboardSession />} />
             <Route path="/dashboard/manage-profile" element={<DashboardManageProfile />} />
 
             {/* <Route

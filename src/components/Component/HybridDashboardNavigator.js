@@ -55,32 +55,8 @@ const HybridDashboardNavigator = ({
         />
       ),
       active: activeSession,
-      text: "Sessions",
+      text: "My Sessions",
       link: HybridDashboardRoutesStrings.SESSIONS,
-    },
-    {
-      icon: (
-        <FiUsers
-          size={20}
-          color={
-            activeManagePackage ? Colors["primay-light"] : Colors.dark_blue
-          }
-        />
-      ),
-      active: activeManagePackage,
-      text: "Manage Packages",
-      link: HybridDashboardRoutesStrings.ADD_PACKAGES,
-    },
-    {
-      icon: (
-        <AiOutlineCalendar
-          size={20}
-          color={activeCalender ? Colors["primay-light"] : Colors.dark_blue}
-        />
-      ),
-      active: activeCalender,
-      text: "Availability",
-      link: HybridDashboardRoutesStrings.ADD_AVAILABILITY,
     },
     {
       icon: (
@@ -105,6 +81,30 @@ const HybridDashboardNavigator = ({
       active: activeBecomeMentor,
       text: "Become Mentor",
       link: HybridDashboardRoutesStrings.BECOME_MENTOR,
+    },
+    {
+      icon: (
+        <AiOutlineCalendar
+          size={20}
+          color={activeCalender ? Colors["primay-light"] : Colors.dark_blue}
+        />
+      ),
+      active: activeCalender,
+      text: "My Availability",
+      link: HybridDashboardRoutesStrings.ADD_AVAILABILITY,
+    },
+    {
+      icon: (
+        <FiUsers
+          size={20}
+          color={
+            activeManagePackage ? Colors["primay-light"] : Colors.dark_blue
+          }
+        />
+      ),
+      active: activeManagePackage,
+      text: "Manage Services",
+      link: HybridDashboardRoutesStrings.ADD_PACKAGES,
     },
   ];
 

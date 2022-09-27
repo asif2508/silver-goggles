@@ -1,24 +1,17 @@
 import React, { useState } from "react";
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
-import { AiOutlineClose } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Colors from "../../../utils/Colors";
 import CustomButton from "../../Component/CustomButton";
 import HeaderSeprater from "../../Component/HeaderSeprater";
 import HybridDashboardNavigator from "../../Component/HybridDashboardNavigator";
-import DonutChartResponse from "../../Component/DonutChartResponse";
-import DonutChartReview from "../../Component/DonutChartReview";
 import Img from '../../../images/Ellipse_9.svg'
 import Header from "../../Header/Header";
 
 const DashboardHome = () => {
-  const [showMyModel, setMyModel] = useState(false);
   const [show, setShow] = useState(true);
-  const handleOnClose = () => setMyModel(false);
-  const navigation = useNavigate();
 
-  const [isClicked, setisClicked] = useState(false);
   return (
     <div className="min-h-half">
       <Header />
@@ -27,27 +20,7 @@ const DashboardHome = () => {
       <div className="flex flex-col lg:flex-row">
         <HybridDashboardNavigator activeHome={true} />
         <div className="px-4 sm:px-16 md:px-28 lg:px-11 w-full lg:h-full lg:w-full">
-          <div
-            className={`inline-flex px-3 py-2 max-w-lg rounded-lg w-full flex-wrap mt-7 ${isClicked ? "hidden" : "flex"
-              }`}
-            style={{ background: Colors.bg_grey }}
-          >
-            <p className="font-primayfont font-normal text-base text-dark-blue w-11/12">
-              View your demo profile which is visible to your mentees.
-              <span
-                className="text-primary font-primayfont font-semibold text-base cursor-pointer ml-1"
-                onClick={() => setMyModel(true)}
-              >
-                Click Here.
-              </span>
-            </p>
-            <AiOutlineClose
-              size={24}
-              className="w-1/12"
-              onClick={() => setisClicked(true)}
-            />
-          </div>
-          <p className="font-primayfont text-2xl font-bold mt-12">Upcoming Sessions</p>
+           <p className="font-primayfont text-2xl font-bold mt-12">Upcoming Sessions</p>
 
           <div className="border-1 border-textInputBorder mb-6 rounded-lg px-4 py-4 lg:px-9 lg:py-9 lg:w-full mt-7 max-w-sessionWidth">
             <div className="flex flex-row">
@@ -150,17 +123,6 @@ const DashboardHome = () => {
               </div>
             ) : null}
           </div>
-
-          <p className="font-primayfont text-2xl font-bold mt-12">Your Stats</p>
-          <div className="flex-col md:flex-row w-full mx-auto md:mx-0">
-            <div className="w-min mx-0 flex justify-center">
-              <DonutChartResponse response={82.3} />
-            </div>
-            <div className="-mt-36 w-min">
-              <DonutChartReview review={4.6} />
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
