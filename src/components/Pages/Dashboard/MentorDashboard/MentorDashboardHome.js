@@ -98,7 +98,7 @@ const MentorDashboardHome = () => {
                 </p>
                 <div className="mt-2 flex flex-row ">
                   <div>
-                    <img className="h-14 w-14" src={Img} alt="image" />
+                    <img className="h-14 w-14" src={Img} alt="img" />
                   </div>
                   <div className="ml-2">
                     <p className="font-primayfont capitalize text-dark-blue font-medium text-base">

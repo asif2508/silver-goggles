@@ -238,7 +238,7 @@ const DashboardManageProfile = () => {
             <textarea
               className=" rounded-lg w-full h-36 pt-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
               id="whymentor"
-              type="text"
+              type="text" 
               placeholder="Why do you want to be a mentor?"
               border-hrlightBlue
             />

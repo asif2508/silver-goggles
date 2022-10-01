@@ -12,7 +12,7 @@ const DashboardPackages = ({ navigate }) => {
   const features = [
     "Upto 30 min Virtual Meet",
     "Introductory Discussions",
-    "Suitable for new Mentees"
+    "Suitable for new Mentees",
   ];
   return (
     <div className="min-h-half">
@@ -59,9 +59,13 @@ const DashboardPackages = ({ navigate }) => {
               ))}
             </div>
             <div className="button mt-3">
-              <CustomButton styleClass="w-full" customColor={Colors.dark_grey} text={"Edit (Coming Soon)"} extraProps={{disabled:true}} customIcon={
-                  <BsLock color={Colors.white} size={16} />
-              } />
+              <CustomButton
+                styleClass="w-full"
+                customColor={Colors.dark_grey}
+                text={"Edit (Coming Soon)"}
+                extraProps={{ disabled: true }}
+                customIcon={<BsLock color={Colors.white} size={16} />}
+              />
             </div>
           </div>
         </div>
