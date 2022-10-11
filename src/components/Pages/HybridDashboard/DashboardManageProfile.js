@@ -10,30 +10,51 @@ import { ImNext, ImOffice } from "react-icons/im";
 import { BsArrowRight } from "react-icons/bs";
 import { IoIosSchool } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
+import { saveEducationalDetailsAction, saveExperienceDetailsAction } from "../../../actions/users";
+import Constants from "../../../constants/Constants";
+import { useDispatch } from "react-redux";
 
-const MapComponent = ({ data }) => {
-  console.log("data in component:", data);
+const MapComponentEducation = ({ data, onRemove }) => {
   return (
     <div className="flex border-1 border-textInputBorder rounded-lg px-3 py-3 justify-between max-w-lg mb-6">
       <div className="flex ">
         <div className="border-1 border-dark-blue h-11 w-11 rounded-full bg-dark-blue">
-          {data.isForEducation ? (
-            <IoIosSchool size={42} color={Colors.white} className="py-2 px-2" />
-          ) : (
-            <ImOffice size={42} color={Colors.white} className="py-2 px-2" />
-          )}
+          <IoIosSchool size={42} color={Colors.white} className="py-2 px-2" />
         </div>
         <div className="ml-3">
           <h3 className="font-primayfont text-dark-blue text-base font-normal">
-            Studied {data.work} from {data.title}
+            Studied {data.specialization} from {data.college}
           </h3>
           <p className="font-primayfont w-max text-dark-blue bg-chipGrey rounded-lg px-2 py-2 text-xs font-normal mt-2 capitalize">
-            {data.from} - {data.to}
+            {data.startYear} - {data.endYear}
           </p>
         </div>
       </div>
       <div className="flex items-center">
-        <AiOutlineClose size={24} color={Colors.dark_blue} />
+        <AiOutlineClose size={24} color={Colors.dark_blue} onClick={onRemove} />
+      </div>
+    </div>
+  );
+};
+
+const MapComponentExperience = ({ data, onRemove }) => {
+  return (
+    <div className="flex border-1 border-textInputBorder rounded-lg px-3 py-3 justify-between max-w-lg mb-6">
+      <div className="flex ">
+        <div className="border-1 border-dark-blue h-11 w-11 rounded-full bg-dark-blue">
+          <ImOffice size={42} color={Colors.white} className="py-2 px-2" />
+        </div>
+        <div className="ml-3">
+          <h3 className="font-primayfont text-dark-blue text-base font-normal">
+            Worked as {data.designation} in {data.company}
+          </h3>
+          <p className="font-primayfont w-max text-dark-blue bg-chipGrey rounded-lg px-2 py-2 text-xs font-normal mt-2 capitalize">
+            {data.startYear} - {data.endYear}
+          </p>
+        </div>
+      </div>
+      <div className="flex items-center">
+        <AiOutlineClose size={24} color={Colors.dark_blue} onClick={onRemove} />
       </div>
     </div>
   );
@@ -45,39 +66,91 @@ const DashboardManageProfile = () => {
     setShowtab(e);
   };
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  const inf = JSON.parse(localStorage.getItem(Constants.userInfo))
+
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
+  const [education, setEducation] = useState([])
   const [univercity, setUnivercity] = useState("");
   const [degree, setdegree] = useState("");
 
-  const saveEducation = () => {
-    educations.push({
-      isForEducation: true,
-      title: univercity,
-      from: "june 2019",
-      work: degree,
-      to: "june 2022",
-    });
+  const [experience, setExperience] = useState([])
+  const [company, setCompany] = useState("");
+  const [designation, setDesignation] = useState("");
+
+  const saveEducation = (education) => {
+    setEducation(arr => [...arr, education]);
+    setUnivercity('')
+    setdegree('')
+    setStartDate(new Date())
+    setEndDate(new Date())
   };
 
-  const educations = [
-    {
-      isForEducation: true,
-      title: "univercity",
-      from: "june 2019",
-      work: "degree",
-      to: "june 2022",
-    },
-  ];
+  const removeEducation = (index) => {
+    setEducation(education.filter((item, i) => i !== index))
+  }
 
-  const experinces = [
-    {
-      isForEducation: false,
-      title: "univercity",
-      from: "june 2019",
-      work: "degree",
-      to: "june 2022",
-    },
-  ];
+  const saveExperience = (experience) => {
+    setExperience(arr => [...arr, experience]);
+    setCompany('')
+    setDesignation('')
+    setStartDate(new Date())
+    setEndDate(new Date())
+  };
+
+  const removeExperience = (index) => {
+    setExperience(experience.filter((item, i) => i !== index))
+  }
+
+  const reformatDate = (date) =>{
+    var arr=date.split("-")
+    return [arr[2],arr[1],arr[0]].join('/')
+  }
+
+  const addEducationToArr = () => {
+    if (univercity.length > 1 && degree.length > 1) {
+      saveEducation({
+        college: univercity,
+        startYear: reformatDate(startDate),
+        endYear: reformatDate(endDate),
+        specialization: degree
+      })
+    } else {
+      alert("Please fill all Details")
+    }
+  }
+
+  const hitSaveEducation = () => {
+    if (education.length > 0) {
+      dispatch(saveEducationalDetailsAction(inf.email, education))
+    } else {
+      alert("Please add atleast one Education Details")
+    }
+  }
+
+  const addExperienceToArr = () => {
+    if (company.length > 1 && designation.length > 1) {
+      saveExperience({
+        company,
+        startYear: reformatDate(startDate),
+        endYear: reformatDate(endDate),
+        designation
+      })
+    } else {
+      alert("Please fill all Details")
+    }
+  }
+
+  const hitSaveExperience = () => {
+    if (experience.length > 0) {
+      dispatch(saveExperienceDetailsAction(inf.email, experience))
+    } else {
+      alert("Please add atleast one Education Details")
+    }
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -110,7 +183,7 @@ const DashboardManageProfile = () => {
             <select
               name="Gender"
               id="gender-select"
-              ons
+
               className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
             >
               <option className="bg-white text-dark-blue" value="male">
@@ -138,7 +211,7 @@ const DashboardManageProfile = () => {
               placeholder="Computer Science"
               border-hrlightBlue
             />
-          </div>        
+          </div>
           <CustomButton
             styleClass={"mt-2 px-4 py-2"}
             customIcon={<BsArrowRight color={Colors.white} />}
@@ -238,7 +311,7 @@ const DashboardManageProfile = () => {
             <textarea
               className=" rounded-lg w-full h-36 pt-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
               id="whymentor"
-              type="text" 
+              type="text"
               placeholder="Why do you want to be a mentor?"
               border-hrlightBlue
             />
@@ -298,31 +371,13 @@ const DashboardManageProfile = () => {
             <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
               Start month
             </p>
-            <select
-              name="Gender"
-              id="gender-select"
-              ons
-              className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
-            >
-              <option className="bg-white text-dark-blue" value="male">
-                Choose
-              </option>
-            </select>
+            <input type={"date"} className='border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full' onChange={(e) => setStartDate(e.target.value)} value={startDate} />
           </div>
           <div className="field w-1/2">
             <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
               Last month
             </p>
-            <select
-              name="Gender"
-              id="gender-select"
-              ons
-              className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
-            >
-              <option className="bg-white text-dark-blue" value="male">
-                Choose
-              </option>
-            </select>
+            <input type={"date"} className='border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full' onChange={(e) => setEndDate(e.target.value)} value={endDate} />
           </div>
         </div>
         {/* Buttons */}
@@ -331,16 +386,18 @@ const DashboardManageProfile = () => {
             <CustomButton
               text="Save"
               styleClass="w-full"
-              onClick={saveEducation}
+              onClick={() => hitSaveEducation()}
             />
           </div>
           <div className="field w-1/2">
-            <CustomButton text="Add Another" styleClass="w-full" />
+            <CustomButton text="Add Another" styleClass="w-full" onClick={addEducationToArr} />
           </div>
         </div>
         <div className="flex flex-col">
-          {educations.map((education, index) => {
-            return <MapComponent data={education} key={index} />;
+          {education.map((education, index) => {
+            return <MapComponentEducation data={education} index={index} key={index} onRemove={() => {
+              removeEducation(index)
+            }} />
           })}
         </div>
       </>
@@ -362,6 +419,9 @@ const DashboardManageProfile = () => {
             </p>
             <input
               type="text"
+              onChange={(e) => {
+                setCompany(e.target.value);
+              }}
               placeholder="Amazon, Google..."
               className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
             />
@@ -372,6 +432,9 @@ const DashboardManageProfile = () => {
             </p>
             <input
               type="text"
+              onChange={(e) => {
+                setDesignation(e.target.value);
+              }}
               placeholder="Product Designer"
               className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
             />
@@ -382,47 +445,35 @@ const DashboardManageProfile = () => {
             <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
               Start month
             </p>
-            <select
-              name="Gender"
-              id="gender-select"
-              ons
-              className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
-            >
-              <option className="bg-white text-dark-blue" value="male">
-                Choose
-              </option>
-            </select>
+            <input type={"date"} className='border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full' onChange={(e) => setStartDate(e.target.value)} value={startDate} />
           </div>
           <div className="field w-1/2">
             <p className="font-primayfont text-dark-blue text-sm font-normal mt-4 lg:mt-9">
               Last month
             </p>
-            <select
-              name="Gender"
-              id="gender-select"
-              ons
-              className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
-            >
-              <option className="bg-white text-dark-blue" value="male">
-                Choose
-              </option>
-            </select>
+            <input type={"date"} className='border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full' onChange={(e) => setEndDate(e.target.value)} value={endDate} />
           </div>
         </div>
 
         {/* Buttons */}
         <div className="flex space-x-4 lg:space-x-9 mt-6 mb-9">
           <div className="field w-1/2">
-            <CustomButton text="Save" styleClass="w-full" />
+            <CustomButton
+              text="Save"
+              styleClass="w-full"
+              onClick={() => hitSaveExperience()}
+            />
           </div>
           <div className="field w-1/2">
-            <CustomButton text="Add Another" styleClass="w-full" />
+            <CustomButton text="Add Another" styleClass="w-full" onClick={addExperienceToArr} />
           </div>
         </div>
 
         <div className="flex flex-col">
-          {experinces.map((education, index) => {
-            return <MapComponent data={education} key={index} />;
+          {experience.map((experience, index) => {
+            return <MapComponentExperience data={experience} index={index} key={index} onRemove={() => {
+              removeExperience(index)
+            }} />
           })}
         </div>
       </>

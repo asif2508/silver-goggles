@@ -33,7 +33,7 @@ const UserAvtar = ({ user }) => {
                     (<div className="bg-dark-blue h-11 w-11 rounded-full flex justify-center items-center">
                         <p className="text-white font-primayfont font-bold">{user.name.slice(0, 1)}</p>
                     </div>) :
-                    (<img src={user.profileImg} alt="user" className="h-11 w-11 rounded-full border-1 border-dark-blue" referrerpolicy="no-referrer" />)
+                    (<img src={user.profileImg} alt="user" className="h-11 w-11 rounded-full border-1 border-dark-blue" referrerPolicy="no-referrer" />)
                 }
                 {isMenuOpen ? <BsChevronUp className="ml-1" size={20} color={Colors.dark_blue} onClick={() => setIsMenuOpen(!isMenuOpen)} />
                     : <BsChevronDown className="ml-1" size={20} color={Colors.dark_blue} onClick={() => setIsMenuOpen(!isMenuOpen)} />
