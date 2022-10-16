@@ -5,14 +5,19 @@ export const saveEducationalDetailsAction = (email, education) => async () => {
     const res = await api.saveEducationalDetails({ email, education });
     alert(res.data.message);
   } catch (error) {
+    alert(error);
   }
 };
 
 export const saveExperienceDetailsAction = (email, experience) => async () => {
   try {
-    const res = await api.saveEducationalDetails({ email, experience });
+    const res = await api.saveExperienceDetails({
+      email,
+      workExperience: experience,
+    });
     alert(res.data.message);
   } catch (error) {
+    alert(error);
   }
 };
 

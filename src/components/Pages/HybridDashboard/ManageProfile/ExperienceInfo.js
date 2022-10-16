@@ -69,7 +69,7 @@ const ExperienceInfo = () => {
     if (workExperience.length > 0) {
       dispatch(saveExperienceDetailsAction(inf.email, workExperience));
     } else {
-      alert("Please add atleast one Education Details");
+      alert("Please add atleast one Experience Details");
     }
   };
 

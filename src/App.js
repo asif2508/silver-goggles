@@ -21,7 +21,6 @@ import DashboardCalender from "./components/Pages/HybridDashboard/DashboardCalen
 import DashboardBecomeMentor from "./components/Pages/HybridDashboard/DashboardBecomeMentor.js";
 import DashboardPackages from "./components/Pages/HybridDashboard/DashboardPackages.js";
 import DashboardSession from "./components/Pages/HybridDashboard/DashboardSession.js";
-import DashboardManageProfile from "./components/Pages/HybridDashboard/DashboardManageProfile.js";
 import BasicInfo from "./components/Pages/HybridDashboard/ManageProfile/BasicInfo.js";
 import MentorshipInfo from "./components/Pages/HybridDashboard/ManageProfile/MentorshipInfo.js";
 import EducationalInfo from "./components/Pages/HybridDashboard/ManageProfile/EducationalInfo.js";
