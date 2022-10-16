@@ -105,9 +105,9 @@ const DashboardManageProfile = () => {
     setExperience(experience.filter((item, i) => i !== index))
   }
 
-  const reformatDate = (date) =>{
-    var arr=date.split("-")
-    return [arr[2],arr[1],arr[0]].join('/')
+  const reformatDate = (date) => {
+    var arr = date.split("-")
+    return [arr[2], arr[1], arr[0]].join('/')
   }
 
   const addEducationToArr = () => {
@@ -156,68 +156,116 @@ const DashboardManageProfile = () => {
     window.scrollTo(0, 0);
   }, [navigate]);
 
+  const [img, setImg] = useState()
+
+  const onImageChange = (e) => {
+    const [file] = e.target.files;
+    setImg(URL.createObjectURL(file));
+  };
+
+  const saveButton = (click) => {
+    return (
+      <CustomButton
+        styleClass={"mt-2 px-4 py-2"}
+        text={"Save"}
+        onClick={click}
+      />
+    )
+  }
+
   const renderBasicInformations = () => {
     return (
       <>
         <div className="flex flex-row items-center pt-6">
-          <img src={Img} alt={"sample"} />
-          <button
-            className="font-primayfont ml-4 py-2 h-12 px-9 text-white rounded-lg font-bold text-base"
-            style={{
-              background: " linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
-            }}
-          >
-            Choose Photo
-          </button>
+          <img src={img ? img : 'https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png'} height={100} width={70} alt={"sample"} />
+          <input accept="image/*" className="font-primayfont ml-4 py-2 h-12 px-9 text-white rounded-lg font-bold text-base" onChange={onImageChange} type="file" name="upload" />
         </div>
         {/* Basic information from start */}
+        <div className="mb-4 mt-4">
+          <label
+            className="block text-textBlack text-sm font-normal font-primayfont"
+            htmlFor="gender"
+          >
+            Gender
+          </label>
+          <select
+            name="Gender"
+            id="gender-select"
 
-        <form className="mt-4">
-          <div className="mb-4">
-            <label
-              className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-              htmlFor="gender"
-            >
-              Gender
-            </label>
-            <select
-              name="Gender"
-              id="gender-select"
-
-              className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
-            >
-              <option className="bg-white text-dark-blue" value="male">
-                Male
-              </option>
-              <option className="bg-white text-dark-blue" value="female">
-                Female
-              </option>
-              <option className="bg-white text-dark-blue" value="other">
-                Other
-              </option>
-            </select>
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-              htmlFor="username"
-            >
-              What is your domain?
-            </label>
-            <input
-              className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
-              id="username"
-              type="text"
-              placeholder="Computer Science"
-              border-hrlightBlue
-            />
-          </div>
-          <CustomButton
-            styleClass={"mt-2 px-4 py-2"}
-            customIcon={<BsArrowRight color={Colors.white} />}
-            text={"Next"}
+            className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
+          >
+            <option className="bg-white text-dark-blue" value="male">
+              Male
+            </option>
+            <option className="bg-white text-dark-blue" value="female">
+              Female
+            </option>
+            <option className="bg-white text-dark-blue" value="other">
+              Other
+            </option>
+          </select>
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+            htmlFor="linkedin"
+          >
+            LinkedIn (Mandatory for Mentor)
+          </label>
+          <input
+            className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
+            id="linkedin"
+            type="text"
+            placeholder="Enter profile link"
+            border-hrlightBlue
           />
-        </form>
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+            htmlFor="address"
+          >
+            Address
+          </label>
+          <input
+            className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
+            id="address"
+            type="text"
+            placeholder="Enter address here"
+            border-hrlightBlue
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+            htmlFor="language"
+          >
+            Language you Spoke
+          </label>
+          <input
+            className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
+            id="languages"
+            type="text"
+            placeholder="Enter languages (Comma seprated)"
+            border-hrlightBlue
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+            htmlFor="username"
+          >
+            What is your Industry?
+          </label>
+          <input
+            className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
+            id="username"
+            type="text"
+            placeholder="Computer Science"
+            border-hrlightBlue
+          />
+        </div>
+        {saveButton(() => { alert("j") })}
       </>
     );
   };
@@ -225,103 +273,52 @@ const DashboardManageProfile = () => {
   const renderMentorshipInformations = () => {
     return (
       <>
-        <form className="mt-4">
-          <div className="mb-4">
-            <label
-              className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-              htmlFor="linkedin"
-            >
-              LinkedIn
-            </label>
-            <input
-              className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
-              id="linkedin"
-              type="text"
-              placeholder="Enter profile link"
-              border-hrlightBlue
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-              htmlFor="address"
-            >
-              Address
-            </label>
-            <input
-              className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
-              id="address"
-              type="text"
-              placeholder="Enter address here"
-              border-hrlightBlue
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-              htmlFor="language"
-            >
-              Language you Spoke
-            </label>
-            <input
-              className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
-              id="languages"
-              type="text"
-              placeholder="Enter languages (Comma seprated)"
-              border-hrlightBlue
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-              htmlFor="website"
-            >
-              Website
-            </label>
-            <input
-              className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
-              id="website"
-              type="text"
-              placeholder="Enter Website (If any have)"
-              border-hrlightBlue
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-              htmlFor="skills"
-            >
-              Skills
-            </label>
-            <input
-              className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
-              id="skills"
-              type="text"
-              placeholder="Enter Your Skills (Comma sperated, Enter minimum 5 Skills)"
-              border-hrlightBlue
-            />
-          </div>
-          <div>
-            <label
-              className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-              htmlFor="username"
-            >
-              Why do you want to be a mentor? (Non-visible) *
-            </label>
-            <textarea
-              className=" rounded-lg w-full h-36 pt-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
-              id="whymentor"
-              type="text"
-              placeholder="Why do you want to be a mentor?"
-              border-hrlightBlue
-            />
-          </div>
-          <CustomButton
-            styleClass={"mt-2 px-4 py-2"}
-            customIcon={<BsArrowRight color={Colors.white} />}
-            text={"Next"}
+        <div className="mb-4 mt-6">
+          <label
+            className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+            htmlFor="website"
+          >
+            Website (optional)
+          </label>
+          <input
+            className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
+            id="website"
+            type="text"
+            placeholder="Enter Website (If any have)"
+            border-hrlightBlue
           />
-        </form>
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+            htmlFor="skills"
+          >
+            Skills
+          </label>
+          <input
+            className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
+            id="skills"
+            type="text"
+            placeholder="Enter Your Skills (Comma sperated, Enter minimum 5 Skills)"
+            border-hrlightBlue
+          />
+        </div>
+        <div>
+          <label
+            className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+            htmlFor="username"
+          >
+            Why do you want to be a mentor? (Non-visible)
+          </label>
+          <textarea
+            className=" rounded-lg w-full h-36 pt-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
+            id="whymentor"
+            type="text"
+            placeholder="Why do you want to be a mentor?"
+            border-hrlightBlue
+          />
+        </div>
+        {saveButton(()=>{alert("Filled")})}
       </>
     );
   };
@@ -330,9 +327,9 @@ const DashboardManageProfile = () => {
     return (
       <>
         <p className="font-primayfont text-dark-blue text-sm font-normal lg:text-base mt-4">
-          Provide your education details such as graduation & post
-          graduation(optional). These details will be visible on your main
-          profile.
+          Provide your education details such as University and Degree. These details will be visible on your main
+          profile(For Mentors).
+          Please save added details before leaving tab
         </p>
 
         {/* First and Last name  */}
@@ -408,8 +405,9 @@ const DashboardManageProfile = () => {
     return (
       <>
         <p className="font-primayfont text-dark-blue text-sm font-normal lg:text-base mt-4">
-          Tell us about the experience you have gained throughout. Please save
-          details before adding another.
+          Tell us about the experience you have gained throughout. These details will be visible on your main
+          profile(For Mentors).
+          Please save added details before leaving tab
         </p>
 
         <div className="flex space-x-4 lg:space-x-9">
@@ -480,53 +478,53 @@ const DashboardManageProfile = () => {
     );
   };
 
-  const renderLoginSecurity = () => {
-    return (
-      <form className="lg:max-w-md">
-        <div className="mb-2">
-          <label
-            className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-            htmlFor="username"
-          >
-            Email
-          </label>
-          <input
-            className="rounded-lg w-full py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
-            id="username"
-            type="email"
-            placeholder="email@example.com"
-            border-hrlightBlue
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-textBlack text-sm font-normal font-primayfont mb-2"
-            htmlFor="username"
-          >
-            Password
-          </label>
-          <input
-            className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
-            id="username"
-            type="password"
-            placeholder="Your Password here"
-            border-hrlightBlue
-          />
-        </div>
-        <button
-          className=" font-primayfont mt-6  w-full  py-3 text-white  rounded-lg font-bold text-base"
-          style={{
-            background: " linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
-          }}
-        >
-          Update
-        </button>
-        <button className=" font-primayfont mt-4 w-full  py-3 text-white bg-red rounded-lg font-bold text-base">
-          Delete Account
-        </button>
-      </form>
-    );
-  };
+  // const renderLoginSecurity = () => {
+  //   return (
+  //     <form className="lg:max-w-md">
+  //       <div className="mb-2">
+  //         <label
+  //           className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+  //           htmlFor="username"
+  //         >
+  //           Email
+  //         </label>
+  //         <input
+  //           className="rounded-lg w-full py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
+  //           id="username"
+  //           type="email"
+  //           placeholder="email@example.com"
+  //           border-hrlightBlue
+  //         />
+  //       </div>
+  //       <div className="mb-4">
+  //         <label
+  //           className="block text-textBlack text-sm font-normal font-primayfont mb-2"
+  //           htmlFor="username"
+  //         >
+  //           Password
+  //         </label>
+  //         <input
+  //           className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
+  //           id="username"
+  //           type="password"
+  //           placeholder="Your Password here"
+  //           border-hrlightBlue
+  //         />
+  //       </div>
+  //       <button
+  //         className=" font-primayfont mt-6  w-full  py-3 text-white  rounded-lg font-bold text-base"
+  //         style={{
+  //           background: " linear-gradient(180deg, #2BC3FC 0%, #017EAC 100%)",
+  //         }}
+  //       >
+  //         Update
+  //       </button>
+  //       <button className=" font-primayfont mt-4 w-full  py-3 text-white bg-red rounded-lg font-bold text-base">
+  //         Delete Account
+  //       </button>
+  //     </form>
+  //   );
+  // };
 
   return (
     <div className="min-h-half">
@@ -585,7 +583,7 @@ const DashboardManageProfile = () => {
                   <div className="h-1 bg-primary rounded-full" />
                 )}
               </div>
-              <div className="ml-6">
+              {/* <div className="ml-6">
                 <p
                   className="font-medium text-base w-max pb-1 text-dark-blue cursor-pointer"
                   onClick={() => handletab(5)}
@@ -595,7 +593,7 @@ const DashboardManageProfile = () => {
                 {showtab === 5 && (
                   <div className="h-1 bg-primary rounded-full" />
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
           <hr
@@ -614,9 +612,9 @@ const DashboardManageProfile = () => {
           <div className={showtab === 4 ? "lg:max-w-md" : "hidden"}>
             {renderExperiences()}
           </div>
-          <div className={showtab === 5 ? "pt-6" : "hidden"}>
+          {/* <div className={showtab === 5 ? "pt-6" : "hidden"}>
             {renderLoginSecurity()}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
