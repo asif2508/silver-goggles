@@ -22,6 +22,10 @@ import DashboardBecomeMentor from "./components/Pages/HybridDashboard/DashboardB
 import DashboardPackages from "./components/Pages/HybridDashboard/DashboardPackages.js";
 import DashboardSession from "./components/Pages/HybridDashboard/DashboardSession.js";
 import DashboardManageProfile from "./components/Pages/HybridDashboard/DashboardManageProfile.js";
+import BasicInfo from "./components/Pages/HybridDashboard/ManageProfile/BasicInfo.js";
+import MentorshipInfo from "./components/Pages/HybridDashboard/ManageProfile/MentorshipInfo.js";
+import EducationalInfo from "./components/Pages/HybridDashboard/ManageProfile/EducationalInfo.js";
+import ExperienceInfo from "./components/Pages/HybridDashboard/ManageProfile/ExperienceInfo.js";
 
 const App = () => {
   return (
@@ -45,7 +49,10 @@ const App = () => {
             <Route path="/dashboard/become-mentor" element={<DashboardBecomeMentor />} />
             <Route path="/dashboard/manage-services" element={<DashboardPackages />} />
             <Route path="/dashboard/my-sessions" element={<DashboardSession />} />
-            <Route path="/dashboard/manage-profile" element={<DashboardManageProfile />} />
+            <Route path="/dashboard/manage-profile" element={<BasicInfo />} />
+            <Route path="/dashboard/manage-profile/education-info" element={<EducationalInfo/>} />
+            <Route path="/dashboard/manage-profile/experience-info" element={<ExperienceInfo />} />
+            <Route path="/dashboard/manage-profile/mentorship-info" element={<MentorshipInfo />} />
 
             {/* <Route
               path="/become-mentor/edit-profile"

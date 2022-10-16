@@ -49,7 +49,7 @@ const MapComponentExperience = ({ data, onRemove }) => {
             Worked as {data.designation} in {data.company}
           </h3>
           <p className="font-primayfont w-max text-dark-blue bg-chipGrey rounded-lg px-2 py-2 text-xs font-normal mt-2 capitalize">
-            {data.startYear} - {data.endYear}
+            {data.startDate} - {data.startDate}
           </p>
         </div>
       </div>
@@ -77,7 +77,7 @@ const DashboardManageProfile = () => {
   const [univercity, setUnivercity] = useState("");
   const [degree, setdegree] = useState("");
 
-  const [experience, setExperience] = useState([])
+  const [workExperience, setExperience] = useState([])
   const [company, setCompany] = useState("");
   const [designation, setDesignation] = useState("");
 
@@ -93,8 +93,8 @@ const DashboardManageProfile = () => {
     setEducation(education.filter((item, i) => i !== index))
   }
 
-  const saveExperience = (experience) => {
-    setExperience(arr => [...arr, experience]);
+  const saveExperience = (workExperience) => {
+    setExperience(arr => [...arr, workExperience]);
     setCompany('')
     setDesignation('')
     setStartDate(new Date())
@@ -102,7 +102,7 @@ const DashboardManageProfile = () => {
   };
 
   const removeExperience = (index) => {
-    setExperience(experience.filter((item, i) => i !== index))
+    setExperience(workExperience.filter((item, i) => i !== index))
   }
 
   const reformatDate = (date) => {
@@ -135,9 +135,10 @@ const DashboardManageProfile = () => {
     if (company.length > 1 && designation.length > 1) {
       saveExperience({
         company,
-        startYear: reformatDate(startDate),
-        endYear: reformatDate(endDate),
-        designation
+        startDate: reformatDate(startDate),
+        endDate: reformatDate(endDate),
+        designation,
+        currentCompay: false
       })
     } else {
       alert("Please fill all Details")
@@ -145,8 +146,8 @@ const DashboardManageProfile = () => {
   }
 
   const hitSaveExperience = () => {
-    if (experience.length > 0) {
-      dispatch(saveExperienceDetailsAction(inf.email, experience))
+    if (workExperience.length > 0) {
+      dispatch(saveExperienceDetailsAction(inf.email, workExperience))
     } else {
       alert("Please add atleast one Education Details")
     }
@@ -405,7 +406,7 @@ const DashboardManageProfile = () => {
     return (
       <>
         <p className="font-primayfont text-dark-blue text-sm font-normal lg:text-base mt-4">
-          Tell us about the experience you have gained throughout. These details will be visible on your main
+          Tell us about the workExperience you have gained throughout. These details will be visible on your main
           profile(For Mentors).
           Please save added details before leaving tab
         </p>
@@ -468,8 +469,8 @@ const DashboardManageProfile = () => {
         </div>
 
         <div className="flex flex-col">
-          {experience.map((experience, index) => {
-            return <MapComponentExperience data={experience} index={index} key={index} onRemove={() => {
+          {workExperience.map((workExperience, index) => {
+            return <MapComponentExperience data={workExperience} index={index} key={index} onRemove={() => {
               removeExperience(index)
             }} />
           })}
