@@ -36,7 +36,6 @@ const BasicInfo = () => {
 
   const saveData = (newOBj) => {
     setData({ ...data, ...newOBj });
-    console.log({ ...data, ...newOBj });
   };
 
   const saveInfoTrigger = () =>{
