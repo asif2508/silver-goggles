@@ -42,7 +42,6 @@ export const signup = (formData, router) => async (dispatch) => {
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 
     localStorage.setItem(Constants.userInfo, JSON.stringify(data));
-    localStorage.setItem(Constants.userType, Constants.mentee);
 
     router("/");
   } catch (error) {

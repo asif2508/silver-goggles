@@ -13,15 +13,18 @@ import {
 } from "./Navigator";
 import Colors from "../../../../utils/Colors";
 import SaveButtonProfile from "../../../Component/SaveButtonProfile";
+import {savePersonalDetailsAction} from '../../../../actions/users'
 
 const BasicInfo = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [data, setData] = useState({});
 
   const inf = JSON.parse(localStorage.getItem(Constants.userInfo));
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    saveData({ email: inf.email, profileImg: "random Link for img" });
   }, [navigate]);
 
   const [img, setImg] = useState();
@@ -30,6 +33,15 @@ const BasicInfo = () => {
     const [file] = e.target.files;
     setImg(URL.createObjectURL(file));
   };
+
+  const saveData = (newOBj) => {
+    setData({ ...data, ...newOBj });
+    console.log({ ...data, ...newOBj });
+  };
+
+  const saveInfoTrigger = () =>{
+    dispatch(savePersonalDetailsAction(data));
+  }
 
   const renderBasicInformations = () => {
     return (
@@ -64,8 +76,12 @@ const BasicInfo = () => {
           <select
             name="Gender"
             id="gender-select"
+            onChange={(e) => saveData({ gender: e.target.value })}
             className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
           >
+            <option className="bg-white text-dark-blue" value="">
+              -- Select
+            </option>
             <option className="bg-white text-dark-blue" value="male">
               Male
             </option>
@@ -88,6 +104,7 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="linkedin"
             type="text"
+            onChange={(e) => saveData({ linkedInProfile: e.target.value })}
             placeholder="Enter profile link"
             border-hrlightBlue
           />
@@ -103,6 +120,7 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="address"
             type="text"
+            onChange={(e) => saveData({ address: e.target.value })}
             placeholder="Enter address here"
             border-hrlightBlue
           />
@@ -118,6 +136,7 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="languages"
             type="text"
+            onChange={(e) => saveData({ language: e.target.value.split(",") })}
             placeholder="Enter languages (Comma seprated)"
             border-hrlightBlue
           />
@@ -133,14 +152,13 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="username"
             type="text"
+            onChange={(e) => saveData({ industry: e.target.value })}
             placeholder="Computer Science"
             border-hrlightBlue
           />
         </div>
         <SaveButtonProfile
-          click={() => {
-            alert("j");
-          }}
+          click={() => saveInfoTrigger()}
         />
       </>
     );

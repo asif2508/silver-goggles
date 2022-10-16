@@ -17,3 +17,12 @@ export const saveExperienceDetailsAction = (email, experience) => async () => {
         console.log(error);
     }
 };
+
+export const savePersonalDetailsAction = (data) => async () => {
+    try {
+        const res = await api.savePersonalDetails(data);
+        alert(res.data.message);
+    } catch (error) {
+        console.log(error);
+    }
+};
