@@ -13,7 +13,7 @@ const CustomButton = ({
     <button
       className={`py-2 px-8 rounded-lg text-white font-bold text-base font-primayfont ${styleClass}`}
       style={
-        customColor
+        customColor && customColor.length>0
           ? { backgroundColor: customColor }
           : { background: Constants.gradient }
       }

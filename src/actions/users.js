@@ -35,3 +35,18 @@ export const savePersonalDetailsAction = (data) => async () => {
       alert("There is Some error occured");
     });
 };
+
+export const saveMentorshipDetailsAction = (data) => async () => {
+  await api
+    .saveMentorshipDetails(data)
+    .then((res) => {
+      if (res.status === 200) {
+        alert(res.data.message);
+      } else {
+        alert("There is Some error occured");
+      }
+    })
+    .catch((res) => {
+      alert("There is Some error occured");
+    });
+};

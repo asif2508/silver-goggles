@@ -19,6 +19,10 @@ export const contactUs = (data) => API.post("/web/contact", data);
 
 export const saveEducationalDetails = (data) => API.post("/users/saveEducationalDetails", data);
 
+export const saveMentorshipDetails = (data) => API.post("/mentors/mentorRequest", data);
+
 export const saveExperienceDetails = (data) => API.post("/users/saveProfessionalDetails", data);
 
 export const savePersonalDetails = (data) => API.post("/users/savePersonalDetails", data);
+
+export const getUserDetails = (id) => API.get(`/users/userDetails?id=${id}`);

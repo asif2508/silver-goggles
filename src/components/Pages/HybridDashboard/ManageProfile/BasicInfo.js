@@ -13,7 +13,11 @@ import {
 } from "./Navigator";
 import Colors from "../../../../utils/Colors";
 import SaveButtonProfile from "../../../Component/SaveButtonProfile";
-import {savePersonalDetailsAction} from '../../../../actions/users'
+import {
+  savePersonalDetailsAction,
+} from "../../../../actions/users";
+import { getUserDetails } from "../../../../api";
+import { userDetails } from "../UserData";
 
 const BasicInfo = () => {
   const navigate = useNavigate();
@@ -22,10 +26,34 @@ const BasicInfo = () => {
 
   const inf = JSON.parse(localStorage.getItem(Constants.userInfo));
 
+  const [apiData, setapiData] = useState({});
+
   useEffect(() => {
     window.scrollTo(0, 0);
     saveData({ email: inf.email, profileImg: "random Link for img" });
   }, [navigate]);
+
+  useEffect(() => {
+    userDetails(setapiData);
+  }, []);
+
+  useEffect(() => {
+    try {
+      if (apiData) {
+        const personalData = apiData.Personal;
+        console.log(personalData);
+        saveData({
+          gender: personalData.gender,
+          industry: personalData.industry,
+          linkedIn: personalData.linkedIn,
+          address: personalData.address,
+          // language: personalData.language.join(","),
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }, [apiData]);
 
   const [img, setImg] = useState();
 
@@ -38,9 +66,9 @@ const BasicInfo = () => {
     setData({ ...data, ...newOBj });
   };
 
-  const saveInfoTrigger = () =>{
+  const saveInfoTrigger = () => {
     dispatch(savePersonalDetailsAction(data));
-  }
+  };
 
   const renderBasicInformations = () => {
     return (
@@ -75,6 +103,7 @@ const BasicInfo = () => {
           <select
             name="Gender"
             id="gender-select"
+            value={data ? data.gender : ""}
             onChange={(e) => saveData({ gender: e.target.value })}
             className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
           >
@@ -103,6 +132,7 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="linkedin"
             type="text"
+            value={data ? data.linkedInProfile : ""}
             onChange={(e) => saveData({ linkedInProfile: e.target.value })}
             placeholder="Enter profile link"
             border-hrlightBlue
@@ -119,6 +149,7 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="address"
             type="text"
+            value={data ? data.address : ""}
             onChange={(e) => saveData({ address: e.target.value })}
             placeholder="Enter address here"
             border-hrlightBlue
@@ -135,6 +166,7 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="languages"
             type="text"
+            // value={data ? data.language.join(",") : ""}
             onChange={(e) => saveData({ language: e.target.value.split(",") })}
             placeholder="Enter languages (Comma seprated)"
             border-hrlightBlue
@@ -151,14 +183,13 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="username"
             type="text"
+            value={data ? data.industry : ""}
             onChange={(e) => saveData({ industry: e.target.value })}
             placeholder="Computer Science"
             border-hrlightBlue
           />
         </div>
-        <SaveButtonProfile
-          click={() => saveInfoTrigger()}
-        />
+        <SaveButtonProfile click={() => saveInfoTrigger()} />
       </>
     );
   };

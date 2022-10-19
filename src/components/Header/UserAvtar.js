@@ -29,7 +29,7 @@ const UserAvtar = ({ user }) => {
   return (
     <>
       <div className="flex justify-center items-center">
-        {user.profileImg === "None" ? (
+        {user.profileImg === null ? (
           <div className="bg-dark-blue h-11 w-11 rounded-full flex justify-center items-center">
             <p className="text-white font-primayfont font-bold">
               {user.name.slice(0, 1)}
