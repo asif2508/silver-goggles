@@ -1,4 +1,5 @@
 import * as api from "../api/index.js";
+import { GET_MENTOR_FAILURE, GET_MENTOR_REQUEST, GET_MENTOR_SUCCESS } from "../constants/actionTypes.js";
 
 export const saveEducationalDetailsAction = (email, education) => async () => {
   try {
@@ -47,6 +48,24 @@ export const saveMentorshipDetailsAction = (data) => async () => {
       }
     })
     .catch((res) => {
+      alert("There is Some error occured");
+    });
+};
+
+export const getUserDetailsAction = (id) => async (dispatch) => {
+  dispatch({ type: GET_MENTOR_REQUEST });
+  await api
+    .getUserDetails(id)
+    .then((res) => {
+      if (res.status === 200) {
+        dispatch({ type: GET_MENTOR_SUCCESS, payload: res.data });
+      } else {
+        dispatch({ type: GET_MENTOR_FAILURE });
+        alert("There is Some error occured");
+      }
+    })
+    .catch((res) => {
+      dispatch({ type: GET_MENTOR_FAILURE });
       alert("There is Some error occured");
     });
 };

@@ -1,12 +1,12 @@
 import axios from "axios";
 
 // for developemnt
-let API = axios.create({ baseURL: "http://localhost:8000" });
+let API = axios.create({ baseURL: "http://localhost:8000/" });
 // for deployment
 // let API = axios.create({ baseURL: "https://edukith.com/api" });
 
-export const signIn = (formData, config) =>
-  API.post("/users/signin", formData, config);
+export const signIn = (formData, config) => API.post("/users/signin", formData, config);
+
 export const signUp = (formData) => API.post("/users/signup", formData);
 
 export const signUpWithGoogle = (formData) => API.post("/users/signupwithgoogle", formData);
@@ -26,3 +26,5 @@ export const saveExperienceDetails = (data) => API.post("/users/saveProfessional
 export const savePersonalDetails = (data) => API.post("/users/savePersonalDetails", data);
 
 export const getUserDetails = (id) => API.get(`/users/userDetails?id=${id}`);
+
+export const getMentors = () => API.get('/mentors');

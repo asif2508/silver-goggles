@@ -239,7 +239,7 @@ const MapComponentExperience = ({ data, onRemove }) => {
             Worked as {data.designation} in {data.company}
           </h3>
           <p className="font-primayfont w-max text-dark-blue bg-chipGrey rounded-lg px-2 py-2 text-xs font-normal mt-2 capitalize">
-            {data.startDate} - {data.startDate}
+            {data.startDate} - {data.endDate}
           </p>
         </div>
       </div>

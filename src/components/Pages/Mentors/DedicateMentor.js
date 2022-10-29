@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../Header/Header";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
@@ -10,63 +10,24 @@ import SimilarMentorBox from "../../Component/DedicateMentor/SimilarMentorBox";
 import Review from "../../Component/DedicateMentor/Review";
 import Breadcrumb from "../../Component/Breadcrumb";
 import HeaderSeprater from "../../Component/HeaderSeprater";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserDetailsAction } from "../../../actions/users";
+import Loader from "../../Component/Loader";
+import { map } from 'lodash'
+import { IoIosSchool } from "react-icons/io";
+import { ImOffice } from "react-icons/im";
 
 const DedicateMentor = () => {
   const { id } = useParams();
-  const [isFullPage, setIsFullPage] = React.useState(true);
+  const [isFullPage, setIsFullPage] = useState(true);
   const navigate = useNavigate();
-  const skills = ["HTML", "CSS", "JavaScript", "React", "NodeJS", "MongoDB"];
-  const experiences = [
-    {
-      img: "https://cdn.pixabay.com/photo/2022/06/24/17/35/relaxation-7282116_960_720.jpg",
-      title: "Full Stack Developer",
-      activefrom: "Jan 2020",
-      activeTo: "Present",
-    },
-    {
-      img: "https://cdn.pixabay.com/photo/2022/06/24/17/35/relaxation-7282116_960_720.jpg",
-      title: "Full Stack Developer",
-      activefrom: "Jan 2020",
-      activeTo: "Present",
-    },
-    {
-      img: "https://cdn.pixabay.com/photo/2022/06/24/17/35/relaxation-7282116_960_720.jpg",
-      title: "Full Stack Developer",
-      activefrom: "Jan 2020",
-      activeTo: "Present",
-    },
-  ];
-  const studies = [
-    {
-      img: "https://cdn.pixabay.com/photo/2022/06/24/17/35/relaxation-7282116_960_720.jpg",
-      title: "Studied MBA from IIM",
-      activefrom: "July 2022",
-      activeTo: "Present",
-    },
-    {
-      img: "https://cdn.pixabay.com/photo/2022/06/24/17/35/relaxation-7282116_960_720.jpg",
-      title: "Studied MBA from IIM",
-      activefrom: "July 2022",
-      activeTo: "Present",
-    },
-  ];
+  const [flLoading, setFlLoading] = useState(true)
 
   const packages = [
     {
-      name: "Mentorship Program",
-      price: "₹4999",
-      duration: "month",
-      features: [
-        "Upto 4 calls per month",
-        "Tasks & exercises",
-        "No hidden charges",
-        "Customised road map guidence",
-      ],
-    },
-    {
-      name: "Quick Call - Study Abroad",
-      price: "₹4999",
-      duration: "month",
+      name: "Quick Call",
+      price: "₹49",
+      duration: "session",
       features: [
         "Upto 4 calls per month",
         "Tasks & exercises",
@@ -76,47 +37,42 @@ const DedicateMentor = () => {
     },
   ];
 
-  const similarMentors = [
-    {
-      img: kalpesh,
-      name: "Kalpesh Lohar",
-      work: "Full Stack Developer",
-    },
-    {
-      img: kalpesh,
-      name: "Kalpesh Lohar",
-      work: "Full Stack Developer",
-    },
-    {
-      img: kalpesh,
-      name: "Kalpesh Lohar",
-      work: "Full Stack Developer",
-    },
-    {
-      img: kalpesh,
-      name: "Kalpesh Lohar",
-      work: "Full Stack Developer",
-    },
-  ];
+  const dispatch = useDispatch();
+  const { loading, mentor } = useSelector((state) => state.getMentorById);
 
-  const reviews = [
-    {
-      user: "John Doe",
-      workAt: "IIM",
-      rating: 4.5,
-      date: "10 Jan, 2020",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit orci tino ci dunt at tincidunt pretium pretium. Turpis adipiscing pellentesque vitae sem donec proin et pellentesque mi. Lacus, quam vitae tempor ullamcorper sed ac phasellus.",
-    },
-    {
-      user: "John Doe",
-      workAt: "ISB",
-      rating: 5,
-      date: "15 Jan, 2020",
-      review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit orci tino ci dunt at tincidunt pretium pretium. Turpis adipiscing pellentesque vitae sem donec proin et pellentesque mi. Lacus, quam vitae tempor ullamcorper sed ac phasellus.",
-    },
-  ];
+  let customExperience = {}
+  let customEducation = {}
+
+  const customEducationMap = () => {
+    customEducation = map(mentor.Education, (val) => {
+      const { college, startYear, endYear, specialization } = val
+      const title = `Studied ${specialization} from ${college}`
+      const img = () => { return <IoIosSchool size={42} color={Colors.white} className="py-2 px-2" /> }
+      return { img, title, activefrom: startYear, activeTo: endYear }
+    })
+  }
+
+  const customExperienceMap = () => {
+    customExperience = map(mentor.Professional.workExperience, (val) => {
+      const { designation, startDate, endDate, company } = val
+      const title = `Working at ${designation} from ${company}`
+      const img = () => { return <ImOffice size={42} color={Colors.white} className="py-2 px-2" /> }
+      return { img, title, activefrom: startDate, activeTo: endDate }
+    })
+  }
+
+  useEffect(() => {
+    dispatch(getUserDetailsAction(id));
+  }, [navigate,dispatch,id]);
+
+  useEffect(() => {
+    setFlLoading(loading)
+    if(loading===false){
+      customExperienceMap()
+      customEducationMap()
+    }
+    console.log(loading,flLoading, mentor);
+  }, [loading,mentor,flLoading]);
 
   return (
     <div className="min-h-half h-full">
@@ -124,36 +80,35 @@ const DedicateMentor = () => {
         <Header />
         <HeaderSeprater />
       </div>
+      {flLoading ? <Loader /> : (mentor && 
       <div className="maincontainer px-4 md:px-24">
         <div className="flex lg:flex-row flex-col justify-evenly">
           <div className="lg:w-3/5">
             <Breadcrumb
               navigations={["Mentors", "Kalpesh"]}
-              onPressRoutes={["/mentors","/"]}
+              onPressRoutes={["/mentors", "/"]}
             />
             <div className="userInro mt-6 lg:mt-12 w-full">
               <div className="upperpart flex justify-between">
                 <img
-                  src={kalpesh}
-                  alt="mentor photo"
+                  src={mentor.Personal.profileImg}
+                  alt="mentor"
                   height={82}
                   width={74}
                   className="w-3/12 rounded"
                 />
                 <div className="about w-9/12 ml-4 flex flex-col">
                   <h2 className="text-lg font-primayfont text-dark-blue font-bold lg:text-2xl">
-                    Kalpesh Lohar
+                    {mentor.Personal.name}
                   </h2>
                   <p className="text-base font-primayfont text-dark-blue font-normal lg:mt-1 pr-2 lg:text-base">
-                    CTO at EduKith
+                    {mentor.Professional.workExperience[0].designation} at {mentor.Professional.workExperience[0].company}
                   </p>
                   <p className="text-base font-primayfont text-dark-blue font-normal mt-1 lg:mt-2 lg:text-base">
-                    🎯 Studied B.tech from GTU
+                    🎯 {mentor.Education[0].specialization} at {mentor.Education[0].college}
                   </p>
                   <p className="text-base text-dark-blue font-primayfont font-normal mt-4 hidden lg:block">
-                    Lorem ipsum dolor sit amet, consectetur adipisc ing elit.
-                    Pharetra urna quam faucibus neque. Rho ncus phasellus nec
-                    non consequat fermentum in tincidunt faucibus.
+                    {mentor.Personal.about}
                   </p>
                 </div>
               </div>
@@ -166,9 +121,7 @@ const DedicateMentor = () => {
                 }}
               />
               <p className="text-base text-dark-blue font-primayfont font-normal mt-4 block lg:hidden">
-                Lorem ipsum dolor sit amet, consectetur adipisc ing elit.
-                Pharetra urna quam faucibus neque. Rho ncus phasellus nec non
-                consequat fermentum in tincidunt faucibus.
+                {mentor.Personal.about}
               </p>
               {isFullPage ? (
                 <div>
@@ -177,7 +130,7 @@ const DedicateMentor = () => {
                       Skills
                     </h3>
                     <div className="flex mt-4 flex-wrap">
-                      {skills.map((skill, index) => (
+                      {mentor.Mentorship.skills.map((skill, index) => (
                         <div
                           className="h-8 py-2 px-4 bg-chipGrey rounded-3xl mr-4 mb-4"
                           key={index}
@@ -194,7 +147,7 @@ const DedicateMentor = () => {
                       Experience
                     </h3>
                     <div className="flex mt-4 flex-col">
-                      {experiences.map((data, index) => (
+                      {customExperience.map((data, index) => (
                         <CustomExperienceBox key={index} data={data} />
                       ))}
                     </div>
@@ -204,7 +157,7 @@ const DedicateMentor = () => {
                       Education
                     </h3>
                     <div className="flex mt-4 flex-col">
-                      {studies.map((data, index) => (
+                      {customEducation.map((data, index) => (
                         <CustomExperienceBox key={index} data={data} />
                       ))}
                     </div>
@@ -226,7 +179,7 @@ const DedicateMentor = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="lg:block hidden">
+                  {/* <div className="lg:block hidden">
                     <div className="similar-mentors mt-4">
                       <div className="flex justify-between">
                         <h3 className="text-xl font-primayfont text-dark-blue font-bold">
@@ -252,7 +205,7 @@ const DedicateMentor = () => {
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               ) : (
                 <div
@@ -286,7 +239,7 @@ const DedicateMentor = () => {
                 ))}
               </div>
             </div>
-            <div className="lg:hidden block">
+            {/* <div className="lg:hidden block">
               <div className="similar-mentors mt-4">
                 <div className="flex justify-between">
                   <h3 className="text-xl font-primayfont text-dark-blue font-bold">
@@ -312,10 +265,10 @@ const DedicateMentor = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
-      </div>
+      </div>)}
     </div>
   );
 };

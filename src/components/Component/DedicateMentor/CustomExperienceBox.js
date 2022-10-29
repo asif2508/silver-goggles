@@ -10,13 +10,7 @@ const CustomExperienceBox = ({ data }) => {
         className="rounded-full h-12 w-12 flex justify-center items-center border-2 mr-3"
         style={{ borderColor: "rgba(0, 0, 0, 0.05)" }}
       >
-        <img
-          src={data.img}
-          alt="company"
-          height={48}
-          width={48}
-          className="rounded-full"
-        />
+        {data.img()}
       </div>
       <div className="flex flex-col justify-between h-full">
         <h3 className="text-base font-primayfont text-dark-blue font-medium">

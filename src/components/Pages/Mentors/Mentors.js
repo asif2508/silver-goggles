@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { GiCancel } from "react-icons/gi";
 import { BsSearch } from "react-icons/bs";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
@@ -10,90 +10,48 @@ import HeaderSeprater from "../../Component/HeaderSeprater";
 import { Calendar } from "react-calendar";
 import Slider from "@mui/material/Slider";
 import HrBottom from "../../Component/HrBottom";
+import { useDispatch, useSelector } from "react-redux";
+import { getMentorsAction } from "../../../actions/mentors";
+import { useNavigate } from "react-router-dom";
+import { mentorsListReducer } from "../../../reducers/mentorsReducer";
+import Loader from "../../Component/Loader";
 
 const Mentors = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMenuOpen1, setIsMenuOpen1] = useState(false);
-  const [isMenuOpen2, setIsMenuOpen2] = useState(false);
-  const [isMenuOpen3, setIsMenuOpen3] = useState(false);
-  const [isMenuOpen4, setIsMenuOpen4] = useState(false);
-  const [isMenuOpen5, setIsMenuOpen5] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen1, setIsMenuOpen1] = useState(false);
+  // const [isMenuOpen2, setIsMenuOpen2] = useState(false);
+  // const [isMenuOpen3, setIsMenuOpen3] = useState(false);
+  // const [isMenuOpen4, setIsMenuOpen4] = useState(false);
+  // const [isMenuOpen5, setIsMenuOpen5] = useState(false);
 
-  const [value, setValue] = React.useState([2000, 10000]);
+  // const [value, setValue] = React.useState([2000, 10000]);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
 
-  function valuetext(value) {
-    return `₹${value}`;
-  }
+  // function valuetext(value) {
+  //   return `₹${value}`;
+  // }
 
-  const searchChips = [
-    "ui design",
-    "product design",
-    "web designer",
-    "counselling",
-    "english",
-    "Video editing",
-    "iit",
-    "Startup",
-  ];
+  // const searchChips = [
+  //   "ui design",
+  //   "product design",
+  //   "web designer",
+  //   "counselling",
+  //   "english",
+  //   "Video editing",
+  //   "iit",
+  //   "Startup",
+  // ];
 
-  const mentors = [
-    {
-      img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
-      name: "Kalpesh Lohar",
-      designation: "Product Designer",
-      workIn: "Google",
-      study: "B.Tech",
-      studiedFrom: "IIT Bombay",
-      about:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
-      skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
-      price: "₹699 Onwards",
-      isFavourite: true,
-    },
-    {
-      img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
-      name: "Kalpesh Lohar",
-      designation: "Product Designer",
-      workIn: "Google",
-      study: "B.Tech",
-      studiedFrom: "IIT Bombay",
-      about:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
-      skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
-      price: "₹699 Onwards",
-      isFavourite: true,
-    },
-    {
-      img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
-      name: "Kalpesh Lohar",
-      designation: "Product Designer",
-      workIn: "Google",
-      study: "B.Tech",
-      studiedFrom: "IIT Bombay",
-      about:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
-      skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
-      price: "₹699 Onwards",
-      isFavourite: false,
-    },
-    {
-      img: "https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png",
-      name: "Kalpesh Lohar",
-      designation: "Product Designer",
-      workIn: "Google",
-      study: "B.Tech",
-      studiedFrom: "IIT Bombay",
-      about:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing el it. Faucibus mauris semper massa ultrices eget sit vu lputate. Ante diam metus convallis nullam.",
-      skills: ["UI Design", "Product Design", "Web Design", "Counselling"],
-      price: "₹699 Onwards",
-      isFavourite: true,
-    },
-  ];
+  const navigation = useNavigate()
+  const dispatch = useDispatch()
+  let { loading, mentors } = useSelector((state) => state.mentorsReducer);
+
+  useEffect(() => {
+    dispatch(getMentorsAction())
+  }, [navigation])
 
   return (
     <>
@@ -119,7 +77,7 @@ const Mentors = () => {
               />
               <BsSearch className="text-dark-blue h-6 w-6 ml-2" />
             </div>
-            <div className="flex mt-6 lg:mt-0 flex-row overflow-x-scroll whitespace-nowrap font-primayfont lg:px-3 scrollbar-hide">
+            {/* <div className="flex mt-6 lg:mt-0 flex-row overflow-x-scroll whitespace-nowrap font-primayfont lg:px-3 scrollbar-hide">
               <div
                 className="rounded-lg py-2 h-12 inline-flex px-3 border-1 border-textInputBorder"
               >
@@ -367,9 +325,9 @@ const Mentors = () => {
                   </li>
                 </div>
               )}
-            </div>
+            </div> */}
           </div>
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <div>
               <h2 className="font-primayfont text-base font-semibold text-dark-blue lg:text-xl">
                 Top Keywords:
@@ -392,15 +350,18 @@ const Mentors = () => {
                 Clear All Filter
               </p>
             </div>
+          </div> */}
+          <div className='mt-2'>
+            <HrBottom />
           </div>
-          <HrBottom />
 
         </div>
-        <div className="flex flex-wrap my-9 justify-evenly">
-          {mentors.map((data, index) => (
-            <MentorBox data={data} key={index} />
-          ))}
-        </div>
+        {loading ? <Loader /> :
+          (mentors && <div className="flex flex-wrap my-9 justify-evenly">
+            {mentors.map((data, index) => (
+              <MentorBox data={data} key={index} navigation={navigation} />
+            ))}
+          </div>)}
       </div>
     </>
   );
