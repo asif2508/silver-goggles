@@ -14,7 +14,7 @@ import {
 
 const reducer = combineReducers({
   form: formReducer,
-  mentors: mentorsListReducer,
+  mentorsReducer: mentorsListReducer,
   addMentor: addMentorReducer,
   callBook: callBookReducer,
   removeMentor: removeMentorReducer,

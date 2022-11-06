@@ -12,7 +12,7 @@ export const mentorsListReducer = (state = { mentors: [] }, action) => {
     case MENTORS_LIST_REQUEST:
       return { loading: true };
     case MENTORS_LIST_SUCCESS:
-      return { loading: false, mentors: action.payload.mentors };
+      return { loading: false, mentors: action.payload.data };
     case MENTORS_LIST_FAILURE:
       return { loading: false, mentors: "Something Went Wrong" };
     default:
@@ -25,7 +25,7 @@ export const getMentorByIdReducer = (state = { mentor: {} }, action) => {
     case GET_MENTOR_REQUEST:
       return { loading: true };
     case GET_MENTOR_SUCCESS:
-      return { loading: false, mentor: action.payload };
+      return { loading: false, mentor: action.payload.data };
     case GET_MENTOR_FAILURE:
       return { loading: false, mentor: "Something Went Wrong" };
     default:

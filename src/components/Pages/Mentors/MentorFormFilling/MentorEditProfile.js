@@ -129,7 +129,7 @@ const MentorEditProfile = () => {
                 <select
                   name="Gender"
                   id="gender-select"
-                  ons
+
                   className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
                 >
                   <option className="bg-white text-dark-blue" value="male">

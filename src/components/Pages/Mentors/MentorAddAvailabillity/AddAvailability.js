@@ -259,7 +259,6 @@ const AddAvailability = () => {
             <div className={showtab === 2 ? "  " : "hidden"}>
               <div className="py-6">
                 <Calendar onChange={onChange} value={date} />
-                {console.log(date)}
               </div>
               <div className="flex flex-row mb-28">
                 <div

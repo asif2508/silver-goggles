@@ -23,7 +23,6 @@ const MentorEditQual = () => {
   const educations = [];
 
   const MapComponent = ({ data }) => {
-    console.log("data in component:", data);
     return (
       <div className="flex border-1 border-textInputBorder rounded-lg px-3 py-3 justify-between max-w-lg mb-6">
         <div className="flex ">
@@ -148,7 +147,7 @@ const MentorEditQual = () => {
                 <select
                   name="Gender"
                   id="gender-select"
-                  ons
+
                   className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
                 >
                   <option className="bg-white text-dark-blue" value="male">
@@ -163,7 +162,7 @@ const MentorEditQual = () => {
                 <select
                   name="Gender"
                   id="gender-select"
-                  ons
+
                   className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
                 >
                   <option className="bg-white text-dark-blue" value="male">
@@ -232,7 +231,7 @@ const MentorEditQual = () => {
                 <select
                   name="Gender"
                   id="gender-select"
-                  ons
+
                   className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
                 >
                   <option className="bg-white text-dark-blue" value="male">
@@ -247,7 +246,7 @@ const MentorEditQual = () => {
                 <select
                   name="Gender"
                   id="gender-select"
-                  ons
+
                   className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
                 >
                   <option className="bg-white text-dark-blue" value="male">
