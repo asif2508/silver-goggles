@@ -1,7 +1,9 @@
 import axios from "axios";
 
 // for developemnt
-let API = axios.create({ baseURL: "http://localhost:8000/" });
+let API = axios.create({ baseURL: "/api" });
+// let API = axios.create({ baseURL: "https://dev.edukith.com/api" });
+
 // for deployment
 // let API = axios.create({ baseURL: "https://edukith.com/api" });
 
