@@ -71,6 +71,9 @@ const EducationalInfo = () => {
     }
   };
 
+  console.log(startDate);
+  // console.log({ startDate, endDate, education, univercity, degree });
+
   const renderEducations = () => {
     return (
       <>

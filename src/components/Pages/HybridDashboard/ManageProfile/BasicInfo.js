@@ -13,9 +13,7 @@ import {
 } from "./Navigator";
 import Colors from "../../../../utils/Colors";
 import SaveButtonProfile from "../../../Component/SaveButtonProfile";
-import {
-  savePersonalDetailsAction,
-} from "../../../../actions/users";
+import { savePersonalDetailsAction } from "../../../../actions/users";
 import { getUserDetails } from "../../../../api";
 import { userDetails } from "../UserData";
 
@@ -70,6 +68,8 @@ const BasicInfo = () => {
     dispatch(savePersonalDetailsAction(data));
   };
 
+  console.log(data);
+
   const renderBasicInformations = () => {
     return (
       <>
@@ -107,9 +107,16 @@ const BasicInfo = () => {
             onChange={(e) => saveData({ gender: e.target.value })}
             className="border-1 border-textInputBorder px-4 py-3 font-primayfont text-sm text-dark-blue rounded-lg mt-2 w-full"
           >
-            <option className="bg-white text-dark-blue" value="">
-              -- Select
-            </option>
+            {data !== undefined ? (
+              <option className="bg-white text-dark-blue" value="male">
+                {data && data.gender}
+              </option>
+            ) : (
+              <option className="bg-white text-dark-blue" value="">
+                -- Select
+              </option>
+            )}
+
             <option className="bg-white text-dark-blue" value="male">
               Male
             </option>
@@ -132,8 +139,10 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="linkedin"
             type="text"
-            value={data ? data.linkedInProfile : ""}
-            onChange={(e) => saveData({ linkedInProfile: e.target.value })}
+            value={data !== undefined ? data.linkedIn : ""}
+            onChange={(e) => saveData({ linkedIn: e.target.value })}
+            // value={data !== undefined ? data.linkedInProfile : ""}
+            // onChange={(e) => saveData({ linkedInProfile: e.target.value })}
             placeholder="Enter profile link"
             border-hrlightBlue
           />
@@ -149,7 +158,7 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="address"
             type="text"
-            value={data ? data.address : ""}
+            value={data !== undefined ? data.address : ""}
             onChange={(e) => saveData({ address: e.target.value })}
             placeholder="Enter address here"
             border-hrlightBlue
@@ -183,7 +192,7 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="username"
             type="text"
-            value={data ? data.industry : ""}
+            value={data !== undefined ? data.industry : ""}
             onChange={(e) => saveData({ industry: e.target.value })}
             placeholder="Computer Science"
             border-hrlightBlue
