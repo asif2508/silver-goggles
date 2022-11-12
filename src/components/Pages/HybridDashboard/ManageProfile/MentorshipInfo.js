@@ -13,14 +13,14 @@ import {
 } from "./Navigator";
 import Colors from "../../../../utils/Colors";
 import SaveButtonProfile from "../../../Component/SaveButtonProfile";
-import {
-  saveMentorshipDetailsAction,
-} from "../../../../actions/users";
+import { saveMentorshipDetailsAction } from "../../../../actions/users";
+import { userDetails } from "../UserData";
 
 const MentorshipInfo = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [data, setData] = useState({});
+  const [apiData, setapiData] = useState({});
 
   const inf = JSON.parse(localStorage.getItem(Constants.userInfo));
 
@@ -29,21 +29,47 @@ const MentorshipInfo = () => {
   }, [navigate]);
 
   useEffect(() => {
+    userDetails(setapiData);
+  }, []);
+
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  //   saveData({ userId: inf._id });
+  // }, [navigate]);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
-    saveData({ userId: inf._id });
-  }, [navigate]);
+    try {
+      if (apiData) {
+        const MentorshipData = apiData.Mentorship;
+        console.log(MentorshipData);
+        saveData({
+          userId: inf._id,
+          website: MentorshipData.website,
+          whyWantToMentor: MentorshipData.whyWantToMentor,
+          skills: MentorshipData.skills,
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }, [apiData, navigate]);
 
   const saveData = (newOBj) => {
     setData({ ...data, ...newOBj });
   };
 
   const saveInfoTrigger = () => {
-    if(data.skills.length<4){
-     alert("Skills atleast contain 5 Skills") 
-    }else{
+    if (data.skills.length < 4) {
+      alert("Skills atleast contain 5 Skills");
+    } else {
       dispatch(saveMentorshipDetailsAction(data));
     }
   };
+
+  // console.log(apiData.Mentorship);
+  console.log(data);
 
   const renderMentorshipInformations = () => {
     return (
@@ -58,6 +84,7 @@ const MentorshipInfo = () => {
           <input
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="website"
+            value={data !== undefined ? data.website : ""}
             onChange={(e) => saveData({ website: e.target.value })}
             type="text"
             placeholder="Enter Website (If any have)"
@@ -75,7 +102,8 @@ const MentorshipInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="skills"
             type="text"
-            onChange={(e) => saveData({ skills: e.target.value.split(',') })}
+            value={data !== undefined ? data.skills : ""}
+            onChange={(e) => saveData({ skills: e.target.value.split(",") })}
             placeholder="Enter Your Skills (Comma sperated, Enter minimum 5 Skills)"
             border-hrlightBlue
           />
@@ -91,16 +119,13 @@ const MentorshipInfo = () => {
             className=" rounded-lg w-full h-36 pt-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="whymentor"
             type="text"
+            value={data !== undefined ? data.whyWantToMentor : ""}
             onChange={(e) => saveData({ whyWantToMentor: e.target.value })}
             placeholder="Why do you want to be a mentor?"
             border-hrlightBlue
           />
         </div>
-        {
-          <SaveButtonProfile
-            click={() => saveInfoTrigger()}
-          />
-        }
+        {<SaveButtonProfile click={() => saveInfoTrigger()} />}
       </>
     );
   };

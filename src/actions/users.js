@@ -1,5 +1,9 @@
 import * as api from "../api/index.js";
-import { GET_MENTOR_FAILURE, GET_MENTOR_REQUEST, GET_MENTOR_SUCCESS } from "../constants/actionTypes.js";
+import {
+  GET_MENTOR_FAILURE,
+  GET_MENTOR_REQUEST,
+  GET_MENTOR_SUCCESS,
+} from "../constants/actionTypes.js";
 
 export const saveEducationalDetailsAction = (email, education) => async () => {
   try {

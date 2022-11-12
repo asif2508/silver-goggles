@@ -16,6 +16,7 @@ import { IoIosSchool } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 import CustomButton from "../../../Component/CustomButton";
 import { saveEducationalDetailsAction } from "../../../../actions/users";
+import { userDetails } from "../UserData";
 
 const EducationalInfo = () => {
   const navigate = useNavigate();
@@ -26,6 +27,9 @@ const EducationalInfo = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [navigate]);
+
+  const [data, setData] = useState({});
+  const [apiData, setapiData] = useState({});
 
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -44,6 +48,8 @@ const EducationalInfo = () => {
 
   const removeEducation = (index) => {
     setEducation(education.filter((item, i) => i !== index));
+
+    setData(data.educationData.filter((item, i) => i !== index));
   };
   const reformatDate = (date) => {
     var arr = date.split("-");
@@ -71,7 +77,29 @@ const EducationalInfo = () => {
     }
   };
 
-  console.log(startDate);
+  useEffect(() => {
+    userDetails(setapiData);
+  }, []);
+
+  useEffect(() => {
+    try {
+      if (apiData) {
+        const educationData = apiData.Education;
+        console.log(educationData);
+        saveData({
+          educationData,
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }, [apiData]);
+
+  const saveData = (newOBj) => {
+    setData({ ...data, ...newOBj });
+  };
+
+  console.log(data);
   // console.log({ startDate, endDate, education, univercity, degree });
 
   const renderEducations = () => {
@@ -169,6 +197,21 @@ const EducationalInfo = () => {
             );
           })}
         </div>
+        <div className="flex flex-col">
+          {data.educationData &&
+            data.educationData.map((education, index) => {
+              return (
+                <AddEducation
+                  data={education}
+                  index={index}
+                  key={index}
+                  onRemove={() => {
+                    removeEducation(index);
+                  }}
+                />
+              );
+            })}
+        </div>
       </>
     );
   };
@@ -224,6 +267,29 @@ const EducationalInfo = () => {
           />
           <div className="lg:max-w-md">{renderEducations()}</div>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const AddEducation = ({ data, onRemove }) => {
+  return (
+    <div className="flex border-1 border-textInputBorder rounded-lg px-3 py-3 justify-between max-w-lg mb-6">
+      <div className="flex ">
+        <div className="border-1 border-dark-blue h-11 w-11 rounded-full bg-dark-blue">
+          <IoIosSchool size={42} color={Colors.white} className="py-2 px-2" />
+        </div>
+        <div className="ml-3">
+          <h3 className="font-primayfont text-dark-blue text-base font-normal">
+            Studied {data.specialization} from {data.college}
+          </h3>
+          <p className="font-primayfont w-max text-dark-blue bg-chipGrey rounded-lg px-2 py-2 text-xs font-normal mt-2 capitalize">
+            {data.startYear} - {data.endYear}
+          </p>
+        </div>
+      </div>
+      <div className="flex items-center">
+        <AiOutlineClose size={24} color={Colors.dark_blue} onClick={onRemove} />
       </div>
     </div>
   );

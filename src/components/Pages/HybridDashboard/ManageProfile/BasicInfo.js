@@ -68,7 +68,7 @@ const BasicInfo = () => {
     dispatch(savePersonalDetailsAction(data));
   };
 
-  console.log(data);
+  console.log(apiData);
 
   const renderBasicInformations = () => {
     return (

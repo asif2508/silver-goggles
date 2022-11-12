@@ -10,9 +10,13 @@ import CustomButton from "../../Component/CustomButton";
 import Header from "../../Header/Header";
 import HeaderSeprater from "../../Component/HeaderSeprater";
 
+import { sessionDetails } from "./UserData";
+
 const DashboardSession = () => {
   const [showMyModel, setMyModel] = useState(false);
   const navigate = useNavigate();
+
+  const [apiData, setapiData] = useState([]);
 
   const sessions = [
     {
@@ -43,19 +47,25 @@ const DashboardSession = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [navigate]);
+
+    sessionDetails(setapiData);
+  }, [navigate, apiData]);
 
   const MentorshipComponent = ({ data }) => {
+    console.log(data);
     const [show, setShow] = useState(data.isCompleted ? false : true);
 
     return (
-      <div className="border-1 border-textInputBorder mb-6 rounded-lg px-4 py-4 lg:px-9 lg:py-9 lg:w-full">
+      <div
+        key={data.mentor.id}
+        className="border-1 border-textInputBorder mb-6 rounded-lg px-4 py-4 lg:px-9 lg:py-9 lg:w-full"
+      >
         <div className="flex flex-row">
           <div className="w-11/12">
             <p className="font-primayfont font-bold text-dark-blue font-blue text-xl lg:text-2xl">
               Mentorship Session With
               <span className="font-primayfont text-xl lg:text-2xl ml-1 lg:ml-2 font-bold text-primary ">
-                {data.sessionWith}
+                {data.mentor.name === null ? "Unavailable" : data.mentor.name}
               </span>
             </p>
           </div>
@@ -70,22 +80,23 @@ const DashboardSession = () => {
 
         <div className="flex flex-col lg:flex-row-reverse justify-between">
           <p
-            className={`font-primayfont mt-2 font-normal text-base lg:pr-26 ${data.isCompleted ? "text-green" : "text-primar-second"
-              }`}
+            className={`font-primayfont mt-2 font-normal text-base lg:pr-26 ${
+              data.isCompleted ? "text-green" : "text-primar-second"
+            }`}
           >
-            {data.isCompleted ? "Completed" : "Pending"}
+            {data.paymentDetails.status === "Paid" ? "Completed" : "Pending"}
           </p>
           <div className="flex flex-row mt-2 items-center text-center">
             <AiOutlineCalendar className="w-6 h-6" color={Colors.dark_blue} />
             <p className="font-primayfont ml-1 text-dark-blue text-sm lg:text-base font-normal">
-              {data.date}
+              {data.session.date === null ? "Unavailable" : data.session.date}
             </p>
             <AiOutlineClockCircle
               className="ml-4 w-6 h-6"
               color={Colors.dark_blue}
             />
             <p className="font-primayfont ml-1 text-dark-blue text-sm lg:text-base font-normal">
-              {data.time}
+              {data.session.time === null ? "Unavailable" : data.session.time}
             </p>
           </div>
         </div>
@@ -102,13 +113,19 @@ const DashboardSession = () => {
               </div>
               <div className="ml-2">
                 <p className="font-primayfont capitalize text-dark-blue font-medium text-base">
-                  {data.sessionWith}
+                  {data.mentor.name === null ? "Unavailable" : data.mentor.name}
                 </p>
                 <p
                   className="font-primayfont font-normal text-sm mt-1"
                   style={{ color: Colors.dark_grey }}
                 >
-                  {data.designation}
+                  {data.mentor.designation === null
+                    ? "Unavailable"
+                    : data.mentor.designation}
+                  ,
+                  {data.mentor.company === null
+                    ? "Unavailable"
+                    : data.mentor.company}
                 </p>
               </div>
             </div>
@@ -119,31 +136,40 @@ const DashboardSession = () => {
               className="font-primayfont mt-2 text-base font-normal text-dark-blue"
               to="/"
             >
-              {data.meetLink}
+              {data.session.meetLink === null
+                ? "Unavailable"
+                : data.session.meetLink}
             </Link>
             <p className="mt-6 font-primayfont font-bold text-dark-blue text-base">
               Your Notes:
             </p>
             <p className="font-primayfont text-dark-blue font-normal text-base mt-2">
-              {data.notes}
+              {data.session.details === null
+                ? "Unavailable"
+                : data.session.details}
             </p>
             <div className="mt-6 flex flex-col lg:flex-row lg:justify-between">
               <p className="font-primayfont font-bold text-base text-dark-blue">
                 Created:
                 <span className="font-primayfont ml-1 font-normal text-dark-blue">
-                  {data.createdAt}
+                  {data.session.date}
                 </span>
               </p>
               <p className="font-primayfont font-bold text-base mt-2 lg:mt-0 text-dark-blue">
                 Payment Received:
                 <span className="font-primayfont ml-1 font-normal text-dark-blue">
-                  {data.paid}
+                  {data.paymentDetails.amount === null
+                    ? "Unavailable"
+                    : data.paymentDetails.amount}
                 </span>
               </p>
             </div>
             <div className="mt-6 flex flex-col lg:flex-row lg:space-x-6">
               <div className="">
-                <CustomButton text="Join Meeting" styleClass="w-full lg:w-max" />
+                <CustomButton
+                  text="Join Meeting"
+                  styleClass="w-full lg:w-max"
+                />
               </div>
               <div className="">
                 <CustomButton
@@ -172,15 +198,15 @@ const DashboardSession = () => {
           </p>
 
           <div className="flex flex-col space-y-6 mt-4 max-w-sessionWidth">
-            {sessions.map((data, index) => {
-              return <MentorshipComponent data={data} key={index} />;
-            })}
+            {apiData &&
+              apiData.map((data, index) => {
+                return <MentorshipComponent data={data} key={index} />;
+              })}
           </div>
         </div>
       </div>
     </div>
   );
 };
-
 
 export default DashboardSession;
