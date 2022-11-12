@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillCreditCard, AiOutlineCalendar } from "react-icons/ai";
 import { BiHomeAlt } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { MdOutlineManageAccounts } from "react-icons/md";
-import Icon from "../../images/Ellipse.svg";
+import Img from "../../images/Ellipse.svg";
 import { Link } from "react-router-dom";
 import Colors from "../../utils/Colors";
 import { GiTeacher } from "react-icons/gi";
 import HybridDashboardRoutesStrings from "../../utils/Strings/HybridDashboardRoutesStrings";
+import { userDetails } from "../Pages/HybridDashboard/UserData";
 
 const SampleRoute = ({ route }) => {
   const { icon, active, text, link } = route;
@@ -108,14 +109,37 @@ const HybridDashboardNavigator = ({
     },
   ];
 
+  const [apiData, setapiData] = useState({});
+
+  useEffect(() => {
+    userDetails(setapiData);
+  }, []);
+
+  useEffect(() => {
+    try {
+      if (apiData) {
+        const personalData = apiData.Personal;
+        console.log(personalData);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }, [apiData]);
+
+  // console.log(apiData);
+
   return (
     <>
       <div className="mt-6 px-4 flex flex-col lg:items-center lg:h-screen">
         <div className="flex flex-col lg:w-max w-full lg:flex-row items-center lg:justify-center ">
-          <img className="w-16 h-16 lg:w-20 lg:h-20" src={Icon} alt={"img"} />
+          <img
+            className="w-16 h-16 lg:w-20 lg:h-20"
+            src={apiData.Personal ? apiData.Personal.profileImg : Img}
+            alt={"img"}
+          />
           <div className="w-full lg:ml-4">
             <p className="w-full lg:w-max text-center text-base text-dark-blue font-bold font-primayfont mt-2 lg:text-xl">
-              Kalpesh Lohar
+              {apiData.Personal && apiData.Personal.name}
             </p>
           </div>
         </div>

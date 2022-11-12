@@ -141,8 +141,6 @@ const BasicInfo = () => {
             type="text"
             value={data !== undefined ? data.linkedIn : ""}
             onChange={(e) => saveData({ linkedIn: e.target.value })}
-            // value={data !== undefined ? data.linkedInProfile : ""}
-            // onChange={(e) => saveData({ linkedInProfile: e.target.value })}
             placeholder="Enter profile link"
             border-hrlightBlue
           />
@@ -158,7 +156,7 @@ const BasicInfo = () => {
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
             id="address"
             type="text"
-            value={data !== undefined ? data.address : ""}
+            value={apiData.Personal !== undefined ? apiData.Personal.city : ""}
             onChange={(e) => saveData({ address: e.target.value })}
             placeholder="Enter address here"
             border-hrlightBlue

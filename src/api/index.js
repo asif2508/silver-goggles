@@ -35,5 +35,6 @@ export const savePersonalDetails = (data) =>
 
 export const getUserDetails = (id) => API.get(`/users/userDetails?id=${id}`);
 export const getSession = (id) => API.get(`/session?id=${id}`);
+export const getSlots = (id) => API.get(`/mentors/slots?userId=${id}`);
 
 export const getMentors = () => API.get("/mentors");

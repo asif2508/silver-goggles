@@ -84,7 +84,9 @@ const DashboardSession = () => {
               data.isCompleted ? "text-green" : "text-primar-second"
             }`}
           >
-            {data.paymentDetails.status === "Paid" ? "Completed" : "Pending"}
+            {data.paymentDetails.status
+              ? data.paymentDetails.status
+              : "Pending"}
           </p>
           <div className="flex flex-row mt-2 items-center text-center">
             <AiOutlineCalendar className="w-6 h-6" color={Colors.dark_blue} />
@@ -109,7 +111,11 @@ const DashboardSession = () => {
             </p>
             <div className="mt-2 flex flex-row ">
               <div>
-                <img className="h-14 w-14" src={Img} alt="img" />
+                <img
+                  className="h-14 w-14"
+                  src={data.mentor.profileImg ? data.mentor.profileImg : Img}
+                  alt="sample"
+                />
               </div>
               <div className="ml-2">
                 <p className="font-primayfont capitalize text-dark-blue font-medium text-base">
