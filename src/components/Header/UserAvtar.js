@@ -31,7 +31,7 @@ const UserAvtar = ({ user }) => {
       <div className="flex justify-center items-center">
         {user.profileImg === null ? (
           <div className="bg-dark-blue h-11 w-11 rounded-full flex justify-center items-center">
-            <p className="text-white font-primayfont font-bold">
+            <p className="text-white font-primayfont font-bold m-auto">
               {user.name.slice(0, 1)}
             </p>
           </div>

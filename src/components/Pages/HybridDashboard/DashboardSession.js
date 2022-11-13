@@ -49,7 +49,7 @@ const DashboardSession = () => {
     window.scrollTo(0, 0);
 
     sessionDetails(setapiData);
-  }, [navigate, apiData]);
+  }, [navigate]);
 
   const MentorshipComponent = ({ data }) => {
     console.log(data);

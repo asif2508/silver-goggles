@@ -26,6 +26,21 @@ export const saveExperienceDetailsAction = (email, experience) => async () => {
   }
 };
 
+export const saveDateTime = (data, id) => async () => {
+  await api
+    .postSlots(data, id)
+    .then((res) => {
+      if (res.status === 200) {
+        alert(res.data.message);
+      } else {
+        alert("There is Some error occured");
+      }
+    })
+    .catch((res) => {
+      alert("There is Some error occured");
+    });
+};
+
 export const savePersonalDetailsAction = (data) => async () => {
   await api
     .savePersonalDetails(data)
