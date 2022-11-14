@@ -43,13 +43,13 @@ const DashboardCalender = ({ navigate }) => {
     slotsDetails(setapiData);
   }, []);
 
-  console.log(apiData); //
+  console.log(apiData); //main fetch data
 
   const onChange = (time, timeString) => {
     console.log(time);
     console.log(timeString);
 
-    // dispatch(saveDateTime(data, inf._id));
+    //;
   };
 
   const check = [
@@ -165,6 +165,16 @@ const DashboardCalender = ({ navigate }) => {
     }, [navigate]);
 
     // console.log(data);
+    const handleData = ()=>{
+       const  data = {
+        userId: inf.id,
+        availability:{
+          saturday:[{}, {}, {}]
+        }
+        
+       }
+      //  dispatch(saveDateTime(data))
+    }
     return (
       <div>
         {apiData &&
@@ -269,198 +279,7 @@ const DashboardCalender = ({ navigate }) => {
                 </div>
                 <HrBottom />
 
-                {/* --------------> 2nd Weak <-------------- */}
-                <div className="py-8 flex flex-col justify-center items-center">
-                  <div className="flex flex-row w-full justify-between items-center">
-                    <div className="flex flex-row lg:w-56">
-                      <Switch
-                        onChange={handleSwitchChange}
-                        checked={item.availability.sunday ? switchOn : ""}
-                      />
-
-                      <p className="font-primayfont font-bold mt-2 text-base text-dark-blue">
-                        {item.availability.sunday ? "Sunday" : "Sunday"}
-                      </p>
-                    </div>
-                    {/* for larger devices  */}
-
-                    <div className="px-11 w-full hidden lg:flex">
-                      <div className="font-primayfont hidden lg:flex mt-6 text-dark-blue text-xs font-medium flex-wrap w-full">
-                        {item.availability.sunday ? (
-                          item.availability.monday.map((date) => {
-                            return (
-                              <div
-                                key={date}
-                                className="flex bg-buttongrey px-2 py-2 rounded-lg mr-2 w-max h-12 justify-start items-center mb-4"
-                              >
-                                <p className="">
-                                  {date.startTime.slice(0, 5)} To{" "}
-                                  {date.endTime.slice(0, 5)}
-                                </p>
-                                <AiOutlineClose className="ml-1 h-3 w-3" />
-                              </div>
-                            );
-                          })
-                        ) : (
-                          <p className="text-text_color text-base font-primayfont w-full text-center">
-                            Unavailable
-                          </p>
-                        )}
-                      </div>
-                      {isAddClicked && (
-                        <div className="flex flex-col items-center mt-4 font-primayfont text-dark-blue text-base space-x-6">
-                          <TimePicker.RangePicker
-                            use12Hours
-                            onChange={onChange}
-                          />
-                        </div>
-                      )}
-                    </div>
-
-                    <div>
-                      <AiOutlinePlus
-                        size={24}
-                        onClick={() => setisAddClicked(true)}
-                      />
-                    </div>
-                  </div>
-                  {/* for smaller devices  */}
-                  <div className="px-11 w-full flex flex-col lg:hidden">
-                    {isAddClicked && (
-                      <div className="flex items-center mt-4 font-primayfont text-dark-blue space-x-6">
-                        <TimePicker.RangePicker
-                          use12Hours
-                          onChange={onChange}
-                        />
-                      </div>
-                    )}
-                    <div className="font-primayfont mt-6 text-dark-blue text-xs font-medium flex-wrap w-full">
-                      {item.availability.sunday ? (
-                        item.availability.sunday.map((date) => {
-                          return (
-                            <div
-                              key={date}
-                              className="flex bg-buttongrey px-2 py-2 rounded-lg mr-2 w-max justify-start items-center mb-4"
-                            >
-                              <p className="">
-                                {date.startTime.slice(0, 5)} To{" "}
-                                {date.endTime.slice(0, 5)}
-                              </p>
-                              <AiOutlineClose className="ml-1 h-3 w-3" />
-                            </div>
-                          );
-                        })
-                      ) : (
-                        <p className="text-text_color text-base font-primayfont w-full text-center">
-                          Unavailable
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <HrBottom />
-
-                {/* --------------> 3rd Weak <-------------- */}
-
-                {/* <HrBottom /> */}
-
-                {/* --------------> 4th Weak <-------------- */}
-                <div className="py-8 flex flex-col justify-center items-center">
-                  <div className="flex flex-row w-full justify-between items-center">
-                    <div className="flex flex-row lg:w-56">
-                      <Switch
-                        onChange={handleSwitchChange}
-                        checked={item.availability.tuesday ? switchOn : ""}
-                      />
-
-                      <p className="font-primayfont font-bold mt-2 text-base text-dark-blue">
-                        {item.availability.tuesday ? (
-                          "Tuesday"
-                        ) : (
-                          <p className="text-text_color text-base font-primayfont w-full text-center">
-                            Unavailable
-                          </p>
-                        )}
-                      </p>
-                    </div>
-                    {/* for larger devices  */}
-
-                    <div className="px-11 w-full hidden lg:flex">
-                      <div className="font-primayfont hidden lg:flex mt-6 text-dark-blue text-xs font-medium flex-wrap w-full">
-                        {item.availability ? (
-                          item.availability.tuesday.map((date) => {
-                            return (
-                              <div
-                                key={date}
-                                className="flex bg-buttongrey px-2 py-2 rounded-lg mr-2 w-max h-12 justify-start items-center mb-4"
-                              >
-                                <p className="">
-                                  {date.startTime.slice(0, 5)} To{" "}
-                                  {date.endTime.slice(0, 5)}
-                                </p>
-                                <AiOutlineClose className="ml-1 h-3 w-3" />
-                              </div>
-                            );
-                          })
-                        ) : (
-                          <p className="text-text_color text-base font-primayfont w-full text-center">
-                            Unavailable
-                          </p>
-                        )}
-                      </div>
-                      {isAddClicked && (
-                        <div className="flex flex-col items-center mt-4 font-primayfont text-dark-blue text-base space-x-6">
-                          <TimePicker.RangePicker
-                            use12Hours
-                            onChange={onChange}
-                          />
-                        </div>
-                      )}
-                    </div>
-
-                    <div>
-                      <AiOutlinePlus
-                        size={24}
-                        onClick={() => setisAddClicked(true)}
-                      />
-                    </div>
-                  </div>
-                  {/* for smaller devices  */}
-                  <div className="px-11 w-full flex flex-col lg:hidden">
-                    {isAddClicked && (
-                      <div className="flex items-center mt-4 font-primayfont text-dark-blue space-x-6">
-                        <TimePicker.RangePicker
-                          use12Hours
-                          onChange={onChange}
-                        />
-                      </div>
-                    )}
-                    <div className="font-primayfont mt-6 text-dark-blue text-xs font-medium flex-wrap w-full">
-                      {item.availability ? (
-                        item.availability.tuesday.map((date) => {
-                          return (
-                            <div
-                              key={date}
-                              className="flex bg-buttongrey px-2 py-2 rounded-lg mr-2 w-max justify-start items-center mb-4"
-                            >
-                              <p className="">
-                                {date.startTime.slice(0, 5)} To{" "}
-                                {date.endTime.slice(0, 5)}
-                              </p>
-                              <AiOutlineClose className="ml-1 h-3 w-3" />
-                            </div>
-                          );
-                        })
-                      ) : (
-                        <p className="text-text_color text-base font-primayfont w-full text-center">
-                          Unavailable
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <HrBottom />
+                
               </>
             );
           })}

@@ -150,7 +150,7 @@ const BasicInfo = () => {
             className="block text-textBlack text-sm font-normal font-primayfont mb-2"
             htmlFor="address"
           >
-            Address
+            City
           </label>
           <input
             className=" rounded-lg w-full  py-3 text-gray-700 leading-6 border-textInputBorder outline-white border-1 px-4"
